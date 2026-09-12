@@ -1,0 +1,13 @@
+{
+  "name": "Beast Machine",
+  "short_name": "Beast Machine",
+  "description": "Desarrollo de productos digitales / Digital product development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05101C",
+  "theme_color": "#05101C",
+  "icons": [
+    { "src": "/assets/img/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

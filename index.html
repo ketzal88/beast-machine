@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
 <link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=12">
+<link rel="stylesheet" href="/assets/css/style.css?v=15">
 <noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
 
 <script type="application/ld+json">
@@ -80,6 +80,7 @@
     <nav class="nav-menu" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#work">Work</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -100,8 +101,9 @@
 <div class="mobile-panel" id="mobile-panel">
   <a href="#about" style="--i:0">About</a>
   <a href="#services" style="--i:1">Services</a>
-  <a href="#process" style="--i:2">Process</a>
-  <a href="#contact" style="--i:3">Contact</a>
+  <a href="#work" style="--i:2">Work</a>
+  <a href="#process" style="--i:3">Process</a>
+  <a href="#contact" style="--i:4">Contact</a>
   <div class="mobile-foot">
     <div class="lang-switch">
       <a href="/es" hreflang="es">ES</a>
@@ -305,6 +307,310 @@
     </div>
   </section>
 
+  <!-- ── WORK ──────────────────────────────────────────────────────────── -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-title">Problems we were hired to solve</h2>
+        <p class="section-lead">Agencies, restaurants, tour operators and cultural companies come to us with an operation that stopped scaling. These are the products we shipped for them.</p>
+      </div>
+
+      <div class="cases-featured">
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Worker · marketing agency</span>
+            <h3>Worker Brain</h3>
+            <p class="case-kicker">Multi-channel intelligence for an agency running 45 accounts.</p>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>Answering a client's "how are we doing?" meant opening five platforms: Meta Ads, Google Ads, email, ecommerce and leads. The data lived apart, and the real risk was handing the client a number that did not hold up.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A platform that syncs eight native integrations into one canonical daily snapshot, runs alerts per channel, and pushes three Slack digests (daily briefing, weekly review, monthly report) with what to look at first. An AI analyst answers on top of each client's already loaded data.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>45 accounts operate on a single surface. The team opens the panel when a digest flags something, and every number on screen comes from the same snapshot.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Next.js</li><li>TypeScript</li><li>Firestore</li><li>Claude</li><li>Gemini</li><li>Slack</li><li>Vercel</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Worker · product for restaurants</span>
+            <h3>Comanda Directa</h3>
+            <p class="case-kicker">One codebase serving the QR menu of every restaurant on the platform.</p>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>The ordering system had been built for a single venue. Adding the second one meant a new database project and a new deployment per client, so the product could not grow past a handful of restaurants.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A multi-tenant engine: one Next.js app serves the landing page and the menu of every client, against a single Supabase project. Each venue loads its menu from its own panel or imports the spreadsheet it already had, sets service modes, payment methods and delivery zones, and receives orders already written out on WhatsApp. A Chrome extension prints the ticket on the counter printer.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Onboarding a new restaurant is one database row, one menu load and one QR code. Every product improvement reaches all venues at the same time.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>Chrome extension</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Lati Travel · tour operator</span>
+            <h3>latitravel.com</h3>
+            <p class="case-kicker">A WordPress catalogue rebuilt as 251 static pages.</p>
+          </header>
+          <figure class="case-media">
+            <img src="/assets/img/cases/lati.webp?v=1" alt="Lati Travel home page: the search box over the hero, and the day and destination filters below it" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>The redesign on the table was a single-page app: search engines could not see a single price. The mockup also promised things the business did not have, from review ratings to free cancellation and instant confirmation.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A static Astro site with real HTML on every URL: 158 bookable experiences imported from the live catalogue, 24 destination pages and 42 guides. The 258 indexed WordPress URLs redirect with 301s verified against the deployment, and 314 tests fail the build if an unbacked promise comes back.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Live since 24 August 2026, with every experience, destination and guide as its own indexable URL, and nothing on the page the operation cannot honour.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Astro</li><li>SEO and GEO</li><li>GitHub Actions</li><li>Vercel</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="cases-grid">
+
+        <article class="card case reveal" style="--i:0">
+          <figure class="case-media">
+            <img src="/assets/img/cases/presencia.webp?v=2" alt="The Presencia menu on a phone: the category tabs and the first dishes with their prices" width="798" height="1792" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Presencia · restaurant</span>
+            <h3>Digital menu and floor panel</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>Five separate menus on paper (dinner à la carte, lunch, wine, cocktails and the café next door), with prices that move and dishes that run out mid-service.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A mobile-only QR menu reading live from Firestore, plus a password-protected panel. Wine keeps its own numbering, so adding a dish never shifts "number 47".</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Marking a dish as sold out reaches the phones already open, with no reload. Bookings moved from a spreadsheet to their own screen.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Playwright</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <figure class="case-media">
+            <img src="/assets/img/cases/sagrado.webp?v=2" alt="The Sagrado Sushi menu on a phone: numbered dishes with a photo, price and an add button" width="798" height="1792" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Sagrado Sushi · restaurant</span>
+            <h3>From QR menu to printed ticket</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>Orders arrived on WhatsApp typed out by the diner: a missing address, an item that no longer existed, a total that did not add up.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>The menu builds the order and opens the venue's chat with the message already written: service mode, cover charge, address and notes. A Chrome extension prints the ticket at the counter.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Every order reaches the kitchen in the same shape, priced from the menu the venue maintains itself.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Chrome extension</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <header class="case-head">
+            <span class="case-client">Worker · daily operation</span>
+            <h3>The agency's AI workbench</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>What one person learned on one account stayed in their head. Nothing carried over to the next client or the next hire.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A library of 89 documents covering how the agency does each thing (Meta, Google, SEO, email, copy, proposals) and a memory folder per client. The operator opens a terminal inside a client folder and the AI starts with that context only.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Decisions are written where the rest of the team picks them up, and no client's context leaks into another's.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Claude Code</li><li>Skills</li><li>Per-client memory</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:0">
+          <header class="case-head">
+            <span class="case-client">Worker · engineering</span>
+            <h3>Security and quality gates for AI-written code</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>Writing code with AI at speed leaks secrets into commits and lets quality drift down one pull request at a time.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A config-driven enforcement layer: each project declares its stack in one manifest and the same hooks run for Java, Python or TypeScript. Secret scanning, a blocking pre-push gate, static analysis and dependency audit.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>One framework covers every repository. Quality ratchets let the metrics go down and never up, and adoption is additive: a key missing from the manifest is a silent skip, not a broken build.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Config-driven</li><li>Security gates</li><li>Any language</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <header class="case-head">
+            <span class="case-client">Worker · ecommerce clients</span>
+            <h3>Shopify and TiendaNube in plain language</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>Store owners depended on the agency for every catalogue change, so small fixes queued behind bigger work.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>Two tools the owner drives by asking: sales and stock, product descriptions rewritten for search, bundles put together. Every write passes a field whitelist, a preview, a confirmation and an undo.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>The owner edits their own store without being able to break it, and every change stays reversible.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>MCP</li><li>Shopify</li><li>TiendaNube</li><li>Python</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <header class="case-head">
+            <span class="case-client">Worker · creative production</span>
+            <h3>Ad creative at campaign speed</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>Paid media burns through creative faster than a design queue can refill it.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A production suite built on proven ad structures: JSON blueprints that hold layout and hierarchy, product data pulled from the product URL, studio and lifestyle variations from a single raw photo, and short vertical video.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>One brief turns into a set of on-brand variations ready for Meta, TikTok and Reels.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Gemini</li><li>Veo</li><li>Firebase</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:0">
+          <figure class="case-media">
+            <img src="/assets/img/cases/museo.webp?v=1" alt="El Museo Viajero home page, with the programme navigation and the company presentation" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">El Museo Viajero · touring theatre</span>
+            <h3>Public site and operations platform</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>A touring educational theatre company was coordinating shows across schools and venues on spreadsheets.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>The public site (programme, repertoire, teaching material gated by subscription level) and the platform behind it: calendar, bookings, attendance, settlements, pricing and reports.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Programming a season, filling it and settling it stopped living in spreadsheets.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>React</li><li>Firestore</li><li>Vercel</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <header class="case-head">
+            <span class="case-client">Alynk · portfolio reporting</span>
+            <h3>Portfolio statements on the phone</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>The daily portfolio statement was a spreadsheet emailed to each account holder.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A private panel behind a login that reads the same file the existing script generates. It recalculates nothing: the spreadsheet stays the source of truth, and a validation step re-runs the reconciliation checks on the extracted data.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>The account holder opens the statement on their phone, and a parsing error stops the pipeline instead of reaching the screen.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Python</li><li>TypeScript</li><li>Reconciliation checks</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <header class="case-head">
+            <span class="case-client">GymCounter · training app</span>
+            <h3>Training plans and logging with no connection</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>A gym routine gets dropped for two reasons: the plan does not move on with the person, and logging a set fails exactly where there is no signal.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A progressive web app with a protocol engine: each goal builds its own cycle of days, with warm-up and deload weeks across a 180-day program. Logging runs against IndexedDB and a service worker, so it works offline and syncs later. Subscriptions run on Stripe, with checkout, a self-service portal and idempotent webhooks.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Training and logging work in the basement of the gym, and subscribing or cancelling never goes through support.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>Offline PWA</li></ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── PROCESS ───────────────────────────────────────────────────────── -->
   <section class="process" id="process">
     <div class="wrap process-layout">
@@ -419,6 +725,7 @@
         <h4>Navigation</h4>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#work">Work</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </div>

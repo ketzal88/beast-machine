@@ -29,6 +29,50 @@ hay que replicar el cambio en la otra y revisar `sitemap.xml`.
 - `/en` redirige 301 a `/` (definido en `vercel.json`).
 - El selector ES/EN está en el nav y en el menú mobile.
 
+## La sección de casos
+
+`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Doce casos, cada uno con la
+misma estructura de tres partes: **el problema** que trajo el cliente, **lo que
+construimos** y **el resultado**. Tres fichas grandes (`.case-lg`, a dos columnas arriba
+de 900 px) y nueve en grilla de tres.
+
+Todo lo que se afirma ahí sale de los repos de cada proyecto: las cifras (251 páginas,
+158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) son las que
+declaran sus READMEs, no estimaciones. Si un proyecto cambia, el número cambia acá
+también, y hay que tocarlo en las **dos** páginas.
+
+El marco narrativo es que Beast Machine es el estudio contratado: cada ficha nombra al
+cliente (`.case-client`), no a quien escribió el código. Worker aparece como cliente
+(agencia de marketing) en seis de los doce casos.
+
+Las tarjetas reutilizan `.card`, así que heredan el spotlight que sigue al cursor sin
+tocar `app.js`. La grilla va con `align-items: start`: mientras algunas fichas tengan
+captura y otras no, estirarlas a la altura de la fila deja un hueco en la que no la tiene.
+
+### Las capturas
+
+`assets/img/cases/*.webp`, dentro de un `<figure class="case-media">` con recorte 16:10
+anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay cuatro y
+**todas son capturas reales del sitio vivo del cliente**, tomadas con Playwright el
+19/9/2026, no maquetas:
+
+| Archivo | De dónde salió | Viewport |
+| --- | --- | --- |
+| `lati.webp` | www.latitravel.com | 1440×900 |
+| `museo.webp` | www.elmuseoviajero.com.ar | 1440×900 |
+| `presencia.webp` | presencia-carta.vercel.app/carta | 414×896 |
+| `sagrado.webp` | sagrado-sushi-carta.vercel.app | 414×896 |
+
+Las dos de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). Si se
+reemplaza una captura hay que subir el `?v=` del `<img>` en las dos páginas: `/assets/*`
+va con cache inmutable.
+
+Los otros ocho casos no tienen captura todavía. `gymcounter.vercel.app` **no es** la app
+de GymCounter (es una app alemana sin relación); GymCounter, Comanda Directa y AI Worker
+Generator hay que levantarlos en local para capturarlos, y el panel del Brain solo se
+captura con el anonimizador (`scripts/ops/brag-capture.mjs` en el repo del Brain), que
+reemplaza clientes y equipo por ficticios y multiplica toda cifra por 0,834.
+
 ## Interacciones (assets/js/app.js)
 
 | Qué | Dónde |
@@ -93,6 +137,9 @@ Todo respeta `prefers-reduced-motion`. Sin JavaScript el sitio se ve completo
 - Teléfono de WhatsApp: atributo `data-phone` del formulario y los links `wa.me/...`.
 - Plantilla del mensaje: atributo `data-template` del formulario.
 - Métricas de la sección "Nosotros": `data-count` + `data-suffix` en cada `.stat`.
+- Casos: cada `<article class="card case">`. El orden es el del HTML; para sumar uno
+  nuevo hay que replicarlo en las dos páginas y respetar la terna problema / lo que
+  construimos / resultado.
 
 ## Desarrollo
 

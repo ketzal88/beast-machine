@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
 <link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=12">
+<link rel="stylesheet" href="/assets/css/style.css?v=15">
 <noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
 
 <script type="application/ld+json">
@@ -80,6 +80,7 @@
     <nav class="nav-menu" aria-label="Navegación principal">
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
+      <a href="#casos">Casos</a>
       <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -100,8 +101,9 @@
 <div class="mobile-panel" id="mobile-panel">
   <a href="#nosotros" style="--i:0">Nosotros</a>
   <a href="#servicios" style="--i:1">Servicios</a>
-  <a href="#proceso" style="--i:2">Proceso</a>
-  <a href="#contacto" style="--i:3">Contacto</a>
+  <a href="#casos" style="--i:2">Casos</a>
+  <a href="#proceso" style="--i:3">Proceso</a>
+  <a href="#contacto" style="--i:4">Contacto</a>
   <div class="mobile-foot">
     <div class="lang-switch">
       <a href="/es" aria-current="true" hreflang="es">ES</a>
@@ -305,6 +307,310 @@
     </div>
   </section>
 
+  <!-- ── CASOS ─────────────────────────────────────────────────────────── -->
+  <section class="work" id="casos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Casos</p>
+        <h2 class="section-title">Los problemas que nos vinieron a resolver</h2>
+        <p class="section-lead">Agencias, restaurantes, operadores de viajes y compañías culturales llegan con una operación que dejó de escalar. Estos son los productos que les entregamos.</p>
+      </div>
+
+      <div class="cases-featured">
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Worker · agencia de marketing</span>
+            <h3>Worker Brain</h3>
+            <p class="case-kicker">Inteligencia multicanal para una agencia que opera 45 cuentas.</p>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Responder el "¿cómo vamos?" de un cliente obligaba a abrir cinco plataformas: Meta Ads, Google Ads, email, ecommerce y leads. La data vivía separada y el riesgo real era pasarle al cliente un número que no se sostenía.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una plataforma que sincroniza ocho integraciones nativas a un único snapshot canónico diario, calcula alertas por canal y manda tres digestos por Slack (briefing diario, revisión semanal, reporte mensual) con lo que hay que mirar primero. Un analista con IA responde sobre la data ya cargada de cada cliente.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>45 cuentas operan sobre una sola superficie. El equipo entra al panel cuando un digesto marca algo, y todos los números de la pantalla salen del mismo snapshot.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Next.js</li><li>TypeScript</li><li>Firestore</li><li>Claude</li><li>Gemini</li><li>Slack</li><li>Vercel</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Worker · producto para gastronomía</span>
+            <h3>Comanda Directa</h3>
+            <p class="case-kicker">Un solo código sirve la carta QR de todos los restaurantes de la plataforma.</p>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>El sistema de pedidos se había construido para un solo local. Sumar el segundo significaba un proyecto de base de datos nuevo y un deploy nuevo por cliente, así que el producto no pasaba de un puñado de restaurantes.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Un motor multi-tenant: una sola aplicación Next.js sirve la landing y la carta de todos los clientes contra un único proyecto de Supabase. Cada local carga su carta desde su propio panel o importa la planilla que ya tenía, define modalidades, medios de pago y zonas de envío, y recibe los pedidos ya redactados por WhatsApp. Una extensión de Chrome imprime la comanda en la impresora del mostrador.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Dar de alta un restaurante nuevo es una fila en la base, una carga de carta y un QR. Cada mejora del producto llega a todos los locales al mismo tiempo.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>Extensión de Chrome</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Lati Travel · operador de viajes</span>
+            <h3>latitravel.com</h3>
+            <p class="case-kicker">Un catálogo de WordPress reconstruido como 251 páginas estáticas.</p>
+          </header>
+          <figure class="case-media">
+            <img src="/assets/img/cases/lati.webp?v=1" alt="Portada de Lati Travel: el buscador sobre la foto principal y los filtros de días y destino debajo" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>El rediseño que había sobre la mesa era una aplicación de una sola página: los buscadores no veían ni un precio. La maqueta además prometía cosas que el negocio no tenía, desde calificaciones de reseñas hasta cancelación gratuita y confirmación instantánea.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Un sitio estático en Astro con HTML real en cada URL: 158 experiencias reservables importadas del catálogo vivo, 24 páginas de destino y 42 guías. Las 258 URLs indexadas del WordPress redirigen con 301 verificados contra el deploy, y 314 pruebas hacen fallar el build si vuelve a aparecer una promesa sin respaldo.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>En producción desde el 24 de agosto de 2026, con cada experiencia, destino y guía como URL indexable propia, y sin una sola promesa en la página que la operación no pueda cumplir.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Astro</li><li>SEO y GEO</li><li>GitHub Actions</li><li>Vercel</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="cases-grid">
+
+        <article class="card case reveal" style="--i:0">
+          <figure class="case-media">
+            <img src="/assets/img/cases/presencia.webp?v=2" alt="La carta de Presencia en un celular: las solapas de categoría y los primeros platos con su precio" width="798" height="1792" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Presencia · restaurante</span>
+            <h3>Carta digital y panel de salón</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Cinco cartas distintas en papel (cena à la carte, almuerzo, vinos, cócteles y el café de al lado), con precios que se mueven y platos que se agotan en medio del servicio.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una carta QR mobile-only que lee de Firestore en vivo, más un panel protegido con clave. Los vinos conservan su propia numeración, así que sumar un plato nunca corre "el 47".</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Marcar un plato como agotado llega a los teléfonos ya abiertos, sin recargar. Las reservas pasaron de una planilla a su propia pantalla.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Playwright</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <figure class="case-media">
+            <img src="/assets/img/cases/sagrado.webp?v=2" alt="La carta de Sagrado Sushi en un celular: platos numerados con foto, precio y botón para sumarlos al pedido" width="798" height="1792" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Sagrado Sushi · restaurante</span>
+            <h3>De la carta QR a la comanda impresa</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Los pedidos entraban por WhatsApp escritos por el comensal: faltaba la dirección, el ítem ya no existía, el total no cerraba.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>La carta arma el pedido y abre el chat del local con el mensaje ya escrito: modalidad, cubierto, dirección y aclaraciones. Una extensión de Chrome imprime la comanda en el mostrador.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Todos los pedidos llegan a la cocina con la misma forma, valorizados desde la carta que el local mantiene solo.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Extensión de Chrome</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <header class="case-head">
+            <span class="case-client">Worker · operación diaria</span>
+            <h3>El banco de trabajo con IA de la agencia</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Lo que una persona aprendía en una cuenta se quedaba en su cabeza. No pasaba al cliente siguiente ni a quien entraba nuevo.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una biblioteca de 89 documentos con cómo hace la agencia cada cosa (Meta, Google, SEO, email, copy, propuestas) y una carpeta de memoria por cliente. El operador abre una terminal dentro de la carpeta del cliente y la IA arranca solo con ese contexto.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Las decisiones quedan escritas donde el resto del equipo las vuelve a usar, y el contexto de un cliente no se mezcla con el de otro.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Claude Code</li><li>Skills</li><li>Memoria por cliente</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:0">
+          <header class="case-head">
+            <span class="case-client">Worker · ingeniería</span>
+            <h3>Seguridad y calidad del código escrito con IA</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Escribir código con IA a velocidad termina con secretos commiteados y con la calidad cayendo de a un pull request por vez.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una capa de control manejada por configuración: cada proyecto declara su stack en un manifiesto y los mismos hooks corren para Java, Python o TypeScript. Escaneo de secretos, un gate bloqueante antes del push, análisis estático y auditoría de dependencias.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Un solo framework cubre todos los repositorios. Los ratchets de calidad dejan que las métricas bajen y nunca suban, y la adopción es aditiva: una clave que falta en el manifiesto se saltea en silencio, no rompe el build.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Config-driven</li><li>Gates de seguridad</li><li>Cualquier lenguaje</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <header class="case-head">
+            <span class="case-client">Worker · clientes de ecommerce</span>
+            <h3>Shopify y TiendaNube en lenguaje normal</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>El dueño de la tienda dependía de la agencia para cualquier cambio de catálogo, así que los arreglos chicos hacían cola detrás de los trabajos grandes.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Dos herramientas que el dueño maneja preguntando: ventas y stock, descripciones reescritas para buscadores, combos armados. Cada escritura pasa por una lista blanca de campos, una previsualización, una confirmación y un deshacer.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>El dueño edita su propia tienda sin poder romperla, y cada cambio queda reversible.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>MCP</li><li>Shopify</li><li>TiendaNube</li><li>Python</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <header class="case-head">
+            <span class="case-client">Worker · producción creativa</span>
+            <h3>Creativos de ads a la velocidad de la pauta</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>La pauta consume creativos más rápido de lo que una cola de diseño los repone.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una suite de producción armada sobre estructuras de avisos probadas: blueprints JSON que fijan layout y jerarquía, datos del producto extraídos de su URL, variaciones de estudio y de lifestyle a partir de una sola foto cruda, y video vertical corto.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Un brief se convierte en un set de variaciones alineadas a la marca, listas para Meta, TikTok y Reels.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Gemini</li><li>Veo</li><li>Firebase</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:0">
+          <figure class="case-media">
+            <img src="/assets/img/cases/museo.webp?v=1" alt="Portada de El Museo Viajero, con la navegación de cartelera y la presentación de la compañía" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">El Museo Viajero · teatro itinerante</span>
+            <h3>Sitio público y plataforma operativa</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Una compañía de teatro educativo itinerante coordinaba funciones en escuelas y salas con planillas.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>El sitio público (cartelera, repertorio, material didáctico según el nivel de suscripción) y la plataforma que lo sostiene: calendario, reservas, asistencia, liquidaciones, pricing y reportes.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Programar una temporada, llenarla y liquidarla dejó de vivir en planillas.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>React</li><li>Firestore</li><li>Vercel</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <header class="case-head">
+            <span class="case-client">Alynk · reporting de cartera</span>
+            <h3>El estado de cartera en el celular</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>El estado de cartera diario era una planilla que se mandaba por mail a cada comitente.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Un panel privado con usuario y contraseña que lee la misma planilla que genera el script existente. No recalcula nada: el Excel sigue siendo la fuente de verdad, y un paso de validación vuelve a correr los cuadres sobre la data ya extraída.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>El comitente abre su estado desde el celular, y un error de parseo corta el pipeline en lugar de llegar a la pantalla.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Python</li><li>TypeScript</li><li>Cuadres de validación</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <header class="case-head">
+            <span class="case-client">GymCounter · app de entrenamiento</span>
+            <h3>Plan de entrenamiento y registro sin conexión</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Una rutina de gimnasio se abandona por dos motivos: el plan no avanza con la persona, y anotar la serie en el celular falla justo donde no hay señal.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una aplicación web progresiva con motor de protocolos: cada objetivo arma su propio ciclo de días, con entrada en calor y semanas de descarga a lo largo de un programa de 180 días. El registro corre contra IndexedDB y un service worker, así que funciona sin conexión y sincroniza después. La suscripción va por Stripe, con checkout, portal de autogestión y webhooks idempotentes.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Entrenar y registrar funcionan en el subsuelo del gimnasio, y suscribirse o darse de baja nunca pasa por soporte.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>PWA offline</li></ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── PROCESO ───────────────────────────────────────────────────────── -->
   <section class="process" id="proceso">
     <div class="wrap process-layout">
@@ -419,6 +725,7 @@
         <h4>Navegación</h4>
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
+        <a href="#casos">Casos</a>
         <a href="#proceso">Proceso</a>
         <a href="#contacto">Contacto</a>
       </div>

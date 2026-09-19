@@ -773,6 +773,103 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
   letter-spacing: 0.08em;
 }
 
+/* ── Work (case studies) ────────────────────────────────────────────────── */
+
+.work { background: var(--bg-2); border-block: 1px solid var(--line); }
+
+.cases-featured { display: grid; gap: 18px; margin-bottom: 18px; }
+/* align-items: start ‑ cada tarjeta mide lo que mide su contenido. Mientras
+   algunas fichas tengan captura y otras no, estirarlas a la altura de la fila
+   deja un hueco en la que no la tiene. */
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+
+.case { padding: 30px 28px 28px; }
+
+.case-client {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.case-client::before {
+  content: '';
+  width: 6px; height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 174, 239, 0.8);
+}
+
+.case h3 { font-size: 1.15rem; margin: 13px 0 7px; }
+.case .case-kicker { font-size: 0.9rem; color: var(--text); }
+
+.case-body { display: grid; gap: 15px; margin-top: 22px; }
+.case-body > div { display: grid; gap: 5px; }
+.case-body dt {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.case-body dd { font-size: 0.88rem; color: var(--muted); }
+.case-body .case-result dt { color: var(--cyan); }
+.case-body .case-result dd { color: var(--text); }
+
+.case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.case-tags li {
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0, 174, 239, 0.05);
+}
+
+/* la captura de la ficha: recorte 16:10 anclado arriba, que es donde vive la
+   identidad de cualquier pantalla (logo, nav, primeras filas). Las capturas de
+   celular entran igual: se ve la cabecera de la carta, no la carta entera. */
+.case-media {
+  display: block;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-3);
+}
+.case-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s var(--ease);
+}
+.card:hover .case-media img { transform: scale(1.03); }
+
+/* la ficha grande: cabecera y tags a la izquierda, problema / solucion /
+   resultado a la derecha. Una sola columna abajo de 900 px. */
+.case-lg { padding: 34px 32px 32px; }
+.case-lg h3 { font-size: 1.5rem; }
+.case-lg .case-kicker { font-size: 0.96rem; }
+
+@media (min-width: 900px) {
+  .case-lg {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(32px, 4vw, 56px);
+  }
+  .case-lg .case-head { grid-column: 1; grid-row: 1; }
+  .case-lg .case-media { grid-column: 1; grid-row: 2; margin-top: 22px; }
+  .case-lg .case-body { grid-column: 2; grid-row: 1 / 4; margin-top: 0; }
+  .case-lg .case-tags { grid-column: 1; grid-row: 3; align-self: end; }
+}
+
 /* ── Process (sticky scroll) ────────────────────────────────────────────── */
 
 .process { background: var(--bg-2); border-block: 1px solid var(--line); }
@@ -1014,6 +1111,7 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
   .hero-visual .mark { width: min(78%, 260px); }
   .hero-lead { max-width: none; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .cases-grid { grid-template-columns: repeat(2, 1fr); }
   .process-layout { grid-template-columns: 1fr; }
   .process-sticky { position: relative; top: 0; }
   .process-mark { display: none; }
@@ -1035,6 +1133,9 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
 @media (max-width: 640px) {
   .wrap { padding-inline: 20px; }
   .services-grid { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .case { padding: 26px 22px 24px; }
+  .case-lg { padding: 28px 22px 26px; }
   .footer-top { grid-template-columns: 1fr; gap: 28px; }
   .hero { padding-top: calc(var(--nav-h) + 28px); }
   .hero-meta { gap: 18px 28px; }

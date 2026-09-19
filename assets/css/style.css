@@ -851,6 +851,17 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
 }
 .card:hover .case-media img { transform: scale(1.03); }
 
+/* el pie va fuera del recorte: la caja 16:10 es solo para la imagen */
+.case-media { position: relative; }
+.case-media figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 7px 12px;
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: linear-gradient(to top, rgba(5, 16, 28, 0.92), rgba(5, 16, 28, 0));
+}
+
 /* la ficha grande: cabecera y tags a la izquierda, problema / solucion /
    resultado a la derecha. Una sola columna abajo de 900 px. */
 .case-lg { padding: 34px 32px 32px; }

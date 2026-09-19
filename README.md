@@ -52,26 +52,49 @@ captura y otras no, estirarlas a la altura de la fila deja un hueco en la que no
 ### Las capturas
 
 `assets/img/cases/*.webp`, dentro de un `<figure class="case-media">` con recorte 16:10
-anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay cuatro y
-**todas son capturas reales del sitio vivo del cliente**, tomadas con Playwright el
+anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay siete y
+**todas son capturas reales del producto corriendo**, tomadas con Playwright el
 19/9/2026, no maquetas:
 
 | Archivo | De dónde salió | Viewport |
 | --- | --- | --- |
+| `brain.webp` | `C:/tmp/brag-shots/overview.png`, del anonimizador del Brain | 1600×900 @2x |
+| `comanda.webp` | `localhost:3000` (comanda-directa, `npm run dev`) | 1440×900 |
 | `lati.webp` | www.latitravel.com | 1440×900 |
 | `museo.webp` | www.elmuseoviajero.com.ar | 1440×900 |
 | `presencia.webp` | presencia-carta.vercel.app/carta | 414×896 |
 | `sagrado.webp` | sagrado-sushi-carta.vercel.app | 414×896 |
+| `gymcounter.webp` | `localhost:3001` (gymcounter, `npm run dev`) | 1440×900 |
 
-Las dos de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). Si se
-reemplaza una captura hay que subir el `?v=` del `<img>` en las dos páginas: `/assets/*`
-va con cache inmutable.
+Las dos de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). La de
+GymCounter está recortada a `crop=1280:800:80:0` para dejar afuera la banda de métricas
+del pie ("2.000+ atletas", "4,9 de satisfacción"): son afirmaciones del propio sitio que
+acá no podemos respaldar. Si se reemplaza una captura hay que subir el `?v=` del `<img>`
+en las dos páginas: `/assets/*` va con cache inmutable.
 
-Los otros ocho casos no tienen captura todavía. `gymcounter.vercel.app` **no es** la app
-de GymCounter (es una app alemana sin relación); GymCounter, Comanda Directa y AI Worker
-Generator hay que levantarlos en local para capturarlos, y el panel del Brain solo se
-captura con el anonimizador (`scripts/ops/brag-capture.mjs` en el repo del Brain), que
-reemplaza clientes y equipo por ficticios y multiplica toda cifra por 0,834.
+**La del Brain lleva pie de foto y no es negociable.** Sale del anonimizador
+(`scripts/ops/brag-capture.mjs` en el repo del Brain), que reemplaza clientes y equipo
+por ficticios y multiplica toda cifra por 0,834: el cliente "RONDEL" que se lee en la
+captura es VALKER. El `<figcaption>` dice que los datos son de demostración para que
+ningún número vuelva a un reporte como si fuera un caso real. El gate del script no
+atrapa apodos tipeados a mano, así que cada captura nueva del Brain se mira antes de
+publicarla.
+
+### Los cinco casos sin captura
+
+| Caso | Por qué no |
+| --- | --- |
+| AI Worker Generator | Entra por Google SSO restringido a `@worker.ar`. Sin login, la única pantalla es el muro. |
+| Estado de Cartera (Alynk) | Los únicos datos que hay son de un comitente real, con nombre y número de cuenta. No sale a la web sin un dataset de demo. |
+| El banco de trabajo con IA | No tiene interfaz: son skills y carpetas de memoria que corren en una terminal. |
+| Seguridad y calidad del código | Idem: hooks y gates, sin pantalla propia. |
+| Shopify y TiendaNube | Idem: herramientas MCP que se manejan conversando. |
+
+Para los tres últimos, una captura de terminal armada a mano sería construir una imagen,
+no capturar el producto. Se dejan sin media hasta tener una grabación del flujo real.
+
+`gymcounter.vercel.app` **no es** la app de GymCounter: es una app alemana sin relación.
+GymCounter no tiene deploy público documentado, por eso la captura sale de local.
 
 ## Interacciones (assets/js/app.js)
 

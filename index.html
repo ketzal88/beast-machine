@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
 <link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=17">
+<link rel="stylesheet" href="/assets/css/style.css?v=20">
 <noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
 
 <script type="application/ld+json">
@@ -253,7 +253,7 @@
   </section>
 
   <!-- ── SERVICES ──────────────────────────────────────────────────────── -->
-  <section id="services">
+  <section class="section-light" id="services">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Services</p>
@@ -399,7 +399,7 @@
             <p class="case-kicker">The first business on Hacé tu pedido that is not a restaurant.</p>
           </header>
           <figure class="case-media">
-            <img src="/assets/img/cases/partymarket.webp?v=1" alt="The Party Market catalogue on a phone: the Halloween banner, the cash discount and the product search" width="798" height="1792" loading="lazy" decoding="async">
+            <img src="/assets/img/cases/partymarket.webp?v=2" alt="The Party Market catalogue on a phone: the Halloween banner, the cash discount and the product search" width="960" height="600" loading="lazy" decoding="async">
           </figure>
           <dl class="case-body">
             <div>
@@ -423,28 +423,28 @@
         <article class="card case case-lg beam reveal">
           <header class="case-head">
             <span class="case-client">Aires Publicidad · signage</span>
-            <h3>airespublicidad.com.ar</h3>
-            <p class="case-kicker">A landing page that can be redesigned without losing its measurement.</p>
+            <h3>Quote generator and landing page</h3>
+            <p class="case-kicker">A quote generator that gives the sales rep back 56 hours a month.</p>
           </header>
           <figure class="case-media">
-            <img src="/assets/img/cases/aires.webp?v=1" alt="The Aires Publicidad home page: the headline, the WhatsApp quote button and a photo of an installed sign" width="960" height="586" loading="lazy" decoding="async">
+            <img src="/assets/img/cases/aires.webp?v=2" alt="The Aires Publicidad home page: the headline, the WhatsApp quote button and a photo of an installed sign" width="960" height="600" loading="lazy" decoding="async">
           </figure>
           <dl class="case-body">
             <div>
               <dt>The problem</dt>
-              <dd>The landing page comes out of a design tool and is replaced in full on every redesign, so anything added by hand (SEO, tracking, cleanup) vanished with the next export. On top of that, the form conversion fired as soon as someone typed a single letter.</dd>
+              <dd>Putting together every quote ate into the sales rep’s month. On top of that, the landing page that brings in the leads lost its SEO and tracking every time the design was regenerated.</dd>
             </div>
             <div>
               <dt>What we built</dt>
-              <dd>A Cloudflare Worker that rewrites the HTML on the fly: titles, structured data, tracking and image fixes are injected at request time and the design file stays untouched. WhatsApp clicks reach Meta from the browser and from the server with the same event ID, the contact form arrives by email, and the seven old URLs redirect keeping the ad click ID. Behind an access code, a quote generator draws its PDF as vector text.</dd>
+              <dd>A quote generator behind an access code: the rep loads the items and gets a branded PDF drawn as vector text, then sends it by WhatsApp or email with the detail already written. Around it, a Cloudflare Worker injects SEO and tracking into the landing page at request time, and WhatsApp clicks reach Meta from the browser and from the server.</dd>
             </div>
             <div class="case-result">
               <dt>Result</dt>
-              <dd>Regenerating the design no longer wipes anything out, and the form conversion counts only confirmed submissions. The page weighs 1.88 MB on a phone, and a quote PDF went from a 380 KB blurry image to 52 KB of searchable text.</dd>
+              <dd>The generator saves the sales rep 56 hours a month. Each PDF weighs 52 KB with sharp, searchable text, and redesigning the landing page no longer wipes out its measurement.</dd>
             </div>
           </dl>
           <ul class="case-tags">
-            <li>Cloudflare Workers</li><li>Meta CAPI</li><li>GTM and GA4</li><li>jsPDF</li>
+            <li>Quote generator</li><li>jsPDF</li><li>Cloudflare Workers</li><li>Meta CAPI</li>
           </ul>
         </article>
 
@@ -531,6 +531,9 @@
         </article>
 
         <article class="card case reveal" style="--i:2">
+          <figure class="case-media case-diagram">
+            <svg viewBox="0 0 400 250" role="img" aria-label="Diagram: Meta, Google, SEO, email, copy and proposals playbooks flow into the AI, which works with one client’s memory at a time"><path class="beam-base" d="M100 22 C150 22 150 125 170 125"/><path class="beam-flow" style="--d:-0.00s" d="M100 22 C150 22 150 125 170 125"/><path class="beam-base" d="M100 63 C150 63 150 125 170 125"/><path class="beam-flow" style="--d:-0.43s" d="M100 63 C150 63 150 125 170 125"/><path class="beam-base" d="M100 104 C150 104 150 125 170 125"/><path class="beam-flow" style="--d:-0.86s" d="M100 104 C150 104 150 125 170 125"/><path class="beam-base" d="M100 145 C150 145 150 125 170 125"/><path class="beam-flow" style="--d:-1.29s" d="M100 145 C150 145 150 125 170 125"/><path class="beam-base" d="M100 186 C150 186 150 125 170 125"/><path class="beam-flow" style="--d:-1.72s" d="M100 186 C150 186 150 125 170 125"/><path class="beam-base" d="M100 227 C150 227 150 125 170 125"/><path class="beam-flow" style="--d:-2.15s" d="M100 227 C150 227 150 125 170 125"/><path class="beam-base" d="M230 125 L258 125"/><path class="beam-flow beam-out" d="M230 125 L258 125"/><g class="beam-node"><rect x="4" y="7" width="96" height="30" rx="15"/><text x="52" y="27">Meta</text></g><g class="beam-node"><rect x="4" y="48" width="96" height="30" rx="15"/><text x="52" y="68">Google</text></g><g class="beam-node"><rect x="4" y="89" width="96" height="30" rx="15"/><text x="52" y="109">SEO</text></g><g class="beam-node"><rect x="4" y="130" width="96" height="30" rx="15"/><text x="52" y="150">Email</text></g><g class="beam-node"><rect x="4" y="171" width="96" height="30" rx="15"/><text x="52" y="191">Copy</text></g><g class="beam-node"><rect x="4" y="212" width="96" height="30" rx="15"/><text x="52" y="232">Proposals</text></g><g class="beam-hub"><circle cx="200" cy="125" r="30"/><text x="200" y="132">AI</text></g><g class="beam-node beam-node-out"><rect x="258" y="105" width="138" height="40" rx="20"/><text x="327" y="121">Client</text><text x="327" y="137">memory</text></g></svg>
+          </figure>
           <header class="case-head">
             <span class="case-client">Worker · daily operation</span>
             <h3>The agency's AI workbench</h3>
@@ -695,7 +698,7 @@
   </section>
 
   <!-- ── PROCESS ───────────────────────────────────────────────────────── -->
-  <section class="process" id="process">
+  <section class="process section-light" id="process">
     <div class="wrap process-layout">
       <div class="process-sticky">
         <div class="reveal">

@@ -10,19 +10,19 @@
   --navy: #2D3E50;
 
   /* surfaces */
-  --bg: #05101C;
-  --bg-2: #071726;
-  --bg-3: #0A1E31;
-  --panel: rgba(45, 62, 80, 0.16);
-  --panel-hi: rgba(45, 62, 80, 0.28);
-  --line: rgba(0, 174, 239, 0.12);
-  --line-hi: rgba(0, 174, 239, 0.35);
+  --bg: #040C16;
+  --bg-2: #08182A;
+  --bg-3: #0C2136;
+  --panel: #0D2034;
+  --panel-hi: #12293F;
+  --line: rgba(120, 190, 235, 0.14);
+  --line-hi: rgba(0, 174, 239, 0.45);
 
   /* text */
   --white: #FFFFFF;
-  --text: #DCE6EF;
-  --muted: #8EA1B4;
-  --faint: #5C6E80;
+  --text: #E4ECF3;
+  --muted: #A6B6C6;
+  --faint: #7A8DA2;
 
   /* type */
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -221,7 +221,7 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
   transition: background 0.35s, border-color 0.35s;
 }
 .nav.is-stuck {
-  background: rgba(5, 16, 28, 0.78);
+  background: rgba(4, 12, 22, 0.94);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom-color: var(--line);
@@ -1232,3 +1232,62 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
   .beam::after, .btn-primary::after { animation: none; }
   .flicker-grid { display: none; }
 }
+
+/* Animated Beam (Magic UI): los manuales de la agencia fluyen hacia la IA. */
+.case-diagram { display: grid; place-items: center; background: radial-gradient(circle at 50% 50%, rgba(0, 174, 239, 0.10), var(--bg-3) 70%); }
+.case-diagram svg { width: 100%; height: 100%; }
+.case-diagram text { font-family: var(--font-display); font-size: 14px; font-weight: 600; fill: var(--text); text-anchor: middle; }
+.beam-base { fill: none; stroke: rgba(142, 161, 180, 0.18); stroke-width: 1.4; }
+.beam-flow {
+  fill: none;
+  stroke: var(--cyan-bright);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 18 220;
+  animation: beam-flow 2.6s linear infinite;
+  animation-delay: var(--d, 0s);
+  filter: drop-shadow(0 0 3px rgba(79, 216, 255, 0.8));
+}
+.beam-out { animation-duration: 1.3s; }
+@keyframes beam-flow { from { stroke-dashoffset: 238; } to { stroke-dashoffset: 0; } }
+.beam-node rect { fill: var(--bg-2); stroke: var(--line-hi); }
+.beam-node-out rect { fill: rgba(0, 174, 239, 0.12); stroke: var(--cyan); }
+.beam-hub circle { fill: var(--bg-2); stroke: var(--cyan); stroke-width: 1.5; animation: hub-pulse 2.6s ease-in-out infinite; }
+.beam-hub text { font-size: 19px; fill: var(--cyan-bright); }
+@keyframes hub-pulse { 50% { stroke-width: 3; filter: drop-shadow(0 0 8px rgba(0, 174, 239, 0.7)); } }
+@media (prefers-reduced-motion: reduce) {
+  .beam-flow { animation: none; opacity: 0; }
+  .beam-hub circle { animation: none; }
+}
+
+/* ── Secciones claras ──────────────────────────────────────────────────────
+   Servicios y Proceso van sobre papel claro para cortar la fila de azules
+   oscuros: la página alterna oscuro / claro y cada sección se lee como un
+   bloque. Se redefinen los tokens, así los componentes no cambian. */
+.section-light {
+  --white: #0A1724;
+  --text: #22364A;
+  --muted: #4A5E73;
+  --faint: #6B7F94;
+  --cyan: #0088C2;
+  --cyan-bright: #00A3E0;
+  --cyan-deep: #006F9E;
+  --panel: #FFFFFF;
+  --panel-hi: #FFFFFF;
+  --line: rgba(10, 23, 36, 0.10);
+  --line-hi: rgba(0, 136, 194, 0.45);
+  --bg-3: #E3EBF2;
+  background: #EEF3F7;
+  color: var(--text);
+  border-block: 0;
+}
+.section-light .card,
+.section-light .step { box-shadow: 0 1px 2px rgba(10, 23, 36, 0.05), 0 12px 32px -20px rgba(10, 23, 36, 0.25); }
+.section-light .card:hover { box-shadow: 0 2px 4px rgba(10, 23, 36, 0.06), 0 24px 48px -24px rgba(0, 110, 160, 0.35); }
+.section-light .card::before { background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 163, 224, 0.10), transparent 65%); }
+.section-light .card-icon { background: rgba(0, 136, 194, 0.08); }
+.section-light .step { background: #F8FAFC; opacity: 0.7; }
+.section-light .step.is-active { background: #FFFFFF; opacity: 1; }
+.section-light .step li { background: #EEF5FA; color: #22364A; }
+.section-light .process-rail { background: rgba(10, 23, 36, 0.10); }
+.section-light .process-mark { opacity: 0.18; filter: grayscale(0.2) brightness(0.55); }

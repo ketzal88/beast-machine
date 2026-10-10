@@ -37,8 +37,8 @@ construimos** y **el resultado**. Cinco fichas grandes (`.case-lg`, a dos column
 de 900 px) y nueve en grilla de tres.
 
 Todo lo que se afirma ahí sale de los repos de cada proyecto: las cifras (251 páginas,
-158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) (y en las fichas nuevas 250 productos, 158 animatrónicos e inflables, 1,88 MB y
-380 → 52 KB) son las que
+158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) (y en las fichas nuevas 250 productos, 158 animatrónicos e inflables, 56 horas por mes y 52 KB;
+las 56 horas son el ahorro que reportó el cliente, no sale de un README) son las que
 declaran sus READMEs, no estimaciones. Si un proyecto cambia, el número cambia acá
 también, y hay que tocarlo en las **dos** páginas.
 
@@ -102,6 +102,18 @@ no capturar el producto. Se dejan sin media hasta tener una grabación del flujo
 `gymcounter.vercel.app` **no es** la app de GymCounter: es una app alemana sin relación.
 GymCounter no tiene deploy público documentado, por eso la captura sale de local.
 
+## Paleta: oscuro y claro alternados
+
+Servicios y Proceso llevan `.section-light`: fondo papel (`#EEF3F7`), tarjetas blancas y
+texto tinta. La clase **redefine los tokens** (`--white`, `--text`, `--muted`, `--panel`,
+`--line`, `--cyan`…), así que los componentes de adentro no tienen reglas propias para el
+modo claro: si se suma una sección clara nueva, alcanza con la clase. Sobre claro el cyan
+de marca baja a `#0088C2`, porque `#00AEEF` sobre blanco no llega al contraste de texto.
+
+En las secciones oscuras el texto secundario (`--muted`) es `#A6B6C6` y las tarjetas son
+un plano sólido (`--panel`), no una transparencia: con las transparencias de antes todo
+quedaba azul sobre azul y las secciones no se distinguían.
+
 ## Interacciones (assets/js/app.js)
 
 | Qué | Dónde |
@@ -120,6 +132,7 @@ GymCounter no tiene deploy público documentado, por eso la captura sale de loca
 | Luz que recorre el borde (Border Beam) | `.beam`: casos destacados y panel de contacto |
 | Brillo periódico en los botones principales (Shimmer Button) | `.btn-primary::after` |
 | Grilla titilante en canvas, sólo mientras está a la vista (Flickering Grid) | `.flicker-grid`, la crea el JS en `.contact` |
+| Diagrama de conexiones animado (Animated Beam) | `.case-diagram`, en la ficha del banco de trabajo con IA |
 
 Los cinco últimos son efectos de [Magic UI](https://magicui.design/docs/components)
 reescritos en CSS y JS vanilla: la librería es React + Tailwind y este sitio no tiene

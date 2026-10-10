@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#05101C;color:#c9d6e2;font-family:Inter,Helvetica,sans-serif}a{color:#4cc6f2}a:hover{color:#8ddcf8}</style>
+</helmet>
+<div style="min-height:100vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center;padding:48px clamp(20px,5vw,72px);box-sizing:border-box;background-color:#05101C;background-image:linear-gradient(rgba(76,198,242,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(76,198,242,.035) 1px,transparent 1px);background-size:56px 56px">
+  <div style="display:flex;justify-content:center">
+    <div ref="{{ stageRef }}" onMouseEnter="{{ hotOn }}" onMouseLeave="{{ hotOff }}" style="position:relative;width:100%;max-width:520px;aspect-ratio:559/625">
+      <div ref="{{ haloRef }}" style="position:absolute;left:45%;top:10%;width:55%;height:65%;border-radius:50%;background:radial-gradient(closest-side,rgba(56,189,248,.35),rgba(56,189,248,0));filter:blur(24px);opacity:0;pointer-events:none"></div>
+      <img ref="{{ baseRef }}" src="assets/logo-front-base.png" alt="Beast Machine" style="position:absolute;inset:0;width:100%;height:100%;opacity:0"></img>
+      <img ref="{{ markRef }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0"></img>
+      <div ref="{{ svgRef }}" style="position:absolute;inset:0;pointer-events:none"></div>
+      <img ref="{{ eyesRef }}" src="assets/logo-front-eyes.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;mix-blend-mode:screen;pointer-events:none"></img>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px;max-width:380px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4cc6f2">Logo · animación propuesta</div>
+    <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:18px;font-size:15px;line-height:1.5">
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Los circuitos crecen desde la costura</span><span style="color:#8a9bab;text-wrap:pretty">El delay sale de la posición de cada pista, no del índice: la máquina se arma del centro hacia afuera y cada nodo se enciende cuando su pista llega.</span></li>
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Handoff al raster</span><span style="color:#8a9bab;text-wrap:pretty">Cuando termina el trazo, aparece el mark con todo su detalle y el SVG queda solo como capa de luz.</span></li>
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Señales con causa y efecto</span><span style="color:#8a9bab;text-wrap:pretty">En reposo no parpadea todo a la vez: viajan uno o dos pulsos por vez y el nodo de destino destella y emite un ripple.</span></li>
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Ojos que se encienden</span><span style="color:#8a9bab;text-wrap:pretty">Parpadeo de arranque al final de la intro y respiración lenta. Al pasar el mouse sube el tráfico y la intensidad.</span></li>
+    </ol>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button onClick="{{ replay }}" style="font:inherit;font-size:14px;color:#05101C;background:#4cc6f2;border:0;border-radius:999px;padding:10px 20px;cursor:pointer" style-hover="background:#8ddcf8">Repetir intro</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.5,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;traffic&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.3,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;parallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  stageRef = React.createRef(); haloRef = React.createRef(); baseRef = React.createRef(); markRef = React.createRef();
+  svgRef = React.createRef(); eyesRef = React.createRef();
+  hot = false; mx = 0; my = 0; rx = 0; ry = 0; anims = [];
+
+  async componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const txt = await (await fetch('assets/logo-front-circuits.svg')).text();
+    if (!this.svgRef.current) return;
+    this.svgRef.current.innerHTML = txt.replace(/<metadata>[\s\S]*?<\/metadata>/, '');
+    const svg = this.svgRef.current.querySelector('svg');
+    svg.removeAttribute('width'); svg.removeAttribute('height');
+    Object.assign(svg.style, { width: '100%', height: '100%', display: 'block', overflow: 'visible' });
+    this.prep(svg);
+    this.onMove = e => {
+      const r = this.stageRef.current?.getBoundingClientRect(); if (!r) return;
+      this.mx = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / r.width));
+      this.my = Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / r.height));
+    };
+    window.addEventListener('pointermove', this.onMove);
+    const loop = now => { this.frame(now); this.raf = requestAnimationFrame(loop); };
+    this.raf = requestAnimationFrame(loop);
+    this.play();
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf); clearTimeout(this.tick); this.timers?.forEach(clearTimeout);
+    window.removeEventListener('pointermove', this.onMove);
+  }
+
+  prep(svg) {
+    const C = '#4cc6f2', uniq = sel => {
+      const seen = new Set();
+      return [...svg.querySelectorAll(sel)].filter(p => { const k = p.getAttribute('d'); if (seen.has(k)) { p.remove(); return false; } seen.add(k); return true; });
+    };
+    const start = p => { const m = p.getAttribute('d').match(/M\s*([\d.]+)\s+([\d.]+)/); return m ? [+m[1], +m[2]] : [280, 300]; };
+    const seam = (x, y) => Math.hypot(Math.max(0, x - 268), (y - 230) * 0.35);
+    const g = c => svg.querySelector('g.' + c);
+    ['gl', 'tr', 'fl', 'sp'].forEach(c => Object.assign(g(c).style, { fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' }));
+    Object.assign(g('gl').style, { stroke: C, opacity: 0, filter: 'url(#b)' });
+    Object.assign(g('tr').style, { stroke: C });
+    Object.assign(g('fl').style, { stroke: C, opacity: 0 });
+    Object.assign(g('sp').style, { stroke: '#e6f8ff', filter: 'url(#b)' });
+    this.gl = g('gl');
+    this.tr = uniq('g.tr path').map(p => {
+      const [x, y] = start(p); p.setAttribute('pathLength', 100);
+      p.style.strokeDasharray = '100 100'; p.style.strokeDashoffset = 100; return { el: p, d: seam(x, y) };
+    });
+    uniq('g.gl path'); uniq('g.fl path');
+    this.sp = uniq('g.sp path').map(p => {
+      p.setAttribute('pathLength', 100); p.style.strokeDasharray = '7 200'; p.style.strokeDashoffset = 7; p.style.opacity = 0;
+      const L = p.getTotalLength(), e = p.getPointAtLength(L); return { el: p, end: e, len: L };
+    }).filter(s => s.len > 40);
+    this.nd = [...svg.querySelectorAll('g.nd circle')].map(c => {
+      Object.assign(c.style, { fill: '#05101C', stroke: C, strokeWidth: 2.5, transformBox: 'fill-box', transformOrigin: 'center', opacity: 0 });
+      return { el: c, x: +c.getAttribute('cx'), y: +c.getAttribute('cy'), d: seam(+c.getAttribute('cx'), +c.getAttribute('cy')) };
+    });
+    this.dt = [...svg.querySelectorAll('g.dt circle')].map(c => { Object.assign(c.style, { fill: C, opacity: 0 }); return c; });
+    this.rp = [...svg.querySelectorAll('g.rp circle')].map(c => {
+      Object.assign(c.style, { fill: 'none', stroke: C, strokeWidth: 1, transformBox: 'fill-box', transformOrigin: 'center', opacity: 0 });
+      return { el: c, x: +c.getAttribute('cx'), y: +c.getAttribute('cy') };
+    });
+    const max = Math.max(...this.tr.map(t => t.d), ...this.nd.map(n => n.d));
+    this.tr.forEach(t => t.d /= max); this.nd.forEach(n => n.d /= max);
+  }
+
+  stopAll() { this.anims.forEach(a => a.cancel()); this.anims = []; clearTimeout(this.tick); this.timers?.forEach(clearTimeout); this.timers = []; }
+  A(el, kf, o) { const a = el.animate(kf, { fill: 'both', ...o }); this.anims.push(a); a.onfinish = () => { if (o.fill === 'none') this.anims = this.anims.filter(x => x !== a); }; return a; }
+
+  play() {
+    if (!this.tr) return;
+    this.stopAll();
+    const sp = 1 / (this.props.speed ?? 1), ease = 'cubic-bezier(.22,.8,.24,1)';
+    const draw = 1400 * sp, t0 = 500 * sp;
+    if (this.reduced) {
+      this.baseRef.current.style.opacity = 1; this.markRef.current.style.opacity = 1; this.eyesRef.current.style.opacity = .85;
+      this.tr.forEach(t => { t.el.style.strokeDashoffset = 0; t.el.style.opacity = .25; });
+      this.nd.forEach(n => n.el.style.opacity = 1); this.dt.forEach(d => d.style.opacity = .7); return;
+    }
+    this.introEnd = performance.now() + t0 + draw + 1100 * sp;
+    this.A(this.baseRef.current, [{ opacity: 0, transform: 'scale(.97)', filter: 'blur(6px)' }, { opacity: 1, transform: 'scale(1)', filter: 'blur(0)' }], { duration: 700 * sp, easing: ease });
+    this.A(this.markRef.current, [{ opacity: 0 }, { opacity: 0 }], { duration: 1 });
+    this.A(this.eyesRef.current, [{ opacity: 0 }, { opacity: 0 }], { duration: 1 });
+    this.A(this.gl, [{ opacity: 0 }, { opacity: 0 }], { duration: 1 });
+    this.tr.forEach(t => {
+      this.A(t.el, [{ strokeDashoffset: 100, opacity: 1 }, { strokeDashoffset: 0, opacity: 1 }], { delay: t0 + t.d * draw, duration: 650 * sp, easing: ease });
+    });
+    this.nd.forEach(n => {
+      this.A(n.el, [{ opacity: 0, transform: 'scale(0)' }, { opacity: 1, transform: 'scale(1.6)', fill: '#e6f8ff', offset: .45 }, { opacity: 1, transform: 'scale(1)', fill: '#05101C' }], { delay: t0 + n.d * draw + 450 * sp, duration: 500 * sp, easing: 'ease-out' });
+    });
+    this.dt.forEach((d, i) => this.A(d, [{ opacity: 0 }, { opacity: .8 }], { delay: t0 + draw + i * 25, duration: 300 }));
+    const hand = t0 + draw + 500 * sp;
+    this.A(this.markRef.current, [{ opacity: 0 }, { opacity: 1 }], { delay: hand, duration: 700 * sp, easing: 'ease-out' });
+    this.tr.forEach(t => this.A(t.el, [{ strokeDashoffset: 0, opacity: 1 }, { strokeDashoffset: 0, opacity: .18 }], { delay: hand, duration: 900 * sp }));
+    this.A(this.gl, [{ opacity: 0 }, { opacity: .5, offset: .3 }, { opacity: .18 }], { delay: t0 + draw * .6, duration: 1800 * sp });
+    this.A(this.eyesRef.current, [0, .9, .1, 1, .35, 1].map(o => ({ opacity: o })), { delay: hand + 350 * sp, duration: 650, easing: 'steps(1,end)' });
+    this.A(this.haloRef.current, [{ opacity: 0 }, { opacity: .9 }], { delay: t0, duration: draw });
+    this.timers.push(setTimeout(() => this.schedule(), hand + 900 * sp));
+  }
+
+  schedule() {
+    const rate = this.props.traffic ?? 1;
+    const s = this.sp[Math.floor(Math.random() * this.sp.length)];
+    if (s) this.packet(s);
+    const base = this.hot ? 380 : 1300;
+    this.tick = setTimeout(() => this.schedule(), (base + Math.random() * base) / rate);
+  }
+  packet(s) {
+    const dur = 600 + s.len * 3.2;
+    const a = s.el.animate([{ strokeDashoffset: 7, opacity: 1 }, { strokeDashoffset: -100, opacity: 1 }], { duration: dur, easing: 'cubic-bezier(.5,0,.5,1)' });
+    a.onfinish = () => {
+      const near = (list, p) => list.reduce((b, n) => { const d = Math.hypot(n.x - p.x, n.y - p.y); return d < b.d ? { n, d } : b; }, { n: null, d: 30 }).n;
+      const n = near(this.nd, s.end);
+      if (n) n.el.animate([{ transform: 'scale(1)', fill: '#05101C' }, { transform: 'scale(1.5)', fill: '#e6f8ff', offset: .2 }, { transform: 'scale(1)', fill: '#05101C' }], { duration: 700, easing: 'ease-out' });
+      const r = near(this.rp, s.end) || (n && { el: null });
+      if (r && r.el) r.el.animate([{ opacity: .9, transform: 'scale(2)' }, { opacity: 0, transform: 'scale(9)' }], { duration: 900, easing: 'ease-out' });
+    };
+  }
+
+  frame(now) {
+    const eyes = this.eyesRef.current, halo = this.haloRef.current;
+    if (!eyes || this.reduced) return;
+    const t = now / 1000, idle = this.introEnd && now > this.introEnd;
+    if (idle) {
+      const br = 0.78 + 0.18 * Math.sin(t * 1.3) + (this.hot ? .15 : 0);
+      eyes.style.opacity = Math.min(1, br);
+      eyes.style.filter = `drop-shadow(0 0 ${this.hot ? 10 : 5}px rgba(76,198,242,.9))`;
+      halo.style.opacity = 0.65 + 0.2 * Math.sin(t * 0.9) + (this.hot ? .25 : 0);
+    }
+    const on = this.props.parallax ?? true;
+    this.rx += ((on ? this.mx : 0) - this.rx) * 0.06; this.ry += ((on ? this.my : 0) - this.ry) * 0.06;
+    const m = (k) => `translate(${this.rx * k}px, ${this.ry * k}px)`;
+    this.svgRef.current.style.transform = m(7);
+    eyes.style.transform = m(4);
+    halo.style.transform = m(-6);
+  }
+
+  renderVals() {
+    return {
+      stageRef: this.stageRef, haloRef: this.haloRef, baseRef: this.baseRef, markRef: this.markRef, svgRef: this.svgRef, eyesRef: this.eyesRef,
+      replay: () => this.play(),
+      hotOn: () => { this.hot = true; }, hotOff: () => { this.hot = false; }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
 <link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=22">
+<link rel="stylesheet" href="/assets/css/style.css?v=24">
 <noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
 
 <script type="application/ld+json">
@@ -150,29 +150,29 @@
         <div class="halo"></div>
         <div class="ring"></div>
         <div class="ring r2"></div>
-        <div class="mark hero-mark">
-          <svg class="mark-art" viewBox="0 0 559 625" aria-hidden="true" focusable="false">
-            <defs>
-              <filter id="fur" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
-                <feTurbulence type="fractalNoise" baseFrequency="0.006 0.013" numOctaves="2" seed="7" result="noise">
-                  <animate attributeName="baseFrequency" dur="13s" repeatCount="indefinite"
-                           values="0.006 0.013;0.010 0.019;0.005 0.011;0.006 0.013"
-                           calcMode="spline" keyTimes="0;0.34;0.7;1"
-                           keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1"/>
-                </feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="noise" xChannelSelector="R" yChannelSelector="G">
-                  <animate attributeName="scale" dur="7s" repeatCount="indefinite"
-                           values="5;11;6.5;5" calcMode="spline" keyTimes="0;0.4;0.72;1"
-                           keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1"/>
-                </feDisplacementMap>
-              </filter>
-            </defs>
-            <g class="mark-organic">
-              <image class="mark-base" href="/assets/img/logo-front-base.png?v=6" width="559" height="625"/>
-              <image class="mark-eyes" href="/assets/img/logo-front-eyes.png?v=6" width="559" height="625"/>
-            </g>
-          </svg>
-          <img class="mark-circuits" src="/assets/img/logo-front-circuits.svg?v=9" alt="" width="559" height="625" aria-hidden="true">
+        <div class="mark hero-mark beast" data-beast>
+          <div class="beast-halo"></div>
+          <div class="beast-halo2"></div>
+          <div class="beast-head">
+            <img class="beast-base" src="/assets/img/logo-front-base.png?v=6" alt="" width="559" height="625">
+            <img class="beast-mark" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+            <div class="beast-mouth"><div class="beast-teeth-top"><i style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,55% 100%)"></i><i style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,45% 100%)"></i></div><div class="beast-teeth-bot"><i style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:40%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></i></div></div>
+            <img class="beast-jaw" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+            <img class="beast-snout" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+            <div class="beast-svg"></div>
+            <img class="beast-eyes" src="/assets/img/logo-front-eyes.png?v=6" alt="" width="559" height="625">
+            <div class="beast-lid beast-lid-l"></div>
+            <div class="beast-lid beast-lid-r"></div>
+            <div class="beast-rgb beast-rgb-c"></div>
+            <div class="beast-rgb beast-rgb-m"></div>
+            <img class="beast-slice" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+            <img class="beast-slice" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+            <img class="beast-slice" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+            <div class="beast-scan"></div>
+          </div>
+          <div class="beast-ring" style="--ring:#ff2bd6"></div>
+          <div class="beast-ring" style="--ring:#4cc6f2"></div>
+          <div class="beast-ring" style="--ring:#ff2bd6"></div>
         </div>
       </div>
     </div>
@@ -829,6 +829,7 @@
   </div>
 </footer>
 
-<script src="/assets/js/app.js?v=7" defer></script>
+<script src="/assets/js/app.js?v=8" defer></script>
+<script src="/assets/js/beast-logo.js?v=1" defer></script>
 </body>
 </html>

@@ -12,6 +12,7 @@ assets/css/style.css    Sistema de diseño y layout (único CSS)
 assets/js/app.js        Interacciones: scroll, reveals, contadores, menú, form
 assets/img/             Capas del logo, favicons, OG images
 tools/                  Pipeline que descompone el logo en capas animables
+design/logo-animation/  Fuente de Claude Design del logo animado (no se publica)
 assets/img/source/      Archivos originales del branding (JPG con fondo blanco)
 assets/video/           Animaciones de logo del cliente; wolf-turn.mp4 se usa en Proceso
 robots.txt · sitemap.xml · site.webmanifest · vercel.json
@@ -133,7 +134,7 @@ no tiene contra qué fundirse y se ve el recuadro blanco.
 |---|---|
 | Barra de progreso de scroll | fija arriba de todo |
 | Nav con fondo al hacer scroll + link activo por sección | `IntersectionObserver` |
-| Hero con parallax al scrollear y deriva del logo con el mouse | `.hero` |
+| Hero con parallax al scrollear | `.hero` |
 | Reveals escalonados | elementos con `.reveal` y `--i` |
 | Contadores animados | elementos con `data-count` / `data-suffix` |
 | Proceso con etapa activa según el scroll | `.step` + riel + contador |
@@ -154,48 +155,35 @@ grilla) se pausan fuera de pantalla con `IntersectionObserver`.
 
 ## El logo animado del hero
 
-El cliente entregó el logo como imagen plana. Para poder animarlo, un script
-(`tools/build-logo-layers.py`) lo descompone en tres capas:
+`assets/js/beast-logo.js` es el port a JS vanilla de **"Logo v2 · gruñido + cyberpunk"**,
+una animación hecha en Claude Design. La fuente original está en
+`design/logo-animation/Logo Animation v2.dc.html` (`design/` no se publica, ver
+`.vercelignore`). Mismos tiempos, mismas capas y los valores por defecto de sus controles:
+velocidad 1, tráfico 1, glitch 1, gruñido automático cada 9 s, sonido apagado, parallax
+prendido. Si se rediseña en Claude Design, se vuelve a portar desde ese archivo.
 
-| Capa | Qué es | Qué hace |
-|---|---|---|
-| `logo-front-base.png` | la ilustración sin ojos ni circuitos | el pelaje se mueve |
-| `logo-front-eyes.png` | solo los ojos | parpadean |
-| `logo-front-circuits.svg` | los circuitos, vectorizados | se dibujan, laten y fluyen |
+Qué hace:
 
-**Los circuitos son vector de verdad.** El script aísla la capa cyan por color, la
-adelgaza a un pixel (Zhang-Suen), recorre el esqueleto como un grafo y lo convierte
-en paths. `tools/circuit_geometry.py` hace la limpieza que necesita un circuito para
-no verse tembloroso: une los tramos que siguen derecho a través de una unión, tira
-los pelitos del adelgazado, alinea cada segmento al múltiplo de 45° más cercano,
-funde los segmentos ya colineales, reconoce los nodos circulares (ajuste de círculo
-por mínimos cuadrados) y mide el ancho real de cada traza. Salen 180 trazas con 5
-anchos distintos y 11 nodos circulares, en 49 KB (7 KB con gzip).
+| Momento | Qué pasa |
+|---|---|
+| Intro | la base aparece desenfocada, los circuitos se dibujan desde la costura hacia afuera, se encienden los nodos y los ojos titilan al prender |
+| Reposo | pulsos de luz viajan por las trazas (algunos en magenta), los ojos laten y parpadean (a veces doble), scanlines y un glitch RGB breve cada tanto |
+| Gruñido | el hocico se arruga, baja la mandíbula con colmillos, la cabeza tiembla, ojos y circuitos pasan a magenta y salen tres anillos. Se dispara con clic, con el mouse encima 0,7 s o solo cada 9 s |
 
-**El pelaje** se mueve con un filtro SVG (`feTurbulence` + `feDisplacementMap`) sobre
-la base, con la turbulencia y la amplitud animadas por SMIL. Encima, un
-`beast-breathe` en CSS le da una respiración de 7 s al conjunto.
+Las capas son las mismas de siempre (`logo-front-base.png`, `logo-front-eyes.png`,
+`logo-front-mark.png` y `logo-front-circuits.svg`): el export de Claude Design trae copias
+idénticas píxel a píxel, sólo con metadatos agregados. El SVG de circuitos todavía trae
+su animación CSS del logo anterior; el script la descarta al insertarlo (`<style>` fuera)
+porque, si no, las animaciones CSS le ganan a los estilos que escribe el JS.
 
-**El parpadeo** es un `scaleY` sobre la capa de ojos, con el origen en la línea de
-los ojos. Como la base tiene los ojos borrados y el hueco relleno con el color de
-alrededor, al cerrarse se ve la cuenca, no un agujero.
-
-Dos detalles que costaron y conviene no volver a romper:
-
-- **Los circuitos van fuera del grupo filtrado.** `feDisplacementMap` rasteriza todo
-  lo que filtra: cuando los circuitos estaban adentro se veían pixelados.
-- **La base no lleva los circuitos dibujados.** Si estuvieran en las dos capas, al
-  moverse el pelaje se verían dobles. El halo de luz sí se queda en la base.
-
-El filtro de pelaje es lo más caro de la página: se apaga solo cuando el hero sale de
-pantalla (`.hero.is-idle`) y en pantallas de menos de 700 px. Medido en Chrome: 61 fps
-con todo corriendo.
+Sin JavaScript se ve `.beast-mark`, el logo completo y quieto. Con reduced-motion se
+muestra el estado final sin movimiento. El loop se pausa cuando el hero sale de pantalla.
 
 Si el cliente cambia el logo: reemplazar `assets/img/logo-front-mark.png`, revisar las
-cajas `EYE_BOXES` del script y correr `python tools/build-logo-layers.py`.
-
-Todo respeta `prefers-reduced-motion`. Sin JavaScript el sitio se ve completo
-(hay un `<noscript>` que fuerza la visibilidad de los bloques animados).
+cajas `EYE_BOXES` del script y correr `python tools/build-logo-layers.py`. Ojo: la boca,
+la mandíbula, el hocico y los párpados están ubicados en porcentajes sobre ESTE dibujo
+(`.beast-mouth`, `.beast-jaw`, `.beast-snout`, `.beast-lid-*` en el CSS); un logo nuevo
+obliga a reubicarlos.
 
 ## Contenido editable
 

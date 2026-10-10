@@ -15,7 +15,6 @@
   var nav = $('.nav');
   var hero = $('.hero');
   var heroInner = $('.hero-inner');
-  var heroMark = $('.hero-mark');
   var ticking = false;
 
   function onScroll() {
@@ -168,15 +167,6 @@
         card.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
-
-    /* hero mark drifts with the pointer */
-    if (heroMark) {
-      window.addEventListener('pointermove', function (e) {
-        var dx = (e.clientX / window.innerWidth - 0.5) * 18;
-        var dy = (e.clientY / window.innerHeight - 0.5) * 18;
-        heroMark.style.transform = 'translate3d(' + dx.toFixed(2) + 'px,' + dy.toFixed(2) + 'px,0)';
-      }, { passive: true });
-    }
   }
 
   /* ── Active nav link ────────────────────────────────────────────────── */

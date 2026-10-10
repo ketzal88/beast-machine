@@ -532,65 +532,53 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* layered logo
-   1. .mark-art   svg con la ilustracion y los ojos, con filtro de pelaje animado
-   2. .mark-eyes  capa de ojos: parpadea
-   3. .mark-circuits  svg externo con los circuitos vectorizados y animados      */
+/* Logo animado del hero (beast-logo.js): capas apiladas sobre la misma caja
+   559x625. Sin JS se ve sólo .beast-mark, el logo completo. */
 .mark {
   position: relative;
   width: min(100%, 410px);
   aspect-ratio: 559 / 625;
-  will-change: transform;
 }
-
-.mark-art {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
-  transform-origin: 50% 62%;
-  animation: beast-breathe 7s ease-in-out infinite;
+.beast { cursor: pointer; filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55)); }
+.beast-head { position: absolute; inset: 0; will-change: transform; }
+.beast-head > img, .beast-svg, .beast-rgb, .beast-scan {
+  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
 }
-
-/* la bestia respira: apenas se nota, pero saca al logo de la quietud */
-@keyframes beast-breathe {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  35% { transform: scale(1.014) rotate(-0.35deg); }
-  70% { transform: scale(1.006) rotate(0.25deg); }
+.beast-head > img:not(.beast-mark), .beast-mouth, .beast-rgb, .beast-scan,
+.beast-halo, .beast-halo2, .beast-ring { opacity: 0; }
+.beast.is-live .beast-mark { opacity: 0; }
+.beast-halo, .beast-halo2 { position: absolute; border-radius: 50%; pointer-events: none; }
+.beast-halo { left: 45%; top: 10%; width: 55%; height: 65%; background: radial-gradient(closest-side, rgba(56, 189, 248, 0.35), rgba(56, 189, 248, 0)); filter: blur(24px); }
+.beast-halo2 { left: 5%; top: 30%; width: 50%; height: 55%; background: radial-gradient(closest-side, rgba(255, 43, 214, 0.28), rgba(255, 43, 214, 0)); filter: blur(28px); }
+.beast-mouth {
+  position: absolute; left: 35.6%; top: 73.2%; width: 20%; height: 8%;
+  border-radius: 45% 45% 50% 50% / 25% 25% 75% 75%;
+  background: radial-gradient(ellipse at 50% 35%, #4a0a2a, #16030d 55%, #05060c);
+  box-shadow: inset 0 0 10px rgba(255, 43, 214, 0.55);
+  transform: scaleY(0); transform-origin: 50% 0; overflow: hidden;
 }
-
-/* el filtro se corta cuando el hero sale de pantalla: es lo mas caro de la pagina */
-.mark-organic { filter: url(#fur); }
-.hero.is-idle .mark-organic { filter: none; }
-
-.mark-eyes {
-  transform-box: fill-box;
-  transform-origin: 50% 45.3%;
-  animation: blink 8.4s infinite 2.2s;
+.beast-teeth-top, .beast-teeth-bot { position: absolute; display: flex; justify-content: space-between; }
+.beast-teeth-top { left: 8%; right: 8%; top: 0; height: 46%; align-items: flex-start; }
+.beast-teeth-bot { left: 16%; right: 16%; bottom: 0; height: 38%; align-items: flex-end; }
+.beast-teeth-top i, .beast-teeth-bot i { display: block; }
+.beast-jaw { clip-path: polygon(35.8% 73.9%, 55.5% 73.9%, 56.9% 80%, 51% 85.6%, 40.8% 85.6%, 34.9% 80%); }
+.beast-snout { clip-path: polygon(36.7% 61.6%, 54.6% 61.6%, 55.8% 73.9%, 35.4% 73.9%); transform-origin: 45% 74%; }
+.beast-eyes { mix-blend-mode: screen; }
+.beast-lid { position: absolute; top: 41.8%; height: 5.6%; border-radius: 50% 50% 45% 45%; transform: scaleY(0); transform-origin: 50% 0; pointer-events: none; }
+.beast-lid-l { left: 27.7%; width: 8%; background: #44555f; border-bottom: 2px solid #0a1620; }
+.beast-lid-r { left: 55.2%; width: 8.4%; background: #0f2a3b; border-bottom: 2px solid #4cc6f2; }
+.beast-rgb, .beast-scan {
+  -webkit-mask: url(/assets/img/logo-front-mark.png?v=1) center / 100% 100% no-repeat;
+  mask: url(/assets/img/logo-front-mark.png?v=1) center / 100% 100% no-repeat;
 }
-
-/* dos parpadeos por ciclo, el segundo doble, como un ojo real */
-@keyframes blink {
-  0%, 32% { transform: scaleY(1); }
-  33.4% { transform: scaleY(0.05); }
-  34.8% { transform: scaleY(1); }
-  74% { transform: scaleY(1); }
-  75.2% { transform: scaleY(0.05); }
-  76.4% { transform: scaleY(1); }
-  78% { transform: scaleY(0.05); }
-  79.4%, 100% { transform: scaleY(1); }
-}
-
-/* los circuitos van FUERA del grupo filtrado: el feDisplacementMap rasteriza lo
-   que filtra y les comia el filo. La base ya no los trae dibujados, asi que no hay
-   nada abajo con que desalinearse cuando el pelaje se mueve. */
-.mark-circuits {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  filter: drop-shadow(0 0 5px rgba(0, 174, 239, 0.34));
-  pointer-events: none;
+.beast-rgb { mix-blend-mode: screen; }
+.beast-rgb-c { background: #00e5ff; }
+.beast-rgb-m { background: #ff2bd6; }
+.beast-scan { background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.28) 0 1px, transparent 1px 3px); }
+.beast-ring {
+  position: absolute; left: 45.6%; top: 76%; width: 20%; aspect-ratio: 1;
+  margin-left: -10%; margin-top: -10%; border-radius: 50%;
+  border: 1.5px solid var(--ring); pointer-events: none;
 }
 
 .scroll-cue {
@@ -1118,7 +1106,7 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
 
 @media (max-width: 1000px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; max-width: 300px; margin-inline: auto; }
+  .hero-visual { order: -1; width: 100%; max-width: 300px; margin-inline: auto; }
   .hero-visual .mark { width: min(78%, 260px); }
   .hero-lead { max-width: none; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1138,7 +1126,6 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
 
 @media (max-width: 700px) {
   /* el logo mide 230 px en telefono: el filtro de pelaje no se nota y cuesta bateria */
-  .mark-organic { filter: none; }
 }
 
 @media (max-width: 640px) {
@@ -1172,9 +1159,6 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
   .hero h1 .line > span { transform: none; }
   .hero-fade { opacity: 1; }
   .step { opacity: 1; }
-  .mark-circuits { filter: none; }
-  .mark-organic { filter: none; }
-  .mark-eyes { animation: none; }
 }
 
 /* ── Movimiento: efectos portados de Magic UI ──────────────────────────────

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#05101C;color:#c9d6e2;font-family:Inter,Helvetica,sans-serif}a{color:#4cc6f2}a:hover{color:#8ddcf8}</style>
+</helmet>
+<div style="min-height:100vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center;padding:48px clamp(20px,5vw,72px);box-sizing:border-box;background-color:#05101C;background-image:linear-gradient(rgba(76,198,242,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(76,198,242,.035) 1px,transparent 1px);background-size:56px 56px">
+  <div style="display:flex;justify-content:center">
+    <div ref="{{ stageRef }}" onMouseEnter="{{ hotOn }}" onMouseLeave="{{ hotOff }}" onClick="{{ growlClick }}" style="position:relative;width:100%;max-width:520px;aspect-ratio:559/625;cursor:pointer">
+      <div ref="{{ haloRef }}" style="position:absolute;left:45%;top:10%;width:55%;height:65%;border-radius:50%;background:radial-gradient(closest-side,rgba(56,189,248,.35),rgba(56,189,248,0));filter:blur(24px);opacity:0;pointer-events:none"></div>
+      <div ref="{{ halo2Ref }}" style="position:absolute;left:5%;top:30%;width:50%;height:55%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,43,214,.28),rgba(255,43,214,0));filter:blur(28px);opacity:0;pointer-events:none"></div>
+      <div ref="{{ headRef }}" style="position:absolute;inset:0;will-change:transform">
+        <img ref="{{ baseRef }}" src="assets/logo-front-base.png" alt="Beast Machine" style="position:absolute;inset:0;width:100%;height:100%;opacity:0"></img>
+        <img ref="{{ markRef }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0"></img>
+        <div ref="{{ mouthRef }}" style="position:absolute;left:35.6%;top:73.2%;width:20%;height:8%;border-radius:45% 45% 50% 50% / 25% 25% 75% 75%;background:radial-gradient(ellipse at 50% 35%,#4a0a2a,#16030d 55%,#05060c);box-shadow:inset 0 0 10px rgba(255,43,214,.55);transform:scaleY(0);transform-origin:50% 0;opacity:0;overflow:hidden">
+          <div style="position:absolute;left:8%;right:8%;top:0;height:46%;display:flex;justify-content:space-between;align-items:flex-start">
+            <div style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,55% 100%)"></div>
+            <div style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></div>
+            <div style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></div>
+            <div style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></div>
+            <div style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></div>
+            <div style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,45% 100%)"></div>
+          </div>
+          <div style="position:absolute;left:16%;right:16%;bottom:0;height:38%;display:flex;justify-content:space-between;align-items:flex-end">
+            <div style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></div>
+            <div style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></div>
+            <div style="width:9%;height:40%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></div>
+            <div style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></div>
+            <div style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></div>
+          </div>
+        </div>
+        <img ref="{{ jawRef }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;clip-path:polygon(35.8% 73.9%,55.5% 73.9%,56.9% 80%,51% 85.6%,40.8% 85.6%,34.9% 80%)"></img>
+        <img ref="{{ snoutRef }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;clip-path:polygon(36.7% 61.6%,54.6% 61.6%,55.8% 73.9%,35.4% 73.9%);transform-origin:45% 74%"></img>
+        <div ref="{{ svgRef }}" style="position:absolute;inset:0;pointer-events:none"></div>
+        <img ref="{{ eyesRef }}" src="assets/logo-front-eyes.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;mix-blend-mode:screen;pointer-events:none"></img>
+        <div ref="{{ lidLRef }}" style="position:absolute;left:27.7%;top:41.8%;width:8%;height:5.6%;border-radius:50% 50% 45% 45%;background:#44555f;border-bottom:2px solid #0a1620;transform:scaleY(0);transform-origin:50% 0;pointer-events:none"></div>
+        <div ref="{{ lidRRef }}" style="position:absolute;left:55.2%;top:41.8%;width:8.4%;height:5.6%;border-radius:50% 50% 45% 45%;background:#0f2a3b;border-bottom:2px solid #4cc6f2;transform:scaleY(0);transform-origin:50% 0;pointer-events:none"></div>
+        <div ref="{{ rgbCRef }}" style="position:absolute;inset:0;background:#00e5ff;-webkit-mask:url(assets/logo-front-mark.png) center/100% 100% no-repeat;mask:url(assets/logo-front-mark.png) center/100% 100% no-repeat;mix-blend-mode:screen;opacity:0;pointer-events:none"></div>
+        <div ref="{{ rgbMRef }}" style="position:absolute;inset:0;background:#ff2bd6;-webkit-mask:url(assets/logo-front-mark.png) center/100% 100% no-repeat;mask:url(assets/logo-front-mark.png) center/100% 100% no-repeat;mix-blend-mode:screen;opacity:0;pointer-events:none"></div>
+        <img ref="{{ slice1Ref }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none"></img>
+        <img ref="{{ slice2Ref }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none"></img>
+        <img ref="{{ slice3Ref }}" src="assets/logo-front-mark.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none"></img>
+        <div ref="{{ scanRef }}" style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px);-webkit-mask:url(assets/logo-front-mark.png) center/100% 100% no-repeat;mask:url(assets/logo-front-mark.png) center/100% 100% no-repeat;opacity:0;pointer-events:none"></div>
+      </div>
+      <div ref="{{ ring1Ref }}" style="position:absolute;left:45.6%;top:76%;width:20%;aspect-ratio:1;margin-left:-10%;margin-top:-10%;border-radius:50%;border:1.5px solid #ff2bd6;opacity:0;pointer-events:none"></div>
+      <div ref="{{ ring2Ref }}" style="position:absolute;left:45.6%;top:76%;width:20%;aspect-ratio:1;margin-left:-10%;margin-top:-10%;border-radius:50%;border:1.5px solid #4cc6f2;opacity:0;pointer-events:none"></div>
+      <div ref="{{ ring3Ref }}" style="position:absolute;left:45.6%;top:76%;width:20%;aspect-ratio:1;margin-left:-10%;margin-top:-10%;border-radius:50%;border:1.5px solid #ff2bd6;opacity:0;pointer-events:none"></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px;max-width:380px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ff2bd6">Logo v2 · gruñido + cyberpunk</div>
+    <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:18px;font-size:15px;line-height:1.5">
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Gruñido</span><span style="color:#8a9bab;text-wrap:pretty">El hocico se arruga, la mandíbula baja y asoman los colmillos. La cabeza tiembla, los ojos pasan a magenta y los circuitos se sobrecargan.</span></li>
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Glitch</span><span style="color:#8a9bab;text-wrap:pretty">Separación RGB cian/magenta y cortes horizontales: breves en reposo, fuertes durante el gruñido.</span></li>
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Scanlines y doble neón</span><span style="color:#8a9bab;text-wrap:pretty">Líneas de monitor recortadas a la silueta. Un halo magenta del lado orgánico contrasta con el cian del lado máquina, y algunos pulsos viajan en magenta.</span></li>
+      <li style="display:flex;flex-direction:column;gap:4px"><span style="color:#fff;font-weight:500">Disparadores</span><span style="color:#8a9bab;text-wrap:pretty">Gruñe al hacer clic, al dejar el mouse encima un momento y solo cada tanto. El sonido se activa desde Tweaks.</span></li>
+    </ol>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button onClick="{{ growlBtn }}" style="font:inherit;font-size:14px;color:#05101C;background:#ff2bd6;border:0;border-radius:999px;padding:10px 20px;cursor:pointer" style-hover="background:#ff7ae6">Gruñir</button>
+      <button onClick="{{ replay }}" style="font:inherit;font-size:14px;color:#c9d6e2;background:transparent;border:1px solid rgba(76,198,242,.4);border-radius:999px;padding:10px 20px;cursor:pointer" style-hover="border-color:#4cc6f2;color:#fff">Repetir intro</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.5,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;traffic&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.3,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;glitch&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;},&quot;autoGrowl&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:9,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;sound&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;parallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  stageRef = React.createRef(); haloRef = React.createRef(); halo2Ref = React.createRef(); headRef = React.createRef();
+  baseRef = React.createRef(); markRef = React.createRef(); mouthRef = React.createRef(); jawRef = React.createRef(); snoutRef = React.createRef();
+  svgRef = React.createRef(); eyesRef = React.createRef(); rgbCRef = React.createRef(); rgbMRef = React.createRef();
+  slice1Ref = React.createRef(); slice2Ref = React.createRef(); slice3Ref = React.createRef(); scanRef = React.createRef();
+  lidLRef = React.createRef(); lidRRef = React.createRef(); ring1Ref = React.createRef(); ring2Ref = React.createRef(); ring3Ref = React.createRef();
+  hot = false; mx = 0; my = 0; rx = 0; ry = 0; anims = []; timers = []; growlStart = -1e9; glitchUntil = 0; nextGlitch = 0; nextAuto = 0;
+  MAG = '#ff2bd6'; CY = '#4cc6f2';
+
+  async componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const txt = await (await fetch('assets/logo-front-circuits.svg')).text();
+    if (!this.svgRef.current) return;
+    this.svgRef.current.innerHTML = txt.replace(/<metadata>[\s\S]*?<\/metadata>/, '');
+    const svg = this.svgRef.current.querySelector('svg');
+    svg.removeAttribute('width'); svg.removeAttribute('height');
+    Object.assign(svg.style, { width: '100%', height: '100%', display: 'block', overflow: 'visible' });
+    this.prep(svg);
+    this.onMove = e => {
+      const r = this.stageRef.current?.getBoundingClientRect(); if (!r) return;
+      this.mx = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / r.width));
+      this.my = Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / r.height));
+    };
+    window.addEventListener('pointermove', this.onMove);
+    const loop = now => { this.frame(now); this.raf = requestAnimationFrame(loop); };
+    this.raf = requestAnimationFrame(loop);
+    this.play();
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf); clearTimeout(this.tick); clearTimeout(this.hoverT); this.timers.forEach(clearTimeout);
+    window.removeEventListener('pointermove', this.onMove); this.ac?.close();
+  }
+
+  prep(svg) {
+    const C = this.CY, uniq = sel => {
+      const seen = new Set();
+      return [...svg.querySelectorAll(sel)].filter(p => { const k = p.getAttribute('d'); if (seen.has(k)) { p.remove(); return false; } seen.add(k); return true; });
+    };
+    const start = p => { const m = p.getAttribute('d').match(/M\s*([\d.]+)\s+([\d.]+)/); return m ? [+m[1], +m[2]] : [280, 300]; };
+    const seam = (x, y) => Math.hypot(Math.max(0, x - 268), (y - 230) * 0.35);
+    const g = c => svg.querySelector('g.' + c);
+    ['gl', 'tr', 'fl', 'sp'].forEach(c => Object.assign(g(c).style, { fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' }));
+    Object.assign(g('gl').style, { stroke: C, opacity: 0, filter: 'url(#b)' });
+    Object.assign(g('tr').style, { stroke: C });
+    Object.assign(g('fl').style, { stroke: C, opacity: 0 });
+    Object.assign(g('sp').style, { stroke: '#e6f8ff', filter: 'url(#b)' });
+    this.gl = g('gl'); this.trG = g('tr');
+    this.tr = uniq('g.tr path').map(p => {
+      const [x, y] = start(p); p.setAttribute('pathLength', 100);
+      p.style.strokeDasharray = '100 100'; p.style.strokeDashoffset = 100; return { el: p, d: seam(x, y) };
+    });
+    uniq('g.gl path'); uniq('g.fl path');
+    this.sp = uniq('g.sp path').map(p => {
+      p.setAttribute('pathLength', 100); p.style.strokeDasharray = '7 200'; p.style.strokeDashoffset = 7; p.style.opacity = 0;
+      const L = p.getTotalLength(); return { el: p, end: p.getPointAtLength(L), len: L };
+    }).filter(s => s.len > 40);
+    this.nd = [...svg.querySelectorAll('g.nd circle')].map(c => {
+      Object.assign(c.style, { fill: '#05101C', stroke: C, strokeWidth: 2.5, transformBox: 'fill-box', transformOrigin: 'center', opacity: 0 });
+      return { el: c, x: +c.getAttribute('cx'), y: +c.getAttribute('cy'), d: seam(+c.getAttribute('cx'), +c.getAttribute('cy')) };
+    });
+    this.dt = [...svg.querySelectorAll('g.dt circle')].map(c => { Object.assign(c.style, { fill: C, opacity: 0 }); return c; });
+    this.rp = [...svg.querySelectorAll('g.rp circle')].map(c => {
+      Object.assign(c.style, { fill: 'none', stroke: C, strokeWidth: 1, transformBox: 'fill-box', transformOrigin: 'center', opacity: 0 });
+      return { el: c, x: +c.getAttribute('cx'), y: +c.getAttribute('cy') };
+    });
+    const max = Math.max(...this.tr.map(t => t.d), ...this.nd.map(n => n.d));
+    this.tr.forEach(t => t.d /= max); this.nd.forEach(n => n.d /= max);
+  }
+
+  stopAll() { this.anims.forEach(a => a.cancel()); this.anims = []; clearTimeout(this.tick); this.timers.forEach(clearTimeout); this.timers = []; this.introEnd = 0; }
+  A(el, kf, o) { const a = el.animate(kf, { fill: 'both', ...o }); this.anims.push(a); return a; }
+
+  play() {
+    if (!this.tr) return;
+    this.stopAll();
+    const sp = 1 / (this.props.speed ?? 1), ease = 'cubic-bezier(.22,.8,.24,1)';
+    const draw = 1400 * sp, t0 = 500 * sp;
+    if (this.reduced) {
+      this.baseRef.current.style.opacity = 1; this.markRef.current.style.opacity = 1; this.eyesRef.current.style.opacity = .85;
+      this.scanRef.current.style.opacity = .5;
+      this.tr.forEach(t => { t.el.style.strokeDashoffset = 0; t.el.style.opacity = .25; });
+      this.nd.forEach(n => n.el.style.opacity = 1); this.dt.forEach(d => d.style.opacity = .7); return;
+    }
+    const hand = t0 + draw + 500 * sp;
+    this.introEnd = performance.now() + hand + 1000 * sp;
+    this.nextGlitch = this.introEnd + 1500; this.nextAuto = this.introEnd + 2500;
+    this.A(this.baseRef.current, [{ opacity: 0, transform: 'scale(.97)', filter: 'blur(6px)' }, { opacity: 1, transform: 'scale(1)', filter: 'blur(0)' }], { duration: 700 * sp, easing: ease });
+    [this.markRef, this.eyesRef, this.scanRef].forEach(r => this.A(r.current, [{ opacity: 0 }, { opacity: 0 }], { duration: 1 }));
+    this.A(this.gl, [{ opacity: 0 }, { opacity: 0 }], { duration: 1 });
+    this.tr.forEach(t => this.A(t.el, [{ strokeDashoffset: 100, opacity: 1 }, { strokeDashoffset: 0, opacity: 1 }], { delay: t0 + t.d * draw, duration: 650 * sp, easing: ease }));
+    this.nd.forEach(n => this.A(n.el, [{ opacity: 0, transform: 'scale(0)' }, { opacity: 1, transform: 'scale(1.6)', fill: '#e6f8ff', offset: .45 }, { opacity: 1, transform: 'scale(1)', fill: '#05101C' }], { delay: t0 + n.d * draw + 450 * sp, duration: 500 * sp, easing: 'ease-out' }));
+    this.dt.forEach((d, i) => this.A(d, [{ opacity: 0 }, { opacity: .8 }], { delay: t0 + draw + i * 25, duration: 300 }));
+    this.A(this.markRef.current, [{ opacity: 0 }, { opacity: 1 }], { delay: hand, duration: 700 * sp, easing: 'ease-out' });
+    this.A(this.scanRef.current, [{ opacity: 0 }, { opacity: .55 }], { delay: hand, duration: 900 * sp });
+    this.tr.forEach(t => this.A(t.el, [{ strokeDashoffset: 0, opacity: 1 }, { strokeDashoffset: 0, opacity: .18 }], { delay: hand, duration: 900 * sp }));
+    this.A(this.gl, [{ opacity: 0 }, { opacity: .5, offset: .3 }, { opacity: .18 }], { delay: t0 + draw * .6, duration: 1800 * sp });
+    this.A(this.eyesRef.current, [0, .9, .1, 1, .35, 1].map(o => ({ opacity: o })), { delay: hand + 350 * sp, duration: 650, easing: 'steps(1,end)' });
+    this.A(this.haloRef.current, [{ opacity: 0 }, { opacity: .9 }], { delay: t0, duration: draw });
+    this.A(this.halo2Ref.current, [{ opacity: 0 }, { opacity: .7 }], { delay: hand, duration: 1200 });
+    this.timers.push(setTimeout(() => { this.glitch(260); this.schedule(); }, hand + 900 * sp));
+  }
+
+  schedule() {
+    const rate = this.props.traffic ?? 1;
+    const s = this.sp[Math.floor(Math.random() * this.sp.length)];
+    if (s) this.packet(s, Math.random() < .22 ? this.MAG : null);
+    const base = this.hot ? 380 : 1300;
+    this.tick = setTimeout(() => this.schedule(), (base + Math.random() * base) / rate);
+  }
+  packet(s, color) {
+    s.el.style.stroke = color || '';
+    const dur = 600 + s.len * (color === 'fast' ? 1.4 : 3.2);
+    const a = s.el.animate([{ strokeDashoffset: 7, opacity: 1 }, { strokeDashoffset: -100, opacity: 1 }], { duration: dur, easing: 'cubic-bezier(.5,0,.5,1)' });
+    a.onfinish = () => {
+      const near = (list, p) => list.reduce((b, n) => { const d = Math.hypot(n.x - p.x, n.y - p.y); return d < b.d ? { n, d } : b; }, { n: null, d: 30 }).n;
+      const n = near(this.nd, s.end), hot = color || '#e6f8ff';
+      if (n) n.el.animate([{ transform: 'scale(1)', fill: '#05101C' }, { transform: 'scale(1.5)', fill: hot, offset: .2 }, { transform: 'scale(1)', fill: '#05101C' }], { duration: 700, easing: 'ease-out' });
+      const r = near(this.rp, s.end);
+      if (r) { r.el.style.stroke = color || this.CY; r.el.animate([{ opacity: .9, transform: 'scale(2)' }, { opacity: 0, transform: 'scale(9)' }], { duration: 900, easing: 'ease-out' }); }
+    };
+  }
+  glitch(ms) { this.glitchUntil = Math.max(this.glitchUntil, performance.now() + ms); }
+
+  growl(withSound) {
+    const now = performance.now();
+    if (!this.introEnd || now < this.introEnd || now - this.growlStart < 1600) return;
+    this.growlStart = now; this.nextAuto = now + (this.props.autoGrowl ?? 9) * 1000 + 1600;
+    if (withSound && (this.props.sound ?? false)) this.growlSound();
+    this.glitch(160); setTimeout(() => this.glitch(220), 420); setTimeout(() => this.glitch(120), 900);
+    this.trG.animate([{ stroke: this.CY }, { stroke: this.MAG, offset: .2 }, { stroke: this.MAG, offset: .7 }, { stroke: this.CY }], { duration: 1400 });
+    this.tr.forEach(t => t.el.animate([{ opacity: .18 }, { opacity: 1, offset: .2 }, { opacity: .9, offset: .7 }, { opacity: .18 }], { duration: 1400, easing: 'ease-out' }));
+    this.sp.slice().sort(() => Math.random() - .5).slice(0, 10).forEach((s, i) => setTimeout(() => this.packet(s, this.MAG), 150 + i * 40));
+    [this.ring1Ref, this.ring2Ref, this.ring3Ref].forEach((r, i) => r.current.animate(
+      [{ opacity: 0, transform: 'scale(.4)' }, { opacity: .9, transform: 'scale(.7)', offset: .1 }, { opacity: 0, transform: 'scale(3.2)' }],
+      { delay: 220 + i * 160, duration: 900, easing: 'ease-out', fill: 'backwards' }));
+  }
+  growlSound() {
+    try {
+      const ac = this.ac || (this.ac = new (window.AudioContext || window.webkitAudioContext)());
+      const t = ac.currentTime, d = 1.3, sr = ac.sampleRate;
+      const buf = ac.createBuffer(1, sr * d, sr), ch = buf.getChannelData(0); let last = 0;
+      for (let i = 0; i < ch.length; i++) { last = (last + 0.02 * (Math.random() * 2 - 1)) / 1.02; ch[i] = last * 3.5; }
+      const noise = ac.createBufferSource(); noise.buffer = buf;
+      const saw = ac.createOscillator(); saw.type = 'sawtooth'; saw.frequency.setValueAtTime(62, t); saw.frequency.linearRampToValueAtTime(48, t + d);
+      const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 520; lp.Q.value = 6;
+      const trem = ac.createGain(); trem.gain.value = .5;
+      const lfo = ac.createOscillator(); lfo.frequency.value = 27; const lg = ac.createGain(); lg.gain.value = .5; lfo.connect(lg).connect(trem.gain);
+      const sg = ac.createGain(); sg.gain.value = .25;
+      const env = ac.createGain(); env.gain.setValueAtTime(0, t); env.gain.linearRampToValueAtTime(.9, t + .18); env.gain.setValueAtTime(.9, t + .8); env.gain.exponentialRampToValueAtTime(.001, t + d);
+      noise.connect(lp); saw.connect(sg).connect(lp); lp.connect(trem).connect(env).connect(ac.destination);
+      [noise, saw, lfo].forEach(n => { n.start(t); n.stop(t + d); });
+    } catch (e) {}
+  }
+
+  frame(now) {
+    const eyes = this.eyesRef.current, head = this.headRef.current;
+    if (!eyes || !head || this.reduced) return;
+    const t = now / 1000, idle = this.introEnd && now > this.introEnd;
+    const ss = (a, b, x) => { const k = Math.min(1, Math.max(0, (x - a) / (b - a))); return k * k * (3 - 2 * k); };
+    // auto growl / idle glitch
+    if (idle) {
+      const auto = this.props.autoGrowl ?? 9;
+      if (auto > 0 && now > this.nextAuto) this.growl(false);
+      if (now > this.nextGlitch) { this.glitch(80 + Math.random() * 120); this.nextGlitch = now + 3500 + Math.random() * 4500; }
+    }
+    // growl envelope
+    const gt = (now - this.growlStart) / 1300;
+    const open = gt >= 0 && gt <= 1 ? ss(.08, .22, gt) * (1 - ss(.72, 1, gt)) : 0;
+    const pull = gt >= 0 && gt < .14 ? Math.sin(gt / .14 * Math.PI) : 0;
+    const vis = open > 0.001 ? 1 : 0;
+    this.jawRef.current.style.opacity = vis; this.snoutRef.current.style.opacity = vis; this.mouthRef.current.style.opacity = vis;
+    this.jawRef.current.style.transform = `translateY(${open * 4.4}%)`;
+    this.snoutRef.current.style.transform = `translateY(${-open * 1.1}%) scaleY(${1 - open * .05})`;
+    this.mouthRef.current.style.transform = `scaleY(${Math.min(1, open * 1.05)})`;
+    // blink
+    if (idle && !this.nextBlink) this.nextBlink = now + 1200;
+    if (idle && now > this.nextBlink && open < .01) {
+      this.blinkAt = now; this.blinkDouble = Math.random() < .3;
+      this.nextBlink = now + 2600 + Math.random() * 3800;
+    }
+    const bt = (now - (this.blinkAt || -1e9)) / 170;
+    let lid = bt >= 0 && bt < 1 ? Math.sin(bt * Math.PI) : 0;
+    if (this.blinkDouble && bt >= 1.4 && bt < 2.4) lid = Math.sin((bt - 1.4) * Math.PI);
+    lid = Math.min(1, lid * 1.15);
+    const lt = `translate(${this.rx * 4}px, ${this.ry * 4}px) scaleY(${lid})`;
+    this.lidLRef.current.style.transform = lt; this.lidRRef.current.style.transform = lt;
+    // head: parallax + lunge + tremble
+    const on = this.props.parallax ?? true;
+    this.rx += ((on ? this.mx : 0) - this.rx) * 0.06; this.ry += ((on ? this.my : 0) - this.ry) * 0.06;
+    const tr = open > .15 ? open : 0, jx = (Math.random() - .5) * 3.2 * tr, jy = (Math.random() - .5) * 2.2 * tr;
+    head.style.transform = `translate(${jx}px, ${jy + pull * -3}px) scale(${1 - pull * .015 + open * .025})`;
+    this.svgRef.current.style.transform = `translate(${this.rx * 7}px, ${this.ry * 7}px)`;
+    eyes.style.transform = `translate(${this.rx * 4}px, ${this.ry * 4}px)`;
+    this.haloRef.current.style.transform = `translate(${this.rx * -6}px, ${this.ry * -6}px)`;
+    // eyes + halos
+    if (idle) {
+      const br = 0.78 + 0.18 * Math.sin(t * 1.3) + (this.hot ? .15 : 0) + open * .4;
+      eyes.style.opacity = Math.min(1, br) * (1 - lid);
+      eyes.style.filter = open > .25
+        ? `hue-rotate(95deg) saturate(2.2) brightness(1.5) drop-shadow(0 0 12px ${this.MAG})`
+        : `drop-shadow(0 0 ${this.hot ? 10 : 5}px rgba(76,198,242,.9))`;
+      this.haloRef.current.style.opacity = 0.65 + 0.2 * Math.sin(t * 0.9) + (this.hot ? .25 : 0);
+      this.halo2Ref.current.style.opacity = 0.55 + 0.15 * Math.sin(t * 0.7 + 2) + open * .8;
+    }
+    // glitch: rgb split + slices
+    const g = now < this.glitchUntil ? 1 : 0, amt = (g ? 1 : 0) * (this.props.glitch ?? 1) + open * .6 * (this.props.glitch ?? 1);
+    const k = amt > 0 ? 1 : 0;
+    this.rgbCRef.current.style.opacity = k * .45; this.rgbMRef.current.style.opacity = k * .45;
+    if (k) {
+      const off = (2 + Math.random() * 6) * Math.min(1.5, amt);
+      this.rgbCRef.current.style.transform = `translate(${-off}px, ${(Math.random() - .5) * 2}px)`;
+      this.rgbMRef.current.style.transform = `translate(${off}px, ${(Math.random() - .5) * 2}px)`;
+    }
+    [this.slice1Ref, this.slice2Ref, this.slice3Ref].forEach(r => {
+      const el = r.current;
+      if (g && Math.random() < .7) {
+        const top = Math.random() * 90, h = 1 + Math.random() * 6;
+        el.style.opacity = 1; el.style.clipPath = `inset(${top}% 0 ${Math.max(0, 100 - top - h)}% 0)`;
+        el.style.transform = `translateX(${(Math.random() - .5) * 28 * Math.min(1.5, amt)}px)`;
+        el.style.filter = Math.random() < .5 ? `drop-shadow(2px 0 0 ${this.MAG})` : `drop-shadow(-2px 0 0 #00e5ff)`;
+      } else el.style.opacity = 0;
+    });
+    if (idle) this.scanRef.current.style.transform = `translateY(${(t * 6) % 3}px)`;
+  }
+
+  renderVals() {
+    const refs = {};
+    ['stageRef','haloRef','halo2Ref','headRef','baseRef','markRef','mouthRef','jawRef','snoutRef','svgRef','eyesRef','rgbCRef','rgbMRef','slice1Ref','slice2Ref','slice3Ref','scanRef','lidLRef','lidRRef','ring1Ref','ring2Ref','ring3Ref'].forEach(k => refs[k] = this[k]);
+    return {
+      ...refs,
+      replay: () => this.play(),
+      growlClick: () => this.growl(true),
+      growlBtn: () => { this.growlStart = -1e9; this.growl(true); },
+      hotOn: () => { this.hot = true; clearTimeout(this.hoverT); this.hoverT = setTimeout(() => this.hot && this.growl(false), 700); },
+      hotOff: () => { this.hot = false; clearTimeout(this.hoverT); }
+    };
+  }
+}
+</script>
+</body>
+</html>

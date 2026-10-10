@@ -31,19 +31,23 @@ hay que replicar el cambio en la otra y revisar `sitemap.xml`.
 
 ## La sección de casos
 
-`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Doce casos, cada uno con la
+`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Catorce casos, cada uno con la
 misma estructura de tres partes: **el problema** que trajo el cliente, **lo que
-construimos** y **el resultado**. Tres fichas grandes (`.case-lg`, a dos columnas arriba
+construimos** y **el resultado**. Cinco fichas grandes (`.case-lg`, a dos columnas arriba
 de 900 px) y nueve en grilla de tres.
 
 Todo lo que se afirma ahí sale de los repos de cada proyecto: las cifras (251 páginas,
-158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) son las que
+158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) (y en las fichas nuevas 250 productos, 158 animatrónicos e inflables, 1,88 MB y
+380 → 52 KB) son las que
 declaran sus READMEs, no estimaciones. Si un proyecto cambia, el número cambia acá
 también, y hay que tocarlo en las **dos** páginas.
 
+El producto de pedidos se llama **Hacé tu pedido** ("Comanda Directa" es sólo el
+nombre del repo): de cara al público va siempre el nombre comercial.
+
 El marco narrativo es que Beast Machine es el estudio contratado: cada ficha nombra al
 cliente (`.case-client`), no a quien escribió el código. Worker aparece como cliente
-(agencia de marketing) en seis de los doce casos.
+(agencia de marketing) en seis de los catorce casos.
 
 Las tarjetas reutilizan `.card`, así que heredan el spotlight que sigue al cursor sin
 tocar `app.js`. La grilla va con `align-items: start`: mientras algunas fichas tengan
@@ -52,22 +56,24 @@ captura y otras no, estirarlas a la altura de la fila deja un hueco en la que no
 ### Las capturas
 
 `assets/img/cases/*.webp`, dentro de un `<figure class="case-media">` con recorte 16:10
-anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay siete y
-**todas son capturas reales del producto corriendo**, tomadas con Playwright el
-19/9/2026, no maquetas:
+anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay nueve y
+**todas son capturas reales del producto corriendo**, tomadas con Playwright (19/9/2026 y 10/10/2026), no maquetas:
 
 | Archivo | De dónde salió | Viewport |
 | --- | --- | --- |
 | `brain.webp` | `C:/tmp/brag-shots/overview.png`, del anonimizador del Brain | 1600×900 @2x |
-| `comanda.webp` | `localhost:3000` (comanda-directa, `npm run dev`) | 1440×900 |
+| `hacetupedido.webp` | www.hace-tu-pedido.site (repo comanda-directa) | 1440×900 |
+| `partymarket.webp` | www.hace-tu-pedido.site/party-market | 414×896 @2x |
+| `aires.webp` | airespublicidad.com.ar | 1440×900, recortada |
 | `lati.webp` | www.latitravel.com | 1440×900 |
 | `museo.webp` | www.elmuseoviajero.com.ar | 1440×900 |
 | `presencia.webp` | presencia-carta.vercel.app/carta | 414×896 |
 | `sagrado.webp` | sagrado-sushi-carta.vercel.app | 414×896 |
 | `gymcounter.webp` | `localhost:3001` (gymcounter, `npm run dev`) | 1440×900 |
 
-Las dos de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). La de
-GymCounter está recortada a `crop=1280:800:80:0` para dejar afuera la banda de métricas
+Las tres de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). La de Aires está recortada a
+`crop=1220:745:110:0` por la misma razón: deja afuera la banda "+15 años / +3.548
+carteles". La de GymCounter está recortada a `crop=1280:800:80:0` para dejar afuera la banda de métricas
 del pie ("2.000+ atletas", "4,9 de satisfacción"): son afirmaciones del propio sitio que
 acá no podemos respaldar. Si se reemplaza una captura hay que subir el `?v=` del `<img>`
 en las dos páginas: `/assets/*` va con cache inmutable.

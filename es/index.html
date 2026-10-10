@@ -313,7 +313,7 @@
       <div class="section-head reveal">
         <p class="eyebrow">Casos</p>
         <h2 class="section-title">Los problemas que nos vinieron a resolver</h2>
-        <p class="section-lead">Agencias, restaurantes, operadores de viajes y compañías culturales llegan con una operación que dejó de escalar. Estos son los productos que les entregamos.</p>
+        <p class="section-lead">Agencias, restaurantes, comercios, operadores de viajes y compañías culturales llegan con una operación que dejó de escalar. Estos son los productos que les entregamos.</p>
       </div>
 
       <div class="cases-featured">
@@ -349,29 +349,85 @@
 
         <article class="card case case-lg reveal">
           <header class="case-head">
-            <span class="case-client">Worker · producto para gastronomía</span>
-            <h3>Comanda Directa</h3>
-            <p class="case-kicker">Un solo código sirve la carta QR de todos los restaurantes de la plataforma.</p>
+            <span class="case-client">Worker · producto de pedidos por WhatsApp</span>
+            <h3>Hacé tu pedido</h3>
+            <p class="case-kicker">Un solo código sirve el catálogo online de todos los negocios de la plataforma.</p>
           </header>
           <figure class="case-media">
-            <img src="/assets/img/cases/comanda.webp?v=1" alt="La landing de Comanda Directa, que explica el recorrido desde la carta QR hasta el pedido en el WhatsApp del local" width="960" height="600" loading="lazy" decoding="async">
+            <img src="/assets/img/cases/hacetupedido.webp?v=1" alt="La landing de Hacé tu pedido: el catálogo online, el pedido que llega por WhatsApp y el ticket impreso" width="960" height="600" loading="lazy" decoding="async">
           </figure>
           <dl class="case-body">
             <div>
               <dt>El problema</dt>
-              <dd>El sistema de pedidos se había construido para un solo local. Sumar el segundo significaba un proyecto de base de datos nuevo y un deploy nuevo por cliente, así que el producto no pasaba de un puñado de restaurantes.</dd>
+              <dd>El sistema de pedidos se había construido para un solo restaurante. Sumar el segundo significaba un proyecto de base de datos nuevo y un deploy nuevo por cliente, así que el producto no pasaba de un puñado de locales.</dd>
             </div>
             <div>
               <dt>Lo que construimos</dt>
-              <dd>Un motor multi-tenant: una sola aplicación Next.js sirve la landing y la carta de todos los clientes contra un único proyecto de Supabase. Cada local carga su carta desde su propio panel o importa la planilla que ya tenía, define modalidades, medios de pago y zonas de envío, y recibe los pedidos ya redactados por WhatsApp. Una extensión de Chrome imprime la comanda en la impresora del mostrador.</dd>
+              <dd>Un motor multi-tenant: una sola aplicación Next.js sirve la landing y el catálogo de todos los clientes contra un único proyecto de Supabase. Cada negocio carga sus productos desde su propio panel o importa la planilla que ya tenía, define modalidades, medios de pago y zonas de envío, y recibe los pedidos ya redactados por WhatsApp. Dos plantillas comparten ese motor: una carta en lista para restaurantes y un catálogo con foto para comercios. Una extensión de Chrome imprime la comanda en la impresora del mostrador.</dd>
             </div>
             <div class="case-result">
               <dt>Resultado</dt>
-              <dd>Dar de alta un restaurante nuevo es una fila en la base, una carga de carta y un QR. Cada mejora del producto llega a todos los locales al mismo tiempo.</dd>
+              <dd>Dar de alta un negocio nuevo es una fila en la base, una carga de catálogo y un QR. Cada mejora del producto llega a todos los clientes al mismo tiempo.</dd>
             </div>
           </dl>
           <ul class="case-tags">
             <li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>Extensión de Chrome</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Party Market · cotillón y disfraces</span>
+            <h3>Un catálogo de Halloween de 250 productos por WhatsApp</h3>
+            <p class="case-kicker">El primer negocio de Hacé tu pedido que no es un restaurante.</p>
+          </header>
+          <figure class="case-media">
+            <img src="/assets/img/cases/partymarket.webp?v=1" alt="El catálogo de Party Market en un celular: el banner de Halloween, el descuento en efectivo y el buscador de productos" width="798" height="1792" loading="lazy" decoding="async">
+          </figure>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Una tienda de temporada tenía una ventana corta para vender Halloween: 250 productos, un talle por cada disfraz y 158 animatrónicos e inflables con precio atado a un mayorista que cambia su lista.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una plantilla de catálogo con foto sobre el motor de Hacé tu pedido: grilla de dos columnas, ficha de producto con selector de talle, buscador y selecciones que se comparten por link. Los precios del mayorista se leen del sitio del proveedor y se les aplica el margen en un solo lugar, y las fotos se descargan, se recortan cuadradas y se comprimen en lote.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Actualizar los precios de todo el catálogo es cambiar un número. Cada pedido llega con el talle ya escrito, y no hubo que tocar código pensado para restaurantes: alcanzó con apagar la opción de salón.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Next.js</li><li>Supabase</li><li>Sincronización con proveedor</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Aires Publicidad · cartelería</span>
+            <h3>airespublicidad.com.ar</h3>
+            <p class="case-kicker">Una landing que se puede rediseñar sin perder la medición.</p>
+          </header>
+          <figure class="case-media">
+            <img src="/assets/img/cases/aires.webp?v=1" alt="La home de Aires Publicidad: el título, el botón para cotizar por WhatsApp y la foto de un cartel colocado" width="960" height="586" loading="lazy" decoding="async">
+          </figure>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>La landing sale de una herramienta de diseño y se reemplaza entera en cada rediseño, así que todo lo agregado a mano (SEO, medición, limpieza) desaparecía con el siguiente export. Además, la conversión del formulario se disparaba apenas alguien tipeaba una letra.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Un Worker de Cloudflare que reescribe el HTML al vuelo: títulos, datos estructurados, medición y ajustes de imágenes se inyectan en cada request y el archivo de diseño queda intacto. El clic en WhatsApp llega a Meta desde el navegador y desde el servidor con el mismo ID de evento, el formulario llega por mail y las siete URLs del sitio anterior redirigen conservando el identificador del clic del anuncio. Detrás de un código de acceso, un generador de presupuestos dibuja el PDF como texto vectorial.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Regenerar el diseño ya no borra nada, y la conversión del formulario cuenta solo los envíos confirmados. La página pesa 1,88 MB en un celular, y el PDF del presupuesto pasó de una imagen borrosa de 380 KB a 52 KB de texto que se puede buscar.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Cloudflare Workers</li><li>Meta CAPI</li><li>GTM y GA4</li><li>jsPDF</li>
           </ul>
         </article>
 

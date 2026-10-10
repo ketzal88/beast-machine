@@ -313,7 +313,7 @@
       <div class="section-head reveal">
         <p class="eyebrow">Selected work</p>
         <h2 class="section-title">Problems we were hired to solve</h2>
-        <p class="section-lead">Agencies, restaurants, tour operators and cultural companies come to us with an operation that stopped scaling. These are the products we shipped for them.</p>
+        <p class="section-lead">Agencies, restaurants, shops, tour operators and cultural companies come to us with an operation that stopped scaling. These are the products we shipped for them.</p>
       </div>
 
       <div class="cases-featured">
@@ -349,29 +349,85 @@
 
         <article class="card case case-lg reveal">
           <header class="case-head">
-            <span class="case-client">Worker · product for restaurants</span>
-            <h3>Comanda Directa</h3>
-            <p class="case-kicker">One codebase serving the QR menu of every restaurant on the platform.</p>
+            <span class="case-client">Worker · WhatsApp ordering product</span>
+            <h3>Hacé tu pedido</h3>
+            <p class="case-kicker">One codebase serving the online catalogue of every business on the platform.</p>
           </header>
           <figure class="case-media">
-            <img src="/assets/img/cases/comanda.webp?v=1" alt="The Comanda Directa landing page, explaining the flow from the QR menu to the order on the venue’s WhatsApp" width="960" height="600" loading="lazy" decoding="async">
+            <img src="/assets/img/cases/hacetupedido.webp?v=1" alt="The Hacé tu pedido landing page: the online catalogue, the order arriving on WhatsApp and the printed ticket" width="960" height="600" loading="lazy" decoding="async">
           </figure>
           <dl class="case-body">
             <div>
               <dt>The problem</dt>
-              <dd>The ordering system had been built for a single venue. Adding the second one meant a new database project and a new deployment per client, so the product could not grow past a handful of restaurants.</dd>
+              <dd>The ordering system had been built for a single restaurant. Adding the second one meant a new database project and a new deployment per client, so the product could not grow past a handful of venues.</dd>
             </div>
             <div>
               <dt>What we built</dt>
-              <dd>A multi-tenant engine: one Next.js app serves the landing page and the menu of every client, against a single Supabase project. Each venue loads its menu from its own panel or imports the spreadsheet it already had, sets service modes, payment methods and delivery zones, and receives orders already written out on WhatsApp. A Chrome extension prints the ticket on the counter printer.</dd>
+              <dd>A multi-tenant engine: one Next.js app serves the landing page and the catalogue of every client, against a single Supabase project. Each business loads its products from its own panel or imports the spreadsheet it already had, sets service modes, payment methods and delivery zones, and receives orders already written out on WhatsApp. Two templates share that engine: a menu list for restaurants and a photo catalogue for shops. A Chrome extension prints the ticket on the counter printer.</dd>
             </div>
             <div class="case-result">
               <dt>Result</dt>
-              <dd>Onboarding a new restaurant is one database row, one menu load and one QR code. Every product improvement reaches all venues at the same time.</dd>
+              <dd>Onboarding a new business is one database row, one catalogue load and one QR code. Every product improvement reaches all clients at the same time.</dd>
             </div>
           </dl>
           <ul class="case-tags">
             <li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>Chrome extension</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Party Market · costume and party shop</span>
+            <h3>A 250-product Halloween catalogue on WhatsApp</h3>
+            <p class="case-kicker">The first business on Hacé tu pedido that is not a restaurant.</p>
+          </header>
+          <figure class="case-media">
+            <img src="/assets/img/cases/partymarket.webp?v=1" alt="The Party Market catalogue on a phone: the Halloween banner, the cash discount and the product search" width="798" height="1792" loading="lazy" decoding="async">
+          </figure>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>A seasonal shop had a short window to sell Halloween: 250 products, a size for every costume, and 158 animatronics and inflatables priced off a wholesaler that keeps changing its list.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A photo catalogue template on the Hacé tu pedido engine: a two-column grid, a product sheet with a size picker, search, and selections shared by link. Wholesaler prices are read from the supplier’s site and marked up in one place, and product photos are downloaded, squared and compressed in bulk.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Repricing the whole catalogue is changing one number. Every order reaches the shop with the size already written, and no restaurant-specific code had to change: switching off dine-in was enough.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Next.js</li><li>Supabase</li><li>Supplier sync</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card case case-lg reveal">
+          <header class="case-head">
+            <span class="case-client">Aires Publicidad · signage</span>
+            <h3>airespublicidad.com.ar</h3>
+            <p class="case-kicker">A landing page that can be redesigned without losing its measurement.</p>
+          </header>
+          <figure class="case-media">
+            <img src="/assets/img/cases/aires.webp?v=1" alt="The Aires Publicidad home page: the headline, the WhatsApp quote button and a photo of an installed sign" width="960" height="586" loading="lazy" decoding="async">
+          </figure>
+          <dl class="case-body">
+            <div>
+              <dt>The problem</dt>
+              <dd>The landing page comes out of a design tool and is replaced in full on every redesign, so anything added by hand (SEO, tracking, cleanup) vanished with the next export. On top of that, the form conversion fired as soon as someone typed a single letter.</dd>
+            </div>
+            <div>
+              <dt>What we built</dt>
+              <dd>A Cloudflare Worker that rewrites the HTML on the fly: titles, structured data, tracking and image fixes are injected at request time and the design file stays untouched. WhatsApp clicks reach Meta from the browser and from the server with the same event ID, the contact form arrives by email, and the seven old URLs redirect keeping the ad click ID. Behind an access code, a quote generator draws its PDF as vector text.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Result</dt>
+              <dd>Regenerating the design no longer wipes anything out, and the form conversion counts only confirmed submissions. The page weighs 1.88 MB on a phone, and a quote PDF went from a 380 KB blurry image to 52 KB of searchable text.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Cloudflare Workers</li><li>Meta CAPI</li><li>GTM and GA4</li><li>jsPDF</li>
           </ul>
         </article>
 

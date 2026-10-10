@@ -115,6 +115,16 @@ GymCounter no tiene deploy público documentado, por eso la captura sale de loca
 | Spotlight que sigue al cursor en las tarjetas | `.card` |
 | Formulario que arma el mensaje de WhatsApp | `#brief-form` |
 | Apagar el filtro del hero cuando sale de pantalla | `.hero.is-idle` |
+| Marquees cuya velocidad y sentido siguen al scroll (Scroll Based Velocity) | `.marquee[data-direction]` |
+| Texto que se descifra letra por letra (Hyper Text) | `[data-scramble]` del hero y eyebrows de sección |
+| Luz que recorre el borde (Border Beam) | `.beam`: casos destacados y panel de contacto |
+| Brillo periódico en los botones principales (Shimmer Button) | `.btn-primary::after` |
+| Grilla titilante en canvas, sólo mientras está a la vista (Flickering Grid) | `.flicker-grid`, la crea el JS en `.contact` |
+
+Los cinco últimos son efectos de [Magic UI](https://magicui.design/docs/components)
+reescritos en CSS y JS vanilla: la librería es React + Tailwind y este sitio no tiene
+build. Todos se apagan con `prefers-reduced-motion`, y los que corren en loop (marquees,
+grilla) se pausan fuera de pantalla con `IntersectionObserver`.
 
 ## El logo animado del hero
 

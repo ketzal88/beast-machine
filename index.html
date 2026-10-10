@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
 <link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=16">
+<link rel="stylesheet" href="/assets/css/style.css?v=17">
 <noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
 
 <script type="application/ld+json">
@@ -129,7 +129,7 @@
         <h1>
           <span class="line" style="--i:0"><span>We build</span></span>
           <span class="line" style="--i:1"><span>digital products</span></span>
-          <span class="line" style="--i:2"><span class="gradient-text">that scale</span></span>
+          <span class="line" style="--i:2"><span class="gradient-text" data-scramble>that scale</span></span>
         </h1>
         <p class="hero-lead hero-fade" style="--d:.55s">We design, build and ship software for companies and startups. From the first prototype to production, with one team across the whole cycle.</p>
         <div class="hero-actions hero-fade" style="--d:.7s">
@@ -184,7 +184,7 @@
   </section>
 
   <!-- ── MARQUEE ───────────────────────────────────────────────────────── -->
-  <div class="marquee" aria-hidden="true">
+  <div class="marquee" data-direction="1" aria-hidden="true">
     <div class="marquee-track">
       <ul>
         <li>Mobile apps</li>
@@ -316,9 +316,26 @@
         <p class="section-lead">Agencies, restaurants, shops, tour operators and cultural companies come to us with an operation that stopped scaling. These are the products we shipped for them.</p>
       </div>
 
+      <div class="marquee marquee-clients" data-direction="-1" aria-hidden="true">
+        <div class="marquee-track">
+          <ul>
+            <li>Worker</li>
+            <li>Hacé tu pedido</li>
+            <li>Party Market</li>
+            <li>Aires Publicidad</li>
+            <li>Lati Travel</li>
+            <li>Presencia</li>
+            <li>Sagrado Sushi</li>
+            <li>El Museo Viajero</li>
+            <li>Alynk</li>
+            <li>GymCounter</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="cases-featured">
 
-        <article class="card case case-lg reveal">
+        <article class="card case case-lg beam reveal">
           <header class="case-head">
             <span class="case-client">Worker · marketing agency</span>
             <h3>Worker Brain</h3>
@@ -347,7 +364,7 @@
           </ul>
         </article>
 
-        <article class="card case case-lg reveal">
+        <article class="card case case-lg beam reveal">
           <header class="case-head">
             <span class="case-client">Worker · WhatsApp ordering product</span>
             <h3>Hacé tu pedido</h3>
@@ -375,7 +392,7 @@
           </ul>
         </article>
 
-        <article class="card case case-lg reveal">
+        <article class="card case case-lg beam reveal">
           <header class="case-head">
             <span class="case-client">Party Market · costume and party shop</span>
             <h3>A 250-product Halloween catalogue on WhatsApp</h3>
@@ -403,7 +420,7 @@
           </ul>
         </article>
 
-        <article class="card case case-lg reveal">
+        <article class="card case case-lg beam reveal">
           <header class="case-head">
             <span class="case-client">Aires Publicidad · signage</span>
             <h3>airespublicidad.com.ar</h3>
@@ -431,7 +448,7 @@
           </ul>
         </article>
 
-        <article class="card case case-lg reveal">
+        <article class="card case case-lg beam reveal">
           <header class="case-head">
             <span class="case-client">Lati Travel · tour operator</span>
             <h3>latitravel.com</h3>
@@ -727,7 +744,7 @@
   <section class="contact" id="contact">
     <div class="orb orb-c" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="contact-panel reveal">
+      <div class="contact-panel beam reveal" style="--beam-delay:-3s">
         <div class="contact-copy">
           <p class="eyebrow">Contact</p>
           <h2>Let's talk about your project</h2>
@@ -809,6 +826,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/app.js?v=5" defer></script>
+<script src="/assets/js/app.js?v=6" defer></script>
 </body>
 </html>

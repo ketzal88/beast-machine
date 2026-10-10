@@ -1176,3 +1176,59 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
   .mark-organic { filter: none; }
   .mark-eyes { animation: none; }
 }
+
+/* ── Movimiento: efectos portados de Magic UI ──────────────────────────────
+   magicui.design es React + Tailwind; acá van reescritos en CSS y JS vanilla
+   para no sumar dependencias ni build. Todo se apaga con reduced-motion. */
+
+/* Border Beam: una luz que recorre el borde de la tarjeta. */
+@property --beam { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+.beam::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--beam), transparent 0deg 280deg, rgba(79, 216, 255, 0.15) 310deg, var(--cyan-bright) 350deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beam-spin 8s linear infinite;
+  animation-delay: var(--beam-delay, 0s);
+  pointer-events: none;
+}
+@keyframes beam-spin { to { --beam: 360deg; } }
+
+/* Shimmer Button: el brillo pasa solo cada tanto, no sólo con el mouse. */
+.btn-primary::after { animation: shimmer 4.2s var(--ease) 1.8s infinite; }
+@keyframes shimmer {
+  0% { transform: translateX(-120%); }
+  30%, 100% { transform: translateX(120%); }
+}
+
+/* Marquee de clientes, dentro de la sección de casos. */
+.marquee-clients {
+  margin: -24px 0 clamp(40px, 5vw, 56px);
+  background: transparent;
+  border-radius: 12px;
+}
+.marquee-clients .marquee-track li { font-size: 1.15rem; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+
+/* Con JS la velocidad la maneja el scroll (Scroll Based Velocity). */
+.marquee.is-driven .marquee-track { animation: none; will-change: transform; }
+
+/* Flickering Grid: fondo de la sección de contacto. */
+.flicker-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 30%, transparent 85%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beam::after, .btn-primary::after { animation: none; }
+  .flicker-grid { display: none; }
+}

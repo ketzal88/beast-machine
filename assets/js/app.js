@@ -214,13 +214,163 @@
     });
   }
 
-  /* ── Marquee: duplicate the track so the loop is seamless ───────────── */
+  /* ── Marquees: seamless loop, speed driven by scroll velocity ───────── */
+  /* Port of Magic UI's Scroll Based Velocity: scrolling speeds the strip up
+     and flips its direction; idle, it drifts at its base speed. Without JS
+     (or with reduced motion) the CSS animation keeps running as before. */
 
-  var track = $('.marquee-track');
-  if (track && track.children.length === 1) {
-    var clone = track.children[0].cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
+  var scrollVelocity = 0;
+  var lastScrollY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    scrollVelocity += y - lastScrollY;
+    lastScrollY = y;
+  }, { passive: true });
+
+  $$('.marquee').forEach(function (marquee) {
+    var track = $('.marquee-track', marquee);
+    if (!track) return;
+    if (track.children.length === 1) {
+      var clone = track.children[0].cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+    if (reduced || !('IntersectionObserver' in window)) return;
+
+    var dir = parseFloat(marquee.getAttribute('data-direction')) || 1;
+    var x = 0, boost = 0, last = null, visible = false, raf = 0;
+    marquee.classList.add('is-driven');
+
+    function step(now) {
+      if (last === null) last = now;
+      var dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      var half = track.scrollWidth / 2 || 1;
+      // velocity decays so a flick fades out instead of sticking
+      boost += (scrollVelocity * 0.9 - boost) * 0.12;
+      if (boost > 0.5) dir = Math.abs(dir); else if (boost < -0.5) dir = -Math.abs(dir);
+      var speed = 42 + Math.min(Math.abs(boost) * 14, 520);
+      x -= dir * speed * dt;
+      if (x <= -half) x += half;
+      if (x > 0) x -= half;
+      track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      raf = visible ? window.requestAnimationFrame(step) : 0;
+    }
+
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible && !raf) { last = null; raf = window.requestAnimationFrame(step); }
+    }).observe(marquee);
+  });
+
+  (function decayVelocity() {
+    scrollVelocity *= 0.8;
+    window.requestAnimationFrame(decayVelocity);
+  })();
+
+  /* ── Hyper Text: letters decode into place ──────────────────────────── */
+
+  var GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&';
+
+  function scramble(el) {
+    if (el._scrambling) return;
+    var final = el.getAttribute('data-text') || el.textContent;
+    el.setAttribute('data-text', final);
+    el._scrambling = true;
+    var total = final.length, frame = 0, frames = Math.max(14, total * 1.6);
+    var timer = window.setInterval(function () {
+      frame++;
+      var revealed = Math.floor((frame / frames) * total);
+      var out = '';
+      for (var i = 0; i < total; i++) {
+        var c = final.charAt(i);
+        if (i < revealed || !/[0-9A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(c)) { out += c; continue; }
+        var g = GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        out += c === c.toLowerCase() ? g.toLowerCase() : g;
+      }
+      el.textContent = out;
+      if (frame >= frames) {
+        window.clearInterval(timer);
+        el.textContent = final;
+        el._scrambling = false;
+      }
+    }, 38);
+  }
+
+  if (!reduced) {
+    var heroWord = $('[data-scramble]');
+    if (heroWord) {
+      window.setTimeout(function () { scramble(heroWord); }, 950);
+      heroWord.addEventListener('pointerenter', function () { scramble(heroWord); });
+    }
+
+    var eyebrows = $$('.section-head .eyebrow, .contact-copy .eyebrow');
+    if ('IntersectionObserver' in window) {
+      var eyebrowObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            scramble(entry.target);
+            eyebrowObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 1 });
+      eyebrows.forEach(function (el) { eyebrowObserver.observe(el); });
+    }
+  }
+
+  /* ── Border Beam: stagger so the lights never move in sync ──────────── */
+
+  $$('.cases-featured .beam').forEach(function (el, i) {
+    el.style.setProperty('--beam-delay', (-i * 1.7).toFixed(1) + 's');
+  });
+
+  /* ── Flickering Grid behind the contact panel ───────────────────────── */
+
+  var contact = $('.contact');
+  if (contact && !reduced && 'IntersectionObserver' in window) {
+    var canvas = document.createElement('canvas');
+    canvas.className = 'flicker-grid';
+    canvas.setAttribute('aria-hidden', 'true');
+    contact.insertBefore(canvas, contact.firstChild);
+    var ctx = canvas.getContext('2d');
+    var SQ = 4, GAP = 6, cols = 0, rows = 0, cells = null, dpr = 1;
+    var flickerOn = false, flickerRaf = 0, flickerLast = 0;
+
+    function sizeGrid() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = contact.clientWidth, h = contact.clientHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      cols = Math.ceil(w / (SQ + GAP));
+      rows = Math.ceil(h / (SQ + GAP));
+      cells = new Float32Array(cols * rows);
+      for (var i = 0; i < cells.length; i++) cells[i] = Math.random() * 0.42;
+    }
+
+    function drawGrid(now) {
+      if (now - flickerLast > 60) {
+        flickerLast = now;
+        for (var i = 0; i < cells.length; i++) {
+          if (Math.random() < 0.025) cells[i] = Math.random() * 0.42;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var s = SQ * dpr, step = (SQ + GAP) * dpr;
+        for (var c = 0; c < cols; c++) {
+          for (var r = 0; r < rows; r++) {
+            ctx.fillStyle = 'rgba(0,174,239,' + cells[c * rows + r].toFixed(3) + ')';
+            ctx.fillRect(c * step, r * step, s, s);
+          }
+        }
+      }
+      flickerRaf = flickerOn ? window.requestAnimationFrame(drawGrid) : 0;
+    }
+
+    sizeGrid();
+    window.addEventListener('resize', sizeGrid);
+    new IntersectionObserver(function (entries) {
+      flickerOn = entries[0].isIntersecting;
+      if (flickerOn && !flickerRaf) flickerRaf = window.requestAnimationFrame(drawGrid);
+    }).observe(contact);
   }
 
   /* ── Footer year ────────────────────────────────────────────────────── */

@@ -13,7 +13,7 @@ assets/js/app.js        Interacciones: scroll, reveals, contadores, menú, form
 assets/img/             Capas del logo, favicons, OG images
 tools/                  Pipeline que descompone el logo en capas animables
 assets/img/source/      Archivos originales del branding (JPG con fondo blanco)
-assets/video/           Animaciones de logo entregadas por el cliente (sin usar hoy)
+assets/video/           Animaciones de logo del cliente; wolf-turn.mp4 se usa en Proceso
 robots.txt · sitemap.xml · site.webmanifest · vercel.json
 ```
 
@@ -113,6 +113,19 @@ de marca baja a `#0088C2`, porque `#00AEEF` sobre blanco no llega al contraste d
 En las secciones oscuras el texto secundario (`--muted`) es `#A6B6C6` y las tarjetas son
 un plano sólido (`--panel`), no una transparencia: con las transparencias de antes todo
 quedaba azul sobre azul y las secciones no se distinguían.
+
+## El logo animado de Proceso
+
+`assets/video/wolf-turn.mp4` sale de `logo-reveal-vertical.mp4` (el que entregó el
+cliente): recortado a la banda útil, con el blanco del fondo llevado a blanco puro,
+y armado ida y vuelta (el giro y el mismo giro al revés) para que el loop no salte.
+Sin audio, 540 KB. Reproduce sólo mientras está a la vista y se queda en el póster
+(`wolf-turn.webp`) con reduced-motion.
+
+El fondo blanco del video desaparece con `mix-blend-mode: multiply` sobre el papel
+claro. Para que funcione, `.process-sticky` tiene que tener el mismo fondo de la
+sección: el sticky crea su propio contexto de apilamiento y, transparente, el multiply
+no tiene contra qué fundirse y se ve el recuadro blanco.
 
 ## Interacciones (assets/js/app.js)
 

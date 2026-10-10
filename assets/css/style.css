@@ -1291,3 +1291,17 @@ section { position: relative; padding: clamp(80px, 11vw, 140px) 0; }
 .section-light .step li { background: #EEF5FA; color: #22364A; }
 .section-light .process-rail { background: rgba(10, 23, 36, 0.10); }
 .section-light .process-mark { opacity: 0.18; filter: grayscale(0.2) brightness(0.55); }
+
+/* Logo animado de Proceso: el video del cliente (el lobo gira de perfil a
+   frente y vuelve). Viene sobre blanco; multiply lo funde con el papel claro. */
+.section-light .process-logo {
+  max-width: 300px;
+  height: auto;
+  margin-top: 40px;
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: multiply;
+}
+/* sticky crea su propio contexto de apilamiento: sin un fondo adentro, el
+   multiply del video no tiene contra qué fundirse y se ve el recuadro blanco. */
+.section-light .process-sticky { background: #EEF3F7; }

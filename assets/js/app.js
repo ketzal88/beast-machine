@@ -373,6 +373,20 @@
     }).observe(contact);
   }
 
+  /* ── Process logo video: plays only while on screen ─────────────────── */
+
+  var processLogo = $('.process-logo');
+  if (processLogo && !reduced && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        var playing = processLogo.play();
+        if (playing && playing.catch) playing.catch(function () {});
+      } else {
+        processLogo.pause();
+      }
+    }, { threshold: 0.2 }).observe(processLogo);
+  }
+
   /* ── Footer year ────────────────────────────────────────────────────── */
 
   $$('[data-year]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });

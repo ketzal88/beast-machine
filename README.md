@@ -32,10 +32,10 @@ hay que replicar el cambio en la otra y revisar `sitemap.xml`.
 
 ## La sección de casos
 
-`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Dieciocho casos, cada uno con la
+`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Diecinueve casos, cada uno con la
 misma estructura de tres partes: **el problema** que trajo el cliente, **lo que
 construimos** y **el resultado**. Cinco fichas grandes (`.case-lg`, a dos columnas arriba
-de 900 px) y trece en grilla de tres.
+de 900 px) y catorce en grilla de tres.
 
 Todo lo que se afirma ahí sale de los repos de cada proyecto: las cifras (251 páginas,
 158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) (y en las fichas nuevas 250 productos, 158 animatrónicos e inflables, 56 horas por mes y 52 KB;
@@ -57,7 +57,7 @@ captura y otras no, estirarlas a la altura de la fila deja un hueco en la que no
 ### Las capturas
 
 `assets/img/cases/*.webp`, dentro de un `<figure class="case-media">` con recorte 16:10
-anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay doce y
+anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay trece y
 **todas son capturas reales del producto corriendo**, tomadas con Playwright (19/9/2026, 10/10/2026 y 24/10/2026), no maquetas:
 
 | Archivo | De dónde salió | Viewport |
@@ -74,6 +74,7 @@ anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay do
 | `worker.webp` | worker-2027.vercel.app | 1440×900 → 960×600 |
 | `alko.webp` | preview GHL de Alko, página Marcas (la grilla de marcas, sin banda de métricas) | 1440×900 → 960×600 |
 | `casas-valeria.webp` | casas-valeria.vercel.app | 1440×900 → 960×600 |
+| `quinton.webp` | quinton.com.ar (chat/WhatsApp flotantes ocultos antes de capturar) | 1440×900 → 960×600 |
 
 Las tres de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). La de Aires está recortada a
 `crop=1220:745:110:0` por la misma razón: deja afuera la banda "+15 años / +3.548

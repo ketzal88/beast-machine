@@ -32,10 +32,10 @@ hay que replicar el cambio en la otra y revisar `sitemap.xml`.
 
 ## La sección de casos
 
-`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Catorce casos, cada uno con la
+`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Dieciocho casos, cada uno con la
 misma estructura de tres partes: **el problema** que trajo el cliente, **lo que
 construimos** y **el resultado**. Cinco fichas grandes (`.case-lg`, a dos columnas arriba
-de 900 px) y nueve en grilla de tres.
+de 900 px) y trece en grilla de tres.
 
 Todo lo que se afirma ahí sale de los repos de cada proyecto: las cifras (251 páginas,
 158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) (y en las fichas nuevas 250 productos, 158 animatrónicos e inflables, 56 horas por mes y 52 KB;
@@ -57,8 +57,8 @@ captura y otras no, estirarlas a la altura de la fila deja un hueco en la que no
 ### Las capturas
 
 `assets/img/cases/*.webp`, dentro de un `<figure class="case-media">` con recorte 16:10
-anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay nueve y
-**todas son capturas reales del producto corriendo**, tomadas con Playwright (19/9/2026 y 10/10/2026), no maquetas:
+anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay doce y
+**todas son capturas reales del producto corriendo**, tomadas con Playwright (19/9/2026, 10/10/2026 y 24/10/2026), no maquetas:
 
 | Archivo | De dónde salió | Viewport |
 | --- | --- | --- |
@@ -71,13 +71,21 @@ anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay nu
 | `presencia.webp` | presencia-carta.vercel.app/carta | 414×896 |
 | `sagrado.webp` | sagrado-sushi-carta.vercel.app | 414×896 |
 | `gymcounter.webp` | `localhost:3001` (gymcounter, `npm run dev`) | 1440×900 |
+| `worker.webp` | worker-2027.vercel.app | 1440×900 → 960×600 |
+| `alko.webp` | preview GHL de Alko, página Marcas (la grilla de marcas, sin banda de métricas) | 1440×900 → 960×600 |
+| `casas-valeria.webp` | casas-valeria.vercel.app | 1440×900 → 960×600 |
 
 Las tres de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). La de Aires está recortada a
 `crop=1220:745:110:0` por la misma razón: deja afuera la banda "+15 años / +3.548
 carteles". La de GymCounter está recortada a `crop=1280:800:80:0` para dejar afuera la banda de métricas
 del pie ("2.000+ atletas", "4,9 de satisfacción"): son afirmaciones del propio sitio que
-acá no podemos respaldar. Si se reemplaza una captura hay que subir el `?v=` del `<img>`
-en las dos páginas: `/assets/*` va con cache inmutable.
+acá no podemos respaldar. La de Alko sale de la **página Marcas**, no del home, por la misma
+razón: el home está sembrado de autoclaims ("+50.000 SKUs", "+500 marcas", "+5.500 m²",
+"49 años") y recortarlos del hero obliga a cortar el logo; la grilla de marcas es identidad
+real sin ningún número que no podamos respaldar. Las de Worker y Casas en Valeria son
+capturas limpias del hero (sin banda de métricas), reescaladas de 1440×900 a 960×600. Si se
+reemplaza una captura hay que subir el `?v=` del `<img>` en las dos páginas: `/assets/*` va
+con cache inmutable.
 
 **La del Brain lleva pie de foto y no es negociable.** Sale del anonimizador
 (`scripts/ops/brag-capture.mjs` en el repo del Brain), que reemplaza clientes y equipo
@@ -87,7 +95,7 @@ ningún número vuelva a un reporte como si fuera un caso real. El gate del scri
 atrapa apodos tipeados a mano, así que cada captura nueva del Brain se mira antes de
 publicarla.
 
-### Los cinco casos sin captura
+### Los seis casos sin captura
 
 | Caso | Por qué no |
 | --- | --- |
@@ -96,6 +104,7 @@ publicarla.
 | El banco de trabajo con IA | No tiene interfaz: son skills y carpetas de memoria que corren en una terminal. |
 | Seguridad y calidad del código | Idem: hooks y gates, sin pantalla propia. |
 | Shopify y TiendaNube | Idem: herramientas MCP que se manejan conversando. |
+| Presencia · After Service | Todo detrás de token (el link es la credencial, no hay login) y solo el splash es público; el subdominio todavía dependía del DNS del cliente. La única captura posible sería el splash, que no muestra el producto. |
 
 Para los tres últimos, una captura de terminal armada a mano sería construir una imagen,
 no capturar el producto. Se dejan sin media hasta tener una grabación del flujo real.

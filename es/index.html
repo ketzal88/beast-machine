@@ -329,6 +329,8 @@
             <li>El Museo Viajero</li>
             <li>Alynk</li>
             <li>GymCounter</li>
+            <li>Alko</li>
+            <li>Casas en Valeria del Mar</li>
           </ul>
         </div>
       </div>
@@ -691,6 +693,103 @@
             </div>
           </dl>
           <ul class="case-tags"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>PWA offline</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:0">
+          <figure class="case-media">
+            <img src="/assets/img/cases/worker.webp?v=1" alt="La nueva portada de Worker: el titular sobre especialistas más IA y la sección de cómo trabaja la agencia" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Worker · sitio de la agencia</span>
+            <h3>El nuevo sitio de la agencia</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>El sitio anterior era HTML plano en inglés, escrito antes de que la agencia fuera un equipo trabajando junto a la IA. Ya no decía en qué se había convertido Worker.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Un nuevo sitio institucional en español, armado alrededor de cómo trabaja la agencia hoy: especialistas más IA, qué hacen y cómo lo hacen, un diagnóstico de marca y un recorrido por el Brain, la herramienta con la que llevan las cuentas.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Un sitio que coincide con lo que es la agencia ahora, en vivo sobre Vercel.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Sitio institucional</li><li>SEO</li><li>Vercel</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:1">
+          <figure class="case-media">
+            <img src="/assets/img/cases/alko.webp?v=1" alt="Las marcas que distribuye Alko, cada ficha con un proveedor y sus líneas de producto" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Alko · materiales eléctricos</span>
+            <h3>Un catálogo que el cliente edita solo</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Un distribuidor mayorista de materiales eléctricos, en el rubro desde 1977, no tenía sitio propio. El diseño existía como maqueta y había que construirlo y publicarlo, con una condición: el cliente tenía que cambiar los textos sin tocar el diseño.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Cuatro páginas (home, nosotros, líneas de producto, marcas) publicadas en Go High Level, generadas por scripts de Node pelados desde la planilla del cliente. Dos mega-menús que cubren 26 líneas de producto y 45 marcas, y 36 textos que el cliente edita desde la configuración sin volver a publicar.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>El distribuidor actualiza sus propios textos sin romper el diseño, y todo el catálogo se genera desde un único archivo de datos.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Go High Level</li><li>Scripts de Node</li><li>Custom Values</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:2">
+          <figure class="case-media">
+            <img src="/assets/img/cases/casas-valeria.webp?v=1" alt="La portada de Casas en Valeria del Mar: las cuatro casas con sus fotos, precios y disponibilidad" width="960" height="600" loading="lazy" decoding="async">
+          </figure>
+          <header class="case-head">
+            <span class="case-client">Casas en Valeria del Mar · alquiler temporario</span>
+            <h3>Cuatro casas, un panel que el dueño maneja del celular</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Cuatro casas de veraneo para alquilar, con precios, disponibilidad y fotos que cambian con la temporada, y un dueño que necesitaba actualizar todo eso sin un programador.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Un sitio sin base de datos: todo vive en un JSON sobre Vercel Blob (cuatro casas, dieciséis períodos de temporada y las galerías). La disponibilidad se lleva por noches ocupadas, así que dos quincenas que se superponen comparten una fecha sin pisarse, y el dueño marca un período como alquilado con un botón. Cada guardado escribe un archivo nuevo, así que se puede volver a las últimas 20 versiones.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>El dueño cambia precios, disponibilidad y fotos desde el celular, y el sitio nunca se contradice.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Tailwind</li><li>Vercel Blob</li><li>Sin base de datos</li></ul>
+        </article>
+
+        <article class="card case reveal" style="--i:0">
+          <header class="case-head">
+            <span class="case-client">Presencia · club de miembros</span>
+            <h3>Un club por invitación, manejado desde un panel</h3>
+          </header>
+          <dl class="case-body">
+            <div>
+              <dt>El problema</dt>
+              <dd>Presencia quería un círculo privado alrededor del restaurante: solo por invitación, sin alta pública, armado alrededor de eventos con nombre y no de una cuota mensual.</dd>
+            </div>
+            <div>
+              <dt>Lo que construimos</dt>
+              <dd>Una plataforma de miembros en un subdominio del mismo proyecto de la carta. El link es la credencial (un token aleatorio, sin login): el miembro ve su tarjeta, sus privilegios y la próxima Edición; el invitado confirma o declina una invitación nominal. La membresía crece por nominación, revisada desde el panel, con un recorrido de nominado a miembro. La tarjeta se agrega a Apple Wallet como pase firmado, y la noche se maneja con una lista de puerta en el celular, con check-in y un rol de puerta de solo lectura.</dd>
+            </div>
+            <div class="case-result">
+              <dt>Resultado</dt>
+              <dd>Nominaciones, ediciones, lista de invitados y check-in viven en un solo panel, y nada de un miembro es público.</dd>
+            </div>
+          </dl>
+          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Apple Wallet</li><li>Acceso por token</li><li>Resend</li></ul>
         </article>
 
       </div>

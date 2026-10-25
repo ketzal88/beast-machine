@@ -36,10 +36,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
-<link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=24">
-<noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
+<link rel="preload" as="image" href="/assets/img/logo-front-mark.png?v=1" type="image/png">
+<link rel="preload" as="image" href="/assets/img/logo-front-eyes.png?v=6" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=25">
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
 
 <script type="application/ld+json">
 {
@@ -66,95 +67,42 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="scroll-progress" aria-hidden="true"><i></i></div>
+<a class="skip-link" href="#work">Skip to content</a>
 
 <!-- ── NAV ─────────────────────────────────────────────────────────────── -->
 <header class="nav">
   <div class="wrap">
-    <a href="/" class="brand" aria-label="Beast Machine, home">
-      <img src="/assets/img/favicon-192.png" alt="" width="34" height="34">
+    <a href="#top" class="brand" aria-label="Beast Machine, home">
+      <img src="/assets/img/favicon-192.png" alt="" width="30" height="30">
       <span>Beast Machine</span>
     </a>
-
     <nav class="nav-menu" aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
       <a href="#work">Work</a>
-      <a href="#process">Process</a>
+      <a href="#lab">Lab</a>
       <a href="#contact">Contact</a>
+      <a href="/es" hreflang="es">ES</a>
     </nav>
-
-    <div class="nav-side">
-      <div class="lang-switch">
-        <a href="/es" hreflang="es">ES</a>
-        <a href="/" aria-current="true" hreflang="en">EN</a>
-      </div>
-      <a href="#contact" class="btn btn-primary nav-cta">Start a project</a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label="Open menu">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
   </div>
 </header>
 
-<div class="mobile-panel" id="mobile-panel">
-  <a href="#about" style="--i:0">About</a>
-  <a href="#services" style="--i:1">Services</a>
-  <a href="#work" style="--i:2">Work</a>
-  <a href="#process" style="--i:3">Process</a>
-  <a href="#contact" style="--i:4">Contact</a>
-  <div class="mobile-foot">
-    <div class="lang-switch">
-      <a href="/es" hreflang="es">ES</a>
-      <a href="/" aria-current="true" hreflang="en">EN</a>
-    </div>
-    <a href="https://wa.me/5491132556383" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
-  </div>
-</div>
-
-<main id="main">
+<main>
 
   <!-- ── HERO ──────────────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="bg-grid"></div>
-      <div class="orb orb-a"></div>
-      <div class="orb orb-b"></div>
+  <section class="hero" id="top" data-hero>
+    <div class="hero-glow" data-glow aria-hidden="true"></div>
+
+    <div class="hero-words" aria-hidden="true">
+      <div class="hero-word" data-hero-word>BEAST</div>
+      <div class="hero-word" data-hero-word>MACHINE</div>
     </div>
 
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <p class="badge hero-fade" style="--d:.1s"><span class="dot"></span> Buenos Aires · Product development</p>
-        <h1>
-          <span class="line" style="--i:0"><span>We build</span></span>
-          <span class="line" style="--i:1"><span>digital products</span></span>
-          <span class="line" style="--i:2"><span class="gradient-text" data-scramble>that scale</span></span>
-        </h1>
-        <p class="hero-lead hero-fade" style="--d:.55s">We design, build and ship software for companies and startups. From the first prototype to production, with one team across the whole cycle.</p>
-        <div class="hero-actions hero-fade" style="--d:.7s">
-          <a href="#contact" class="btn btn-primary">
-            Start a project
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="#services" class="btn btn-ghost">See services</a>
-        </div>
-        <div class="hero-meta hero-fade" style="--d:.85s">
-          <div><strong>50+</strong><span>Projects delivered</span></div>
-          <div><strong>20+</strong><span>Active clients</span></div>
-          <div><strong>&lt;24 h</strong><span>Response time</span></div>
-        </div>
-      </div>
-
-      <div class="hero-visual hero-fade" style="--d:.3s" aria-hidden="true">
-        <div class="halo"></div>
-        <div class="ring"></div>
-        <div class="ring r2"></div>
-        <div class="mark hero-mark beast" data-beast>
+    <div class="hero-stage">
+      <div class="wolf" data-wolf>
+        <div class="beast" data-beast>
           <div class="beast-halo"></div>
           <div class="beast-halo2"></div>
           <div class="beast-head">
-            <img class="beast-base" src="/assets/img/logo-front-base.png?v=6" alt="" width="559" height="625">
+            <img class="beast-base" src="/assets/img/logo-front-base.png?v=6" alt="Beast Machine" width="559" height="625">
             <img class="beast-mark" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
             <div class="beast-mouth"><div class="beast-teeth-top"><i style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,55% 100%)"></i><i style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,45% 100%)"></i></div><div class="beast-teeth-bot"><i style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:40%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></i></div></div>
             <img class="beast-jaw" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
@@ -177,746 +125,397 @@
       </div>
     </div>
 
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Scroll</span>
-      <span class="rail"></span>
+    <div class="hero-meta">
+      <span>Digital products<br>Buenos Aires</span>
+      <span>Scroll ↓</span>
+      <span>19 works<br>2023 — 2026</span>
     </div>
   </section>
 
-  <!-- ── MARQUEE ───────────────────────────────────────────────────────── -->
-  <div class="marquee" data-direction="1" aria-hidden="true">
-    <div class="marquee-track">
-      <ul>
-        <li>Mobile apps</li>
-        <li>Web platforms</li>
-        <li>Custom software</li>
-        <li>APIs and integrations</li>
-        <li>Automation</li>
-        <li>Support and maintenance</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ── ABOUT ─────────────────────────────────────────────────────────── -->
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div class="about-copy reveal">
-        <p class="eyebrow">About us</p>
-        <h2 class="section-title">Technology with purpose</h2>
-        <p>At Beast Machine we develop digital products end to end: from strategy and design through implementation and ongoing support.</p>
-        <p>We work with startups and companies that need a reliable technology partner to take their ideas to market quickly, at scale, and with professional quality.</p>
-
-        <div class="pillars">
-          <div class="pillar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
-            <div>
-              <b>The full product cycle</b>
-              <span>Strategy, design, development, launch and support inside a single team.</span>
-            </div>
-          </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-            <div>
-              <b>Iterative delivery</b>
-              <span>Agile methods with visible progress at every stage of the project.</span>
-            </div>
-          </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            <div>
-              <b>Reply in under 24 hours</b>
-              <span>A direct line to the team, with no middle layers or delays.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats reveal" style="--i:1">
-        <div class="stat">
-          <b data-count="50" data-suffix="+">50+</b>
-          <span>Projects delivered</span>
-        </div>
-        <div class="stat">
-          <b data-count="3" data-suffix="+">3+</b>
-          <span>Years of experience</span>
-        </div>
-        <div class="stat">
-          <b data-count="20" data-suffix="+">20+</b>
-          <span>Active clients</span>
-        </div>
-        <div class="stat">
-          <b data-count="99" data-suffix="%">99%</b>
-          <span>Guaranteed uptime</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SERVICES ──────────────────────────────────────────────────────── -->
-  <section class="section-light" id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Services</p>
-        <h2 class="section-title">What we do</h2>
-        <p class="section-lead">End-to-end digital product development, shaped around each client's operation and goals.</p>
-      </div>
-
-      <div class="services-grid">
-        <article class="card reveal" style="--i:0">
-          <span class="card-index">01</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/></svg></div>
-          <h3>Mobile apps</h3>
-          <p>Native and cross-platform apps for iOS and Android, focused on performance and user experience.</p>
-        </article>
-
-        <article class="card reveal" style="--i:1">
-          <span class="card-index">02</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2.5"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
-          <h3>Web platforms</h3>
-          <p>Scalable platforms, dashboards, management systems and SaaS applications.</p>
-        </article>
-
-        <article class="card reveal" style="--i:2">
-          <span class="card-index">03</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
-          <h3>Custom software</h3>
-          <p>Solutions that integrate with your current systems and adapt to how your team works.</p>
-        </article>
-
-        <article class="card reveal" style="--i:0">
-          <span class="card-index">04</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
-          <h3>APIs and integrations</h3>
-          <p>Design and implementation of robust APIs and connections to third-party services.</p>
-        </article>
-
-        <article class="card reveal" style="--i:1">
-          <span class="card-index">05</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3>Automation</h3>
-          <p>Process automation that cuts manual work, operating costs and errors.</p>
-        </article>
-
-        <article class="card reveal" style="--i:2">
-          <span class="card-index">06</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.18V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 7.26 19.4l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.25 13.7H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 7.26l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 3.25V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 2.82 1.18l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.75 10H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-          <h3>Support and maintenance</h3>
-          <p>Monitoring, updates and ongoing technical support so everything keeps running.</p>
-        </article>
-      </div>
-    </div>
+  <!-- ── STATEMENT ─────────────────────────────────────────────────────── -->
+  <section class="statement">
+    <p data-reveal>Agencies, restaurants, shops and tour operators came to us with an operation that stopped scaling. <span class="fade">This is what came out of it.</span></p>
   </section>
 
   <!-- ── WORK ──────────────────────────────────────────────────────────── -->
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Selected work</p>
-        <h2 class="section-title">Problems we were hired to solve</h2>
-        <p class="section-lead">Agencies, restaurants, shops, tour operators and cultural companies come to us with an operation that stopped scaling. These are the products we shipped for them.</p>
-      </div>
+  <section id="work">
 
-      <div class="marquee marquee-clients" data-direction="-1" aria-hidden="true">
-        <div class="marquee-track">
-          <ul>
-            <li>Worker</li>
-            <li>Hacé tu pedido</li>
-            <li>Party Market</li>
-            <li>Aires Publicidad</li>
-            <li>Lati Travel</li>
-            <li>Presencia</li>
-            <li>Sagrado Sushi</li>
-            <li>El Museo Viajero</li>
-            <li>Alynk</li>
-            <li>GymCounter</li>
-            <li>Alko</li>
-            <li>Casas en Valeria del Mar</li>
-            <li>Quinton</li>
-          </ul>
+    <article class="stage" id="brain" data-stage="01 / 13 — Worker Brain">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">01</span>
+        <div class="stage-headings">
+          <span class="stage-client">Worker · marketing agency</span>
+          <h3 class="stage-title">Worker Brain</h3>
         </div>
       </div>
-
-      <div class="cases-featured">
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Worker · marketing agency</span>
-            <h3>Worker Brain</h3>
-            <p class="case-kicker">Multi-channel intelligence for an agency running 45 accounts.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/brain.webp?v=1" alt="The Worker Brain panel: the channel sidebar on the left and the unified overview with spend pacing and the month’s metrics" width="1120" height="630" loading="lazy" decoding="async">
-            <figcaption>Demo data: client names and figures are fictional.</figcaption>
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Answering a client's "how are we doing?" meant opening five platforms: Meta Ads, Google Ads, email, ecommerce and leads. The data lived apart, and the real risk was handing the client a number that did not hold up.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A platform that syncs eight native integrations into one canonical daily snapshot, runs alerts per channel, and pushes three Slack digests (daily briefing, weekly review, monthly report) with what to look at first. An AI analyst answers on top of each client's already loaded data.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>45 accounts operate on a single surface. The team opens the panel when a digest flags something, and every number on screen comes from the same snapshot.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Next.js</li><li>TypeScript</li><li>Firestore</li><li>Claude</li><li>Gemini</li><li>Slack</li><li>Vercel</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Worker · WhatsApp ordering product</span>
-            <h3>Hacé tu pedido</h3>
-            <p class="case-kicker">One codebase serving the online catalogue of every business on the platform.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/hacetupedido.webp?v=1" alt="The Hacé tu pedido landing page: the online catalogue, the order arriving on WhatsApp and the printed ticket" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>The ordering system had been built for a single restaurant. Adding the second one meant a new database project and a new deployment per client, so the product could not grow past a handful of venues.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A multi-tenant engine: one Next.js app serves the landing page and the catalogue of every client, against a single Supabase project. Each business loads its products from its own panel or imports the spreadsheet it already had, sets service modes, payment methods and delivery zones, and receives orders already written out on WhatsApp. Two templates share that engine: a menu list for restaurants and a photo catalogue for shops. A Chrome extension prints the ticket on the counter printer.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Onboarding a new business is one database row, one catalogue load and one QR code. Every product improvement reaches all clients at the same time.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>Chrome extension</li><li>WhatsApp</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Party Market · costume and party shop</span>
-            <h3>A 250-product Halloween catalogue on WhatsApp</h3>
-            <p class="case-kicker">The first business on Hacé tu pedido that is not a restaurant.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/partymarket.webp?v=2" alt="The Party Market catalogue on a phone: the Halloween banner, the cash discount and the product search" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>A seasonal shop had a short window to sell Halloween: 250 products, a size for every costume, and 158 animatronics and inflatables priced off a wholesaler that keeps changing its list.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A photo catalogue template on the Hacé tu pedido engine: a two-column grid, a product sheet with a size picker, search, and selections shared by link. Wholesaler prices are read from the supplier’s site and marked up in one place, and product photos are downloaded, squared and compressed in bulk.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Repricing the whole catalogue is changing one number. Every order reaches the shop with the size already written, and no restaurant-specific code had to change: switching off dine-in was enough.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Next.js</li><li>Supabase</li><li>Supplier sync</li><li>WhatsApp</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Aires Publicidad · signage</span>
-            <h3>Quote generator and landing page</h3>
-            <p class="case-kicker">A quote generator that gives the sales rep back 56 hours a month.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/aires.webp?v=2" alt="The Aires Publicidad home page: the headline, the WhatsApp quote button and a photo of an installed sign" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Putting together every quote ate into the sales rep’s month. On top of that, the landing page that brings in the leads lost its SEO and tracking every time the design was regenerated.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A quote generator behind an access code: the rep loads the items and gets a branded PDF drawn as vector text, then sends it by WhatsApp or email with the detail already written. Around it, a Cloudflare Worker injects SEO and tracking into the landing page at request time, and WhatsApp clicks reach Meta from the browser and from the server.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>The generator saves the sales rep 56 hours a month. Each PDF weighs 52 KB with sharp, searchable text, and redesigning the landing page no longer wipes out its measurement.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Quote generator</li><li>jsPDF</li><li>Cloudflare Workers</li><li>Meta CAPI</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Lati Travel · tour operator</span>
-            <h3>latitravel.com</h3>
-            <p class="case-kicker">A WordPress catalogue rebuilt as 251 static pages.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/lati.webp?v=1" alt="Lati Travel home page: the search box over the hero, and the day and destination filters below it" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>The redesign on the table was a single-page app: search engines could not see a single price. The mockup also promised things the business did not have, from review ratings to free cancellation and instant confirmation.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A static Astro site with real HTML on every URL: 158 bookable experiences imported from the live catalogue, 24 destination pages and 42 guides. The 258 indexed WordPress URLs redirect with 301s verified against the deployment, and 314 tests fail the build if an unbacked promise comes back.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Live since 24 August 2026, with every experience, destination and guide as its own indexable URL, and nothing on the page the operation cannot honour.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Astro</li><li>SEO and GEO</li><li>GitHub Actions</li><li>Vercel</li>
-          </ul>
-        </article>
-
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Worker Brain — panel</span><span></span></div>
+          <img src="/assets/img/cases/brain.webp?v=1" alt="The Worker Brain panel with the unified channel overview" width="1120" height="630" loading="lazy" decoding="async">
+        </div>
       </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>45</b><span>accounts on a single surface</span></div>
+        <p class="stage-lede">Eight native integrations into one daily snapshot, per-channel alerts, Slack digests and an AI analyst over each client's data.</p>
+        <ul class="stack"><li>Next.js</li><li>Firestore</li><li>Claude</li><li>Gemini</li><li>Slack</li></ul>
+      </div>
+    </article>
 
-      <div class="cases-grid">
+    <article class="stage" id="hacetupedido" data-stage="02 / 13 — Hacé tu pedido">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">02</span>
+        <div class="stage-headings">
+          <span class="stage-client">Worker · WhatsApp ordering</span>
+          <h3 class="stage-title">Hacé tu pedido</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Hacé tu pedido</span><span></span></div>
+          <img src="/assets/img/cases/hacetupedido.webp?v=1" alt="The Hacé tu pedido landing page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>1 row</b><span>to onboard a new business</span></div>
+        <p class="stage-lede">A multi-tenant engine serving every business's catalogue and delivering the order already written out on WhatsApp, with a ticket printed at the counter.</p>
+        <ul class="stack"><li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>WhatsApp</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:0">
-          <figure class="case-media">
-            <img src="/assets/img/cases/presencia.webp?v=2" alt="The Presencia menu on a phone: the category tabs and the first dishes with their prices" width="798" height="1792" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Presencia · restaurant</span>
-            <h3>Digital menu and floor panel</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Five separate menus on paper (dinner à la carte, lunch, wine, cocktails and the café next door), with prices that move and dishes that run out mid-service.</dd>
+    <article class="stage" id="sagrado" data-stage="03 / 13 — From QR menu to printed ticket">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">03</span>
+        <div class="stage-headings">
+          <span class="stage-client">Sagrado Sushi · restaurant</span>
+          <h3 class="stage-title">From QR menu to printed ticket</h3>
+        </div>
+      </div>
+      <div class="phone-row">
+        <div class="phone-stage">
+          <div class="phone-glow" aria-hidden="true"></div>
+          <div class="phone" data-phone>
+            <div class="phone-screen">
+              <img data-phonescroll src="/assets/img/cases/sagrado.webp?v=2" alt="The Sagrado Sushi menu on a phone" width="798" height="1792" loading="lazy" decoding="async">
+              <div class="phone-notch" aria-hidden="true"></div>
             </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A mobile-only QR menu reading live from Firestore, plus a password-protected panel. Wine keeps its own numbering, so adding a dish never shifts "number 47".</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Marking a dish as sold out reaches the phones already open, with no reload. Bookings moved from a spreadsheet to their own screen.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Playwright</li></ul>
-        </article>
+          </div>
+        </div>
+        <div class="phone-copy">
+          <span class="label">The problem</span>
+          <p class="problem">Orders arrived typed by the diner: a missing address, an item that no longer existed, a total that did not add up.</p>
+          <span class="note">Real screenshot · auto-scroll</span>
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>0</b><span>orders typed out by hand</span></div>
+        <p class="stage-lede">The menu builds the order and opens the venue's chat with the message already written. A Chrome extension prints the ticket.</p>
+        <ul class="stack"><li>Next.js</li><li>Firestore</li><li>Chrome extension</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:1">
-          <figure class="case-media">
-            <img src="/assets/img/cases/sagrado.webp?v=2" alt="The Sagrado Sushi menu on a phone: numbered dishes with a photo, price and an add button" width="798" height="1792" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Sagrado Sushi · restaurant</span>
-            <h3>From QR menu to printed ticket</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Orders arrived on WhatsApp typed out by the diner: a missing address, an item that no longer existed, a total that did not add up.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>The menu builds the order and opens the venue's chat with the message already written: service mode, cover charge, address and notes. A Chrome extension prints the ticket at the counter.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Every order reaches the kitchen in the same shape, priced from the menu the venue maintains itself.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Chrome extension</li></ul>
-        </article>
+    <article class="stage" id="lati" data-stage="04 / 13 — latitravel.com">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">04</span>
+        <div class="stage-headings">
+          <span class="stage-client">Lati Travel · tour operator</span>
+          <h3 class="stage-title">latitravel.com</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">latitravel.com</span><span></span></div>
+          <img src="/assets/img/cases/lati.webp?v=1" alt="Lati Travel home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>251</b><span>static, indexable pages</span></div>
+        <p class="stage-lede">WordPress rebuilt in Astro: 158 experiences, 24 destinations, 42 guides and 314 tests that fail the build if an unbacked promise returns.</p>
+        <ul class="stack"><li>Astro</li><li>SEO &amp; GEO</li><li>GitHub Actions</li><li>Vercel</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:2">
-          <figure class="case-media case-diagram">
-            <svg viewBox="0 0 400 250" role="img" aria-label="Diagram: Meta, Google, SEO, email, copy and proposals playbooks flow into the AI, which works with one client’s memory at a time"><path class="beam-base" d="M100 22 C150 22 150 125 170 125"/><path class="beam-flow" style="--d:-0.00s" d="M100 22 C150 22 150 125 170 125"/><path class="beam-base" d="M100 63 C150 63 150 125 170 125"/><path class="beam-flow" style="--d:-0.43s" d="M100 63 C150 63 150 125 170 125"/><path class="beam-base" d="M100 104 C150 104 150 125 170 125"/><path class="beam-flow" style="--d:-0.86s" d="M100 104 C150 104 150 125 170 125"/><path class="beam-base" d="M100 145 C150 145 150 125 170 125"/><path class="beam-flow" style="--d:-1.29s" d="M100 145 C150 145 150 125 170 125"/><path class="beam-base" d="M100 186 C150 186 150 125 170 125"/><path class="beam-flow" style="--d:-1.72s" d="M100 186 C150 186 150 125 170 125"/><path class="beam-base" d="M100 227 C150 227 150 125 170 125"/><path class="beam-flow" style="--d:-2.15s" d="M100 227 C150 227 150 125 170 125"/><path class="beam-base" d="M230 125 L258 125"/><path class="beam-flow beam-out" d="M230 125 L258 125"/><g class="beam-node"><rect x="4" y="7" width="96" height="30" rx="15"/><text x="52" y="27">Meta</text></g><g class="beam-node"><rect x="4" y="48" width="96" height="30" rx="15"/><text x="52" y="68">Google</text></g><g class="beam-node"><rect x="4" y="89" width="96" height="30" rx="15"/><text x="52" y="109">SEO</text></g><g class="beam-node"><rect x="4" y="130" width="96" height="30" rx="15"/><text x="52" y="150">Email</text></g><g class="beam-node"><rect x="4" y="171" width="96" height="30" rx="15"/><text x="52" y="191">Copy</text></g><g class="beam-node"><rect x="4" y="212" width="96" height="30" rx="15"/><text x="52" y="232">Proposals</text></g><g class="beam-hub"><circle cx="200" cy="125" r="30"/><text x="200" y="132">AI</text></g><g class="beam-node beam-node-out"><rect x="258" y="105" width="138" height="40" rx="20"/><text x="327" y="121">Client</text><text x="327" y="137">memory</text></g></svg>
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Worker · daily operation</span>
-            <h3>The agency's AI workbench</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>What one person learned on one account stayed in their head. Nothing carried over to the next client or the next hire.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A library of 89 documents covering how the agency does each thing (Meta, Google, SEO, email, copy, proposals) and a memory folder per client. The operator opens a terminal inside a client folder and the AI starts with that context only.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Decisions are written where the rest of the team picks them up, and no client's context leaks into another's.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Claude Code</li><li>Skills</li><li>Per-client memory</li></ul>
-        </article>
+    <article class="stage" id="worker" data-stage="05 / 13 — Worker's new site">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">05</span>
+        <div class="stage-headings">
+          <span class="stage-client">Worker · agency website</span>
+          <h3 class="stage-title">Worker's new site</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Worker — institutional site</span><span></span></div>
+          <img src="/assets/img/cases/worker.webp?v=1" alt="The new Worker home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>2</b><span>businesses in one site: ecommerce and B2B</span></div>
+        <p class="stage-lede">How the agency works today, specialists plus AI, with a hero that rotates real, anonymized alerts from the Brain.</p>
+        <ul class="stack"><li>Institutional site</li><li>SEO</li><li>Vercel</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:0">
-          <header class="case-head">
-            <span class="case-client">Worker · engineering</span>
-            <h3>Security and quality gates for AI-written code</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Writing code with AI at speed leaks secrets into commits and lets quality drift down one pull request at a time.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A config-driven enforcement layer: each project declares its stack in one manifest and the same hooks run for Java, Python or TypeScript. Secret scanning, a blocking pre-push gate, static analysis and dependency audit.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>One framework covers every repository. Quality ratchets let the metrics go down and never up, and adoption is additive: a key missing from the manifest is a silent skip, not a broken build.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Config-driven</li><li>Security gates</li><li>Any language</li></ul>
-        </article>
+    <article class="stage" id="quinton" data-stage="06 / 13 — A store for a considered purchase">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">06</span>
+        <div class="stage-headings">
+          <span class="stage-client">Quinton · electric mobility</span>
+          <h3 class="stage-title">A store for a considered purchase</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Quinton — store</span><span></span></div>
+          <img src="/assets/img/cases/quinton.webp?v=1" alt="The Quinton store home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>19</b><span>models, financing and shipping up front</span></div>
+        <p class="stage-lede">A custom Shopify store: scooters and e-bikes browsable by type, financing and warranty before checkout, and WhatsApp on every page.</p>
+        <ul class="stack"><li>Shopify</li><li>Mercado Pago</li><li>WhatsApp</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:1">
-          <header class="case-head">
-            <span class="case-client">Worker · ecommerce clients</span>
-            <h3>Shopify and TiendaNube in plain language</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Store owners depended on the agency for every catalogue change, so small fixes queued behind bigger work.</dd>
+    <article class="stage" id="presencia" data-stage="07 / 13 — Digital menu and floor panel">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">07</span>
+        <div class="stage-headings">
+          <span class="stage-client">Presencia · restaurant</span>
+          <h3 class="stage-title">Digital menu and floor panel</h3>
+        </div>
+      </div>
+      <div class="phone-row">
+        <div class="phone-stage">
+          <div class="phone-glow" aria-hidden="true"></div>
+          <div class="phone" data-phone>
+            <div class="phone-screen">
+              <img data-phonescroll src="/assets/img/cases/presencia.webp?v=2" alt="The Presencia menu on a phone" width="798" height="1792" loading="lazy" decoding="async">
+              <div class="phone-notch" aria-hidden="true"></div>
             </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>Two tools the owner drives by asking: sales and stock, product descriptions rewritten for search, bundles put together. Every write passes a field whitelist, a preview, a confirmation and an undo.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>The owner edits their own store without being able to break it, and every change stays reversible.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>MCP</li><li>Shopify</li><li>TiendaNube</li><li>Python</li></ul>
-        </article>
+          </div>
+        </div>
+        <div class="phone-copy">
+          <span class="label">The problem</span>
+          <p class="problem">Five paper menus, with prices that move and dishes that run out mid-service.</p>
+          <span class="note">Real screenshot · auto-scroll</span>
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>5 → 1</b><span>paper menus, one live menu</span></div>
+        <p class="stage-lede">Marking a dish sold out reaches phones already open, with no reload. Around it, an invitation-only members club with an Apple Wallet pass.</p>
+        <ul class="stack"><li>Next.js</li><li>Firestore</li><li>Apple Wallet</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:2">
-          <header class="case-head">
-            <span class="case-client">Worker · creative production</span>
-            <h3>Ad creative at campaign speed</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Paid media burns through creative faster than a design queue can refill it.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A production suite built on proven ad structures: JSON blueprints that hold layout and hierarchy, product data pulled from the product URL, studio and lifestyle variations from a single raw photo, and short vertical video.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>One brief turns into a set of on-brand variations ready for Meta, TikTok and Reels.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Gemini</li><li>Veo</li><li>Firebase</li></ul>
-        </article>
+    <article class="stage" id="aires" data-stage="08 / 13 — Quotes and landing page">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">08</span>
+        <div class="stage-headings">
+          <span class="stage-client">Aires Publicidad · signage</span>
+          <h3 class="stage-title">Quotes and landing page</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Aires Publicidad</span><span></span></div>
+          <img src="/assets/img/cases/aires.webp?v=2" alt="Aires Publicidad home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>56 h</b><span>a month given back to the sales rep</span></div>
+        <p class="stage-lede">Branded 52 KB PDFs in vector text, and a Worker that injects SEO and tracking so a redesign never wipes it out.</p>
+        <ul class="stack"><li>jsPDF</li><li>Cloudflare Workers</li><li>Meta CAPI</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:0">
-          <figure class="case-media">
-            <img src="/assets/img/cases/museo.webp?v=1" alt="El Museo Viajero home page, with the programme navigation and the company presentation" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">El Museo Viajero · touring theatre</span>
-            <h3>Public site and operations platform</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>A touring educational theatre company was coordinating shows across schools and venues on spreadsheets.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>The public site (programme, repertoire, teaching material gated by subscription level) and the platform behind it: calendar, bookings, attendance, settlements, pricing and reports.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Programming a season, filling it and settling it stopped living in spreadsheets.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>React</li><li>Firestore</li><li>Vercel</li></ul>
-        </article>
+    <article class="stage" id="partymarket" data-stage="09 / 13 — Halloween on WhatsApp">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">09</span>
+        <div class="stage-headings">
+          <span class="stage-client">Party Market · party shop</span>
+          <h3 class="stage-title">Halloween on WhatsApp</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Party Market — catalogue</span><span></span></div>
+          <img src="/assets/img/cases/partymarket.webp?v=2" alt="The Party Market catalogue" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>250</b><span>products priced off a wholesaler</span></div>
+        <p class="stage-lede">A photo catalogue with a size picker and search. Repricing the whole catalogue is changing one number.</p>
+        <ul class="stack"><li>Next.js</li><li>Supabase</li><li>Supplier sync</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:1">
-          <header class="case-head">
-            <span class="case-client">Alynk · portfolio reporting</span>
-            <h3>Portfolio statements on the phone</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>The daily portfolio statement was a spreadsheet emailed to each account holder.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A private panel behind a login that reads the same file the existing script generates. It recalculates nothing: the spreadsheet stays the source of truth, and a validation step re-runs the reconciliation checks on the extracted data.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>The account holder opens the statement on their phone, and a parsing error stops the pipeline instead of reaching the screen.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Python</li><li>TypeScript</li><li>Reconciliation checks</li></ul>
-        </article>
+    <article class="stage" id="casas" data-stage="10 / 13 — Four houses, a panel on the phone">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">10</span>
+        <div class="stage-headings">
+          <span class="stage-client">Casas en Valeria del Mar · holiday rental</span>
+          <h3 class="stage-title">Four houses, a panel on the phone</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Casas en Valeria del Mar</span><span></span></div>
+          <img src="/assets/img/cases/casas-valeria.webp?v=1" alt="The Casas en Valeria del Mar home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>20</b><span>versions to roll back to</span></div>
+        <p class="stage-lede">No database: one JSON on Vercel Blob with four houses, sixteen periods and per-night availability that never collides.</p>
+        <ul class="stack"><li>Next.js</li><li>Tailwind</li><li>Vercel Blob</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:2">
-          <figure class="case-media">
-            <img src="/assets/img/cases/gymcounter.webp?v=2" alt="The GymCounter home page: the 180-day protocol, the free trial and the offline note" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">GymCounter · training app</span>
-            <h3>Training plans and logging with no connection</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>A gym routine gets dropped for two reasons: the plan does not move on with the person, and logging a set fails exactly where there is no signal.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A progressive web app with a protocol engine: each goal builds its own cycle of days, with warm-up and deload weeks across a 180-day program. Logging runs against IndexedDB and a service worker, so it works offline and syncs later. Subscriptions run on Stripe, with checkout, a self-service portal and idempotent webhooks.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Training and logging work in the basement of the gym, and subscribing or cancelling never goes through support.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>Offline PWA</li></ul>
-        </article>
+    <article class="stage" id="gymcounter" data-stage="11 / 13 — Training with no connection">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">11</span>
+        <div class="stage-headings">
+          <span class="stage-client">GymCounter · training app</span>
+          <h3 class="stage-title">Training with no connection</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">GymCounter</span><span></span></div>
+          <img src="/assets/img/cases/gymcounter.webp?v=2" alt="The GymCounter home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>180</b><span>days of program, offline</span></div>
+        <p class="stage-lede">A PWA with a protocol engine, logging in IndexedDB that syncs later, and subscriptions on Stripe.</p>
+        <ul class="stack"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>PWA</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:0">
-          <figure class="case-media">
-            <img src="/assets/img/cases/worker.webp?v=1" alt="The new Worker home page: the headline about specialists plus AI and the section on how the agency works" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Worker · agency website</span>
-            <h3>The agency's new site</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>The old site, flat HTML in English, sold Worker as an ecommerce agency. But by now as many of its accounts sell by meeting and quote as sell through a store, and the site said nothing about how the agency works today, around AI.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A new institutional site in Spanish for both sides of the business, ecommerce and B2B: how the agency works now (specialists plus AI), what it does and how a project starts week by week, the two ways to work with it (as an agency or self-service on the Brain), and a hero that rotates real, anonymized alerts from the Brain, the tool they run accounts on.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>One site that covers both kinds of client and matches the agency today, live on Vercel.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Institutional site</li><li>SEO</li><li>Vercel</li></ul>
-        </article>
+    <article class="stage" id="museo" data-stage="12 / 13 — Public site and operations platform">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">12</span>
+        <div class="stage-headings">
+          <span class="stage-client">El Museo Viajero · touring theatre</span>
+          <h3 class="stage-title">Public site and operations platform</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">El Museo Viajero</span><span></span></div>
+          <img src="/assets/img/cases/museo.webp?v=1" alt="The El Museo Viajero home page" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>0</b><span>spreadsheets to run a season</span></div>
+        <p class="stage-lede">A public programme, material by subscription, and behind it: calendar, bookings, attendance and settlements.</p>
+        <ul class="stack"><li>Next.js</li><li>React</li><li>Firestore</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:1">
-          <figure class="case-media">
-            <img src="/assets/img/cases/alko.webp?v=1" alt="The brands Alko distributes, each tile showing a supplier and its product lines" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Alko · electrical materials</span>
-            <h3>A catalogue the client edits itself</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>A wholesale electrical-materials distributor, in business since 1977, had no site of its own. The design existed as a mockup that had to be built and published, on one condition: the client had to change the copy without touching the layout.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>Four pages (home, about, product lines, brands) published on Go High Level, generated by plain Node scripts from the client's spreadsheet. Two mega-menus covering 26 product lines and 45 brands, and 36 text values the client edits from settings without republishing.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>The distributor updates its own copy without breaking the design, and the whole catalogue is generated from one data file.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Go High Level</li><li>Node scripts</li><li>Custom Values</li></ul>
-        </article>
+    <article class="stage" id="alko" data-stage="13 / 13 — A catalogue the client edits itself">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">13</span>
+        <div class="stage-headings">
+          <span class="stage-client">Alko · electrical materials</span>
+          <h3 class="stage-title">A catalogue the client edits itself</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Alko — brands</span><span></span></div>
+          <img src="/assets/img/cases/alko.webp?v=1" alt="The brands Alko distributes" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>45</b><span>brands and 26 lines from a spreadsheet</span></div>
+        <p class="stage-lede">A distributor since 1977 with no site of its own: four pages generated by scripts and 36 text values the client changes without republishing.</p>
+        <ul class="stack"><li>Go High Level</li><li>Node</li><li>Custom Values</li></ul>
+      </div>
+    </article>
 
-        <article class="card case reveal" style="--i:2">
-          <figure class="case-media">
-            <img src="/assets/img/cases/casas-valeria.webp?v=1" alt="The Casas en Valeria del Mar home page: the four houses with their photos, prices and availability" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Casas en Valeria del Mar · holiday rental</span>
-            <h3>Four houses, a panel the owner runs from the phone</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Four holiday houses to rent, with prices, availability and photos that change with the season, and an owner who needed to update all of it without a developer.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A site with no database: everything lives in one JSON on Vercel Blob (four houses, sixteen season periods and the galleries). Availability is tracked by occupied nights, so overlapping fortnights share a date without colliding, and the owner marks a period as rented with one button. Every save writes a new file, so the last 20 versions can be rolled back.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>The owner changes prices, availability and photos from the phone, and the site never contradicts itself.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Tailwind</li><li>Vercel Blob</li><li>No database</li></ul>
-        </article>
+  </section>
 
-        <article class="card case reveal" style="--i:0">
-          <header class="case-head">
-            <span class="case-client">Presencia · members club</span>
-            <h3>An invitation-only club, run from one panel</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Presencia wanted a private circle around the restaurant: invitation only, no public sign-up, built around named events rather than a monthly fee.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A members platform on a subdomain of the menu's own project. The link is the credential (a random token, no login): members see their card, their privileges and the next Edition; guests confirm or decline a named invitation. Membership grows by nomination, reviewed from the panel, with a pipeline from nominee to insider. The member card adds to Apple Wallet as a signed pass, and the night runs off a door list on the phone, with check-in and a read-only door role.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>Nominations, editions, the guest list and check-in live in one panel, and nothing about a member is public.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Apple Wallet</li><li>Token access</li><li>Resend</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:1">
-          <figure class="case-media">
-            <img src="/assets/img/cases/quinton.webp?v=1" alt="The Quinton home page: the headline about 19 scooter and e-bike models, and the band with instalments, shipping, warranty and Mercado Pago" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Quinton · electric scooters and bikes</span>
-            <h3>A custom store for a considered purchase</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>The problem</dt>
-              <dd>Electric scooters and bikes are a considered buy: people compare models, ask about financing and shipping, and want someone to answer before they pay.</dd>
-            </div>
-            <div>
-              <dt>What we built</dt>
-              <dd>A custom Shopify store: 19 models across scooters, e-bikes and accessories, browsable by type, with financing (up to 12 fixed instalments, cash discount), nationwide shipping with tracking, a two-year warranty and Mercado Pago laid out up front, and a WhatsApp consult on every page.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Result</dt>
-              <dd>The whole range is browsable and buyable online, with the terms that close the sale visible before checkout and a direct line for everything else.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Shopify</li><li>Mercado Pago</li><li>WhatsApp</li></ul>
-        </article>
-
+  <!-- ── LAB ───────────────────────────────────────────────────────────── -->
+  <section class="lab" id="lab">
+    <div class="lab-head" data-reveal>
+      <h2 class="lab-title">Lab<span>.</span></h2>
+      <p>Internal tools, AI and the infrastructure you don't see in a screenshot.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Presencia · club</span>
+        <span class="lab-metric">0</span>
+        <span class="lab-metric-label">logins: the link is the credential</span>
+        <h3>An invitation-only club</h3>
+        <p>Nominations, editions, a door list with check-in and a signed Apple Wallet pass.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · operation</span>
+        <span class="lab-metric">89</span>
+        <span class="lab-metric-label">documents + per-client memory</span>
+        <h3>An AI workbench</h3>
+        <p>The AI starts with one client's context. Nothing leaks into the next.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · engineering</span>
+        <span class="lab-metric">1</span>
+        <span class="lab-metric-label">framework, every repo</span>
+        <h3>Gates for AI-written code</h3>
+        <p>Secrets, a blocking pre-push gate, static analysis. Quality can only go up.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · ecommerce</span>
+        <span class="lab-metric">100%</span>
+        <span class="lab-metric-label">of changes reversible</span>
+        <h3>Shopify and TiendaNube in plain language</h3>
+        <p>The owner edits their store by asking, with preview, confirmation and undo.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · creative</span>
+        <span class="lab-metric">1 → N</span>
+        <span class="lab-metric-label">one brief, many variations</span>
+        <h3>Ad creative at campaign speed</h3>
+        <p>Blueprints, data from the product URL, variations from one photo and vertical video.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Alynk · portfolio</span>
+        <span class="lab-metric">0</span>
+        <span class="lab-metric-label">parse errors on screen</span>
+        <h3>Portfolio statements on the phone</h3>
+        <p>The spreadsheet stays the source of truth; reconciliation checks stop the pipeline.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── PROCESS ───────────────────────────────────────────────────────── -->
-  <section class="process section-light" id="process">
-    <div class="wrap process-layout">
-      <div class="process-sticky">
-        <div class="reveal">
-          <p class="eyebrow">How we work</p>
-          <h2 class="section-title">Our process</h2>
-          <p class="section-lead">A structured, transparent approach: you always know which stage your project is in and what comes next.</p>
-          <p class="process-counter" aria-hidden="true"><b>01</b> / 04</p>
-          <div class="process-rail" aria-hidden="true"><i></i></div>
-          <video class="process-mark process-logo" src="/assets/video/wolf-turn.mp4?v=1" poster="/assets/img/wolf-turn.webp?v=1" width="480" height="436" muted loop playsinline preload="none" aria-hidden="true"></video>
-        </div>
-      </div>
-
-      <div class="steps">
-        <article class="step">
-          <span class="step-num">Stage 01</span>
-          <h3>Discovery</h3>
-          <p>We review goals, users and requirements to define the real scope of the project before a single line of code is written.</p>
-          <ul><li>Business goals</li><li>Scope</li><li>Estimate</li></ul>
-        </article>
-
-        <article class="step">
-          <span class="step-num">Stage 02</span>
-          <h3>Design</h3>
-          <p>We create prototypes and interfaces focused on user experience, so decisions are validated before we build.</p>
-          <ul><li>Prototypes</li><li>Interface</li><li>User experience</li></ul>
-        </article>
-
-        <article class="step">
-          <span class="step-num">Stage 03</span>
-          <h3>Development</h3>
-          <p>We build the product with agile methods and iterative releases, with reviewed and documented code.</p>
-          <ul><li>Sprints</li><li>Code review</li><li>Testing</li></ul>
-        </article>
-
-        <article class="step">
-          <span class="step-num">Stage 04</span>
-          <h3>Launch and support</h3>
-          <p>We deploy, monitor and optimize. After launch we stay with the product.</p>
-          <ul><li>Deployment</li><li>Monitoring</li><li>Optimization</li></ul>
-        </article>
-      </div>
+  <!-- ── MARQUEES ──────────────────────────────────────────────────────── -->
+  <section class="marquees" aria-hidden="true">
+    <div class="marquee-row" data-marquee="0.05">
+      <span>Next.js<i>✦</i></span><span>Supabase<i>✦</i></span><span>Firestore<i>✦</i></span><span>Astro<i>✦</i></span><span>Stripe<i>✦</i></span><span>Claude<i>✦</i></span><span>Gemini<i>✦</i></span><span>Veo<i>✦</i></span><span>Cloudflare<i>✦</i></span><span>Next.js<i>✦</i></span><span>Supabase<i>✦</i></span><span>Firestore<i>✦</i></span><span>Astro<i>✦</i></span><span>Stripe<i>✦</i></span><span>Claude<i>✦</i></span><span>Gemini<i>✦</i></span><span>Veo<i>✦</i></span><span>Cloudflare<i>✦</i></span>
+    </div>
+    <div class="marquee-row outline" data-marquee="-0.04">
+      <span>WhatsApp<i>✦</i></span><span>Shopify<i>✦</i></span><span>TiendaNube<i>✦</i></span><span>MCP<i>✦</i></span><span>Slack<i>✦</i></span><span>Meta CAPI<i>✦</i></span><span>PWA<i>✦</i></span><span>Playwright<i>✦</i></span><span>Vercel<i>✦</i></span><span>WhatsApp<i>✦</i></span><span>Shopify<i>✦</i></span><span>TiendaNube<i>✦</i></span><span>MCP<i>✦</i></span><span>Slack<i>✦</i></span><span>Meta CAPI<i>✦</i></span><span>PWA<i>✦</i></span><span>Playwright<i>✦</i></span><span>Vercel<i>✦</i></span>
     </div>
   </section>
 
   <!-- ── CONTACT ───────────────────────────────────────────────────────── -->
   <section class="contact" id="contact">
-    <div class="orb orb-c" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="contact-panel beam reveal" style="--beam-delay:-3s">
-        <div class="contact-copy">
-          <p class="eyebrow">Contact</p>
-          <h2>Let's talk about your project</h2>
-          <p>Tell us what you need and you get an answer in under 24 hours, with a clear proposal and no commitment.</p>
-          <a href="https://wa.me/5491132556383" target="_blank" rel="noopener" class="contact-direct">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            <span>
-              <b>+54 9 11 3255-6383</b>
-              <span>Direct WhatsApp</span>
-            </span>
-          </a>
-        </div>
-
-        <form class="form-grid" id="brief-form"
-              data-phone="5491132556383"
-              data-template="Hi Beast Machine. I am {name}. Project type: {scope}. {message}">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name or company" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="scope">Project type</label>
-            <select id="scope" name="scope" required>
-              <option value="Mobile app">Mobile app</option>
-              <option value="Web platform">Web platform</option>
-              <option value="Custom software">Custom software</option>
-              <option value="APIs and integrations">APIs and integrations</option>
-              <option value="Automation">Automation</option>
-              <option value="Support and maintenance">Support and maintenance</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="message">Tell us about it</label>
-            <textarea id="message" name="message" placeholder="What you want to build, the current stage, and when you need it." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">
-            Send on WhatsApp
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
-          <p class="form-note">WhatsApp opens with your message ready to send.</p>
-        </form>
-      </div>
+    <div class="contact-mark" data-reveal aria-hidden="true">
+      <img src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+      <img data-l="eyes2" src="/assets/img/logo-front-eyes.png?v=6" alt="" width="559" height="625">
     </div>
+    <a class="contact-cta" data-reveal href="https://wa.me/5491132556383" target="_blank" rel="noopener">What do we build next?</a>
+    <a class="contact-pill" href="https://wa.me/5491132556383" target="_blank" rel="noopener">WhatsApp · +54 9 11 3255-6383 ↗</a>
   </section>
 
 </main>
@@ -924,37 +523,14 @@
 <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <a href="/" class="brand">
-          <img src="/assets/img/favicon-192.png" alt="" width="30" height="30">
-          <span>Beast Machine</span>
-        </a>
-        <p class="footer-about">Digital product development for companies and startups. Designing, building and scaling software from Buenos Aires.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="https://wa.me/5491132556383" target="_blank" rel="noopener">WhatsApp: +54 9 11 3255-6383</a>
-        <p>Buenos Aires, Argentina</p>
-        <a href="/es" hreflang="es">Versión en español</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; <span data-year>2026</span> Beast Machine. All rights reserved.</span>
-      <span>Buenos Aires, Argentina</span>
-    </div>
+    <span>© <span data-year>2026</span> Beast Machine</span>
+    <span>Buenos Aires, Argentina</span>
   </div>
 </footer>
 
-<script src="/assets/js/app.js?v=8" defer></script>
+<div class="hud" data-hud aria-hidden="true"></div>
+
+<script src="/assets/js/app.js?v=9" defer></script>
 <script src="/assets/js/beast-logo.js?v=1" defer></script>
 </body>
 </html>

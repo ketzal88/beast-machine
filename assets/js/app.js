@@ -1,383 +1,140 @@
-/* ==========================================================================
-   Beast Machine — interactions
-   Vanilla JS, no dependencies. All motion respects prefers-reduced-motion.
+/* ============================================================================
+   Beast Machine — portfolio interactions
+   Vanilla port of the v2 Claude Design component (DCLogic).
+   Logo animation (WAAPI), scroll-driven mockups, parallax wolf, marquees, HUD.
    ========================================================================== */
 (function () {
   'use strict';
 
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
-  var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ── Scroll progress + sticky nav + hero parallax ───────────────────── */
+  /* current year in footer */
+  $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  var progress = $('.scroll-progress i');
-  var nav = $('.nav');
-  var hero = $('.hero');
-  var heroInner = $('.hero-inner');
-  var ticking = false;
-
-  function onScroll() {
-    var y = window.scrollY || document.documentElement.scrollTop;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-
-    if (progress) progress.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
-    if (nav) nav.classList.toggle('is-stuck', y > 12);
-
-    if (hero && heroInner && !reduced) {
-      var h = hero.offsetHeight || 1;
-      var t = Math.min(y / h, 1);
-      heroInner.style.opacity = String(1 - t * 1.15);
-      heroInner.style.transform = 'translate3d(0,' + (t * 70).toFixed(2) + 'px,0) scale(' + (1 - t * 0.06).toFixed(4) + ')';
-      var cue = $('.scroll-cue');
-      if (cue) cue.style.opacity = String(Math.max(0, 1 - t * 4));
-    }
-    ticking = false;
-  }
-
-  function requestScroll() {
-    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
-  }
-
-  window.addEventListener('scroll', requestScroll, { passive: true });
-  window.addEventListener('resize', requestScroll);
-  onScroll();
-
-  /* ── Mobile menu ────────────────────────────────────────────────────── */
-
-  var burger = $('.burger');
-  var panel = $('.mobile-panel');
-
-  function setMenu(open) {
-    if (!burger || !panel) return;
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    panel.classList.toggle('is-open', open);
-    document.body.classList.toggle('is-locked', open);
-  }
-
-  if (burger && panel) {
-    burger.addEventListener('click', function () {
-      setMenu(burger.getAttribute('aria-expanded') !== 'true');
-    });
-    $$('a', panel).forEach(function (a) {
-      a.addEventListener('click', function () { setMenu(false); });
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenu(false);
+  /* ── logo animation ─────────────────────────────────────────────────── */
+  function startLogo() {
+    var q = function (s) { return $('[data-l="' + s + '"]'); };
+    var base = q('base'), mark = q('mark'), scan = q('scan'), eyes = q('eyes'), eyes2 = q('eyes2');
+    if (reduce || !document.body.animate) { if (scan) scan.style.clipPath = 'inset(0 100% 0 0)'; return; }
+    var A = function (el, k, o) { if (el) el.animate(k, o); };
+    A(base, [{ opacity: 0, transform: 'scale(0.9)', filter: 'blur(18px)' }, { opacity: 1, transform: 'scale(1)', filter: 'blur(0px)' }], { duration: 1400, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both' });
+    A(mark, [{ clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)' }], { duration: 1700, delay: 900, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'both' });
+    A(mark, [{ opacity: 1 }, { opacity: 0.55 }, { opacity: 1 }], { duration: 4200, delay: 2800, iterations: Infinity, easing: 'ease-in-out' });
+    A(scan, [{ clipPath: 'inset(0 100% 0 -12%)', offset: 0 }, { clipPath: 'inset(0 -12% 0 100%)', offset: 0.55 }, { clipPath: 'inset(0 -12% 0 100%)', offset: 1 }], { duration: 4800, delay: 2900, iterations: Infinity, easing: 'ease-in-out' });
+    A(eyes, [{ opacity: 0 }, { opacity: 1, offset: 0.3 }, { opacity: 0.15, offset: 0.45 }, { opacity: 1 }], { duration: 700, delay: 2400, fill: 'both' });
+    A(eyes, [{ filter: 'drop-shadow(0 0 3px #38C8F2)' }, { filter: 'drop-shadow(0 0 16px #38C8F2) brightness(1.3)' }, { filter: 'drop-shadow(0 0 3px #38C8F2)' }], { duration: 2600, delay: 3100, iterations: Infinity, easing: 'ease-in-out' });
+    var blink = [{ transform: 'scaleY(1)', offset: 0 }, { transform: 'scaleY(1)', offset: 0.92 }, { transform: 'scaleY(0.08)', offset: 0.95 }, { transform: 'scaleY(1)', offset: 0.98 }, { transform: 'scaleY(1)', offset: 1 }];
+    A(eyes, blink, { duration: 5200, delay: 3600, iterations: Infinity });
+    A(eyes2, blink, { duration: 4400, iterations: Infinity });
+    A(eyes2, [{ filter: 'drop-shadow(0 0 2px #38C8F2)' }, { filter: 'drop-shadow(0 0 12px #38C8F2)' }, { filter: 'drop-shadow(0 0 2px #38C8F2)' }], { duration: 2600, iterations: Infinity });
+    $$('[data-hero-word]').forEach(function (w, i) {
+      A(w, [{ opacity: 0, transform: 'translateX(' + (i ? 8 : -8) + 'vw)' }, { opacity: 1, transform: 'translateX(0)' }], { duration: 1600, delay: 300, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both' });
     });
   }
 
-  /* ── Reveal on scroll ───────────────────────────────────────────────── */
-
-  var revealables = $$('.reveal');
-  if ('IntersectionObserver' in window && !reduced) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-    revealables.forEach(function (el) { revealObserver.observe(el); });
-  } else {
-    revealables.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* ── Count-up numbers ───────────────────────────────────────────────── */
-
-  function countUp(el) {
-    var target = parseFloat(el.getAttribute('data-count'));
-    var suffix = el.getAttribute('data-suffix') || '';
-    if (isNaN(target)) return;
-    if (reduced) { el.textContent = target + suffix; return; }
-
-    var duration = 1400;
-    var start = null;
-
-    function frame(now) {
-      if (start === null) start = now;
-      var p = Math.min((now - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if (p < 1) window.requestAnimationFrame(frame);
+  /* ── reveal on scroll ───────────────────────────────────────────────── */
+  function setupReveal() {
+    var els = $$('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.style.opacity = '1'; e.style.transform = 'none'; });
+      return;
     }
-    window.requestAnimationFrame(frame);
-  }
-
-  var counters = $$('[data-count]');
-  if ('IntersectionObserver' in window) {
-    var countObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          countUp(entry.target);
-          countObserver.unobserve(entry.target);
-        }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); }
       });
-    }, { threshold: 0.5 });
-    counters.forEach(function (el) { countObserver.observe(el); });
-  } else {
-    counters.forEach(countUp);
-  }
-
-  /* ── Process: scroll-driven active step ─────────────────────────────── */
-
-  var steps = $$('.step');
-  var rail = $('.process-rail i');
-  var counterNow = $('.process-counter b');
-
-  function setStep(index) {
-    steps.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
-    if (rail) rail.style.setProperty('--p', ((index + 1) / steps.length).toFixed(3));
-    if (counterNow) counterNow.textContent = ('0' + (index + 1)).slice(-2);
-  }
-
-  if (steps.length) {
-    setStep(0);
-    if ('IntersectionObserver' in window) {
-      var stepObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) setStep(steps.indexOf(entry.target));
-        });
-      }, { rootMargin: '-45% 0px -45% 0px' });
-      steps.forEach(function (s) { stepObserver.observe(s); });
-    } else {
-      steps.forEach(function (s) { s.classList.add('is-active'); });
-    }
-  }
-
-  /* ── Pause the hero's fur filter while it is off screen ─────────────── */
-
-  if (hero && 'IntersectionObserver' in window) {
-    var heroObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        hero.classList.toggle('is-idle', !entry.isIntersecting);
-      });
-    }, { threshold: 0 });
-    heroObserver.observe(hero);
-  }
-
-  /* ── Card spotlight follows the cursor ──────────────────────────────── */
-
-  if (!reduced && window.matchMedia('(hover: hover)').matches) {
-    $$('.card').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    els.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(48px)';
+      el.style.transition = 'opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1)';
+      io.observe(el);
     });
   }
 
-  /* ── Active nav link ────────────────────────────────────────────────── */
+  /* ── per-frame loop ─────────────────────────────────────────────────── */
+  var mx = 0, my = 0, tx = 0, ty = 0, last = performance.now();
+  var marq = new WeakMap();
+  var hero = $('[data-hero]'), wolf = $('[data-wolf]'), glow = $('[data-glow]'), hud = $('[data-hud]');
 
-  var sections = $$('main section[id]');
-  var navLinks = $$('.nav-menu a[href^="#"]');
-
-  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
-    var navObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var id = entry.target.getAttribute('id');
-        navLinks.forEach(function (a) {
-          a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
-        });
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(function (s) { navObserver.observe(s); });
-  }
-
-  /* ── Contact form → WhatsApp ────────────────────────────────────────── */
-
-  var form = $('#brief-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var phone = form.getAttribute('data-phone') || '';
-      var tpl = form.getAttribute('data-template') || '{name} · {scope} · {message}';
-      var data = new FormData(form);
-      var text = tpl
-        .replace('{name}', (data.get('name') || '').toString().trim())
-        .replace('{scope}', (data.get('scope') || '').toString().trim())
-        .replace('{message}', (data.get('message') || '').toString().trim());
-      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  if (hero && !reduce) {
+    hero.addEventListener('mousemove', function (e) {
+      var b = hero.getBoundingClientRect();
+      mx = (e.clientX - b.left) / b.width - 0.5;
+      my = (e.clientY - b.top) / b.height - 0.5;
     });
+    hero.addEventListener('mouseleave', function () { mx = 0; my = 0; });
   }
 
-  /* ── Marquees: seamless loop, speed driven by scroll velocity ───────── */
-  /* Port of Magic UI's Scroll Based Velocity: scrolling speeds the strip up
-     and flips its direction; idle, it drifts at its base speed. Without JS
-     (or with reduced motion) the CSS animation keeps running as before. */
+  function frame(t) {
+    var dt = Math.min(64, t - last); last = t;
+    var vh = window.innerHeight, sy = window.scrollY;
 
-  var scrollVelocity = 0;
-  var lastScrollY = window.scrollY;
-  window.addEventListener('scroll', function () {
-    var y = window.scrollY;
-    scrollVelocity += y - lastScrollY;
-    lastScrollY = y;
-  }, { passive: true });
-
-  $$('.marquee').forEach(function (marquee) {
-    var track = $('.marquee-track', marquee);
-    if (!track) return;
-    if (track.children.length === 1) {
-      var clone = track.children[0].cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
-    }
-    if (reduced || !('IntersectionObserver' in window)) return;
-
-    var dir = parseFloat(marquee.getAttribute('data-direction')) || 1;
-    var x = 0, boost = 0, last = null, visible = false, raf = 0;
-    marquee.classList.add('is-driven');
-
-    function step(now) {
-      if (last === null) last = now;
-      var dt = Math.min((now - last) / 1000, 0.05);
-      last = now;
-      var half = track.scrollWidth / 2 || 1;
-      // velocity decays so a flick fades out instead of sticking
-      boost += (scrollVelocity * 0.9 - boost) * 0.12;
-      if (boost > 0.5) dir = Math.abs(dir); else if (boost < -0.5) dir = -Math.abs(dir);
-      var speed = 42 + Math.min(Math.abs(boost) * 14, 520);
-      x -= dir * speed * dt;
-      if (x <= -half) x += half;
-      if (x > 0) x -= half;
-      track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
-      raf = visible ? window.requestAnimationFrame(step) : 0;
+    if (!reduce) {
+      $$('[data-marquee]').forEach(function (el) {
+        var sp = parseFloat(el.dataset.marquee) || 0.04;
+        var x = marq.get(el); if (x === undefined) x = sp < 0 ? -el.scrollWidth / 2 : 0;
+        x -= dt * sp;
+        var half = el.scrollWidth / 2;
+        if (half) { if (-x >= half) x += half; if (x > 0) x -= half; }
+        marq.set(el, x);
+        el.style.transform = 'translate3d(' + x + 'px,0,0)';
+      });
     }
 
-    new IntersectionObserver(function (entries) {
-      visible = entries[0].isIntersecting;
-      if (visible && !raf) { last = null; raf = window.requestAnimationFrame(step); }
-    }).observe(marquee);
-  });
+    tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
 
-  (function decayVelocity() {
-    scrollVelocity *= 0.8;
-    window.requestAnimationFrame(decayVelocity);
-  })();
+    if (wolf && !reduce) {
+      // the beast runs its own mouse parallax (beast-logo.js); here we only
+      // fade and recede the whole wolf as the hero scrolls away.
+      var k = clamp(sy / vh, 0, 1);
+      wolf.style.transform = 'translateY(' + (k * 14) + 'vh) scale(' + (1 - k * 0.12) + ')';
+      wolf.style.opacity = String(1 - k * 0.7);
+    }
+    if (glow && !reduce) glow.style.transform = 'translate(' + (tx * 60) + 'px,' + (ty * 60) + 'px)';
 
-  /* ── Hyper Text: letters decode into place ──────────────────────────── */
+    if (!reduce) {
+      $$('[data-scale]').forEach(function (el) {
+        var b = el.getBoundingClientRect();
+        var p = clamp((vh - b.top) / (vh * 0.85), 0, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.style.transform = 'rotateX(' + ((1 - e) * 28) + 'deg) scale(' + (0.84 + 0.16 * e) + ') translateY(' + ((1 - e) * 60) + 'px)';
+      });
+      $$('[data-phone]').forEach(function (el) {
+        var b = el.getBoundingClientRect();
+        var p = clamp((vh - b.top) / (vh * 0.9), 0, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.style.transform = 'perspective(1400px) rotateY(' + ((1 - e) * -24) + 'deg) rotateZ(' + ((1 - e) * 6) + 'deg) translateY(' + ((1 - e) * 120 + Math.sin(performance.now() / 1400) * 6) + 'px)';
+      });
+      var now = performance.now();
+      $$('[data-phonescroll]').forEach(function (img) {
+        var box = img.parentElement.getBoundingClientRect();
+        var max = img.getBoundingClientRect().height - box.height;
+        if (max <= 0 || box.bottom < 0 || box.top > vh) return;
+        var ph = (now % 18000) / 18000;
+        var kk = ph < 0.1 ? 0 : ph < 0.5 ? (ph - 0.1) / 0.4 : ph < 0.6 ? 1 : 1 - (ph - 0.6) / 0.4;
+        var ease = kk < 0.5 ? 4 * kk * kk * kk : 1 - Math.pow(-2 * kk + 2, 3) / 2;
+        img.style.transform = 'translateY(' + (-ease * max) + 'px)';
+      });
+    }
 
-  var GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&';
+    if (hud) {
+      var cur = null;
+      $$('[data-stage]').forEach(function (el) {
+        var b = el.getBoundingClientRect();
+        if (b.top < vh * 0.5 && b.bottom > vh * 0.5) cur = el.dataset.stage;
+      });
+      if (cur) { if (hud.textContent !== cur) hud.textContent = cur; hud.style.opacity = '1'; }
+      else hud.style.opacity = '0';
+    }
 
-  function scramble(el) {
-    if (el._scrambling) return;
-    var final = el.getAttribute('data-text') || el.textContent;
-    el.setAttribute('data-text', final);
-    el._scrambling = true;
-    var total = final.length, frame = 0, frames = Math.max(14, total * 1.6);
-    var timer = window.setInterval(function () {
-      frame++;
-      var revealed = Math.floor((frame / frames) * total);
-      var out = '';
-      for (var i = 0; i < total; i++) {
-        var c = final.charAt(i);
-        if (i < revealed || !/[0-9A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(c)) { out += c; continue; }
-        var g = GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
-        out += c === c.toLowerCase() ? g.toLowerCase() : g;
-      }
-      el.textContent = out;
-      if (frame >= frames) {
-        window.clearInterval(timer);
-        el.textContent = final;
-        el._scrambling = false;
-      }
-    }, 38);
+    requestAnimationFrame(frame);
   }
 
-  if (!reduced) {
-    var heroWord = $('[data-scramble]');
-    if (heroWord) {
-      window.setTimeout(function () { scramble(heroWord); }, 950);
-      heroWord.addEventListener('pointerenter', function () { scramble(heroWord); });
-    }
-
-    var eyebrows = $$('.section-head .eyebrow, .contact-copy .eyebrow');
-    if ('IntersectionObserver' in window) {
-      var eyebrowObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            scramble(entry.target);
-            eyebrowObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 1 });
-      eyebrows.forEach(function (el) { eyebrowObserver.observe(el); });
-    }
-  }
-
-  /* ── Border Beam: stagger so the lights never move in sync ──────────── */
-
-  $$('.cases-featured .beam').forEach(function (el, i) {
-    el.style.setProperty('--beam-delay', (-i * 1.7).toFixed(1) + 's');
-  });
-
-  /* ── Flickering Grid behind the contact panel ───────────────────────── */
-
-  var contact = $('.contact');
-  if (contact && !reduced && 'IntersectionObserver' in window) {
-    var canvas = document.createElement('canvas');
-    canvas.className = 'flicker-grid';
-    canvas.setAttribute('aria-hidden', 'true');
-    contact.insertBefore(canvas, contact.firstChild);
-    var ctx = canvas.getContext('2d');
-    var SQ = 4, GAP = 6, cols = 0, rows = 0, cells = null, dpr = 1;
-    var flickerOn = false, flickerRaf = 0, flickerLast = 0;
-
-    function sizeGrid() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var w = contact.clientWidth, h = contact.clientHeight;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      cols = Math.ceil(w / (SQ + GAP));
-      rows = Math.ceil(h / (SQ + GAP));
-      cells = new Float32Array(cols * rows);
-      for (var i = 0; i < cells.length; i++) cells[i] = Math.random() * 0.42;
-    }
-
-    function drawGrid(now) {
-      if (now - flickerLast > 60) {
-        flickerLast = now;
-        for (var i = 0; i < cells.length; i++) {
-          if (Math.random() < 0.025) cells[i] = Math.random() * 0.42;
-        }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var s = SQ * dpr, step = (SQ + GAP) * dpr;
-        for (var c = 0; c < cols; c++) {
-          for (var r = 0; r < rows; r++) {
-            ctx.fillStyle = 'rgba(0,174,239,' + cells[c * rows + r].toFixed(3) + ')';
-            ctx.fillRect(c * step, r * step, s, s);
-          }
-        }
-      }
-      flickerRaf = flickerOn ? window.requestAnimationFrame(drawGrid) : 0;
-    }
-
-    sizeGrid();
-    window.addEventListener('resize', sizeGrid);
-    new IntersectionObserver(function (entries) {
-      flickerOn = entries[0].isIntersecting;
-      if (flickerOn && !flickerRaf) flickerRaf = window.requestAnimationFrame(drawGrid);
-    }).observe(contact);
-  }
-
-  /* ── Process logo video: plays only while on screen ─────────────────── */
-
-  var processLogo = $('.process-logo');
-  if (processLogo && !reduced && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        var playing = processLogo.play();
-        if (playing && playing.catch) playing.catch(function () {});
-      } else {
-        processLogo.pause();
-      }
-    }, { threshold: 0.2 }).observe(processLogo);
-  }
-
-  /* ── Footer year ────────────────────────────────────────────────────── */
-
-  $$('[data-year]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
+  startLogo();
+  setupReveal();
+  requestAnimationFrame(frame);
 })();

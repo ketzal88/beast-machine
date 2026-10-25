@@ -9,12 +9,12 @@ Sitio estático (HTML + CSS + JS vanilla, sin build step) desplegado en Vercel s
 index.html              Home en inglés   (/)   ← idioma principal
 es/index.html           Home en español  (/es)
 assets/css/style.css    Sistema de diseño y layout (único CSS)
-assets/js/app.js        Interacciones: scroll, reveals, contadores, menú, form
-assets/img/             Capas del logo, favicons, OG images
+assets/js/app.js        Interacciones: logo, reveals, mockups al scroll, marquees, HUD
+assets/js/beast-logo.js Logo animado del hero (gruñido + cyberpunk)
+assets/img/             Capas del logo, capturas de casos, favicons, OG images
 tools/                  Pipeline que descompone el logo en capas animables
 design/logo-animation/  Fuente de Claude Design del logo animado (no se publica)
 assets/img/source/      Archivos originales del branding (JPG con fondo blanco)
-assets/video/           Animaciones de logo del cliente; wolf-turn.mp4 se usa en Proceso
 robots.txt · sitemap.xml · site.webmanifest · vercel.json
 ```
 
@@ -22,43 +22,82 @@ Las dos versiones de idioma son archivos HTML independientes (mejor para SEO que
 toggle por JavaScript). Comparten el mismo CSS y JS. Si se edita el contenido de una,
 hay que replicar el cambio en la otra y revisar `sitemap.xml`.
 
+## El diseño (v2, editorial / cinematográfico)
+
+Rediseño portado de Claude Design (`"Beast Machine Portfolio v2"`). Un solo sistema oscuro:
+fondo `#05101C`, texto `#EAF3F8`, acento cyan `#38C8F2`, tipografías **Geist** y **Geist
+Mono**. No hay modo claro ni secciones de papel: todo vive sobre el fondo oscuro.
+
+La página es una sola columna vertical:
+
+1. **Hero** a pantalla completa: el lobo animado (`beast-logo.js`) sobre la palabra
+   "BEAST MACHINE" en contorno, y una fila mono con la meta (productos / scroll / 19
+   trabajos).
+2. **Declaración**: una frase grande sobre a quién le construimos.
+3. **Trabajo** (`#work` / `#trabajo`): cada caso es un `.stage` a pantalla, con número
+   gigante en contorno, cliente, título enorme, un mockup, y abajo métrica + bajada + stack.
+4. **Lab** (`#lab`): grilla de lo que no se ve en una captura (herramientas internas, IA,
+   infraestructura).
+5. **Marquees** de stack técnico, dos filas en sentidos opuestos.
+6. **Contacto** (`#contact` / `#contacto`): el mark del lobo y un CTA gigante a WhatsApp.
+
 ## Idiomas
 
 - EN: `/` (`lang="en"`, canonical `https://beastmachine.space/`) — idioma principal
 - ES: `/es` (`lang="es"`, canonical `https://beastmachine.space/es`)
 - Ambas declaran `hreflang` cruzado y `x-default` apuntando a EN.
 - `/en` redirige 301 a `/` (definido en `vercel.json`).
-- El selector ES/EN está en el nav y en el menú mobile.
+- El selector ES/EN es un link en el nav (`EN` en la ES, `ES` en la EN).
 
-## La sección de casos
+## La sección de Trabajo y el Lab
 
-`#work` (EN) / `#casos` (ES), entre Servicios y Proceso. Diecinueve casos, cada uno con la
-misma estructura de tres partes: **el problema** que trajo el cliente, **lo que
-construimos** y **el resultado**. Cinco fichas grandes (`.case-lg`, a dos columnas arriba
-de 900 px) y catorce en grilla de tres.
+Diecinueve trabajos en total: **trece casos** con captura en `#work`/`#trabajo` y **seis
+piezas** sin pantalla propia en el `#lab`. El hero y la meta dicen "19 trabajos"; el HUD
+flotante numera sólo los trece casos (`NN / 13`).
 
-Todo lo que se afirma ahí sale de los repos de cada proyecto: las cifras (251 páginas,
-158 experiencias, 314 tests, 89 documentos, 45 cuentas, ocho integraciones) (y en las fichas nuevas 250 productos, 158 animatrónicos e inflables, 56 horas por mes y 52 KB;
-las 56 horas son el ahorro que reportó el cliente, no sale de un README) son las que
-declaran sus READMEs, no estimaciones. Si un proyecto cambia, el número cambia acá
-también, y hay que tocarlo en las **dos** páginas.
+Cada caso es un `<article class="stage">` con `id` y `data-stage="NN / 13 — Título"` (lo
+que muestra el HUD). Dos formas:
 
-El producto de pedidos se llama **Hacé tu pedido** ("Comanda Directa" es sólo el
-nombre del repo): de cara al público va siempre el nombre comercial.
+- **Web** (`.mock` → `.browser[data-scale]`): la captura dentro de un marco de navegador
+  con la URL en la barra. El marco se inclina y escala al entrar en pantalla.
+- **Celular** (`.phone-row`): la captura en un teléfono (`.phone[data-phone]`) que hace
+  scroll automático (`[data-phonescroll]`) junto a la línea del problema. Para capturas
+  verticales (Sagrado, Presencia).
 
-El marco narrativo es que Beast Machine es el estudio contratado: cada ficha nombra al
-cliente (`.case-client`), no a quien escribió el código. Worker aparece como cliente
-(agencia de marketing) en seis de los catorce casos.
+Abajo, todo caso cierra con `.stage-foot`: una métrica grande (`.stage-metric`), la bajada
+(`.stage-lede`) y las `.stack` (pills de tecnología).
 
-Las tarjetas reutilizan `.card`, así que heredan el spotlight que sigue al cursor sin
-tocar `app.js`. La grilla va con `align-items: start`: mientras algunas fichas tengan
-captura y otras no, estirarlas a la altura de la fila deja un hueco en la que no la tiene.
+El Lab son `.lab-cell` en una grilla: cliente, métrica, título y una línea.
+
+**Todo lo que se afirma sale de los repos de cada proyecto** — las cifras (251 páginas, 158
+experiencias, 314 tests, 89 documentos, 45 cuentas, 250 productos, 56 horas, 52 KB) son las
+que declaran sus READMEs, no estimaciones. Las 56 horas de Aires son el ahorro que reportó
+el cliente, no sale de un README. Si un proyecto cambia, el número cambia acá también, y hay
+que tocarlo en las **dos** páginas.
+
+El producto de pedidos se llama **Hacé tu pedido** ("Comanda Directa" es sólo el nombre del
+repo): de cara al público va siempre el nombre comercial.
+
+El marco narrativo es que Beast Machine es el estudio contratado: cada caso nombra al
+cliente (`.stage-client`), no a quien escribió el código. Worker aparece como cliente
+(agencia de marketing) en varios casos y en casi todo el Lab.
+
+### Sumar un trabajo nuevo
+
+1. Elegir dónde va: **caso con captura** (`.stage` en `#work`/`#trabajo`) o **pieza de
+   Lab** (`.lab-cell`, para lo que no tiene pantalla publicable). Replicar en las **dos**
+   páginas (EN y ES).
+2. Si es caso: decidir web (marco de navegador) o celular (teléfono con scroll), subir la
+   captura a `assets/img/cases/<slug>.webp` y poner la métrica + bajada + stack.
+3. Renumerar los `data-stage` y los `.stage-num` si se inserta en el medio, y ajustar el
+   total del HUD y el "19 trabajos" del hero/meta si cambia la cuenta.
+4. Sumar el stack nuevo a los marquees sólo si aporta (son nombres de tecnología, no de
+   cliente).
 
 ### Las capturas
 
-`assets/img/cases/*.webp`, dentro de un `<figure class="case-media">` con recorte 16:10
-anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay trece y
-**todas son capturas reales del producto corriendo**, tomadas con Playwright (19/9/2026, 10/10/2026 y 24/10/2026), no maquetas:
+`assets/img/cases/*.webp`. Hoy hay trece y **todas son capturas reales del producto
+corriendo**, tomadas con Playwright (19/9/2026, 10/10/2026 y 24/10/2026), no maquetas:
 
 | Archivo | De dónde salió | Viewport |
 | --- | --- | --- |
@@ -76,92 +115,40 @@ anclado arriba, que es donde vive la identidad de cualquier pantalla. Hoy hay tr
 | `casas-valeria.webp` | casas-valeria.vercel.app | 1440×900 → 960×600 |
 | `quinton.webp` | quinton.com.ar (chat/WhatsApp flotantes ocultos antes de capturar) | 1440×900 → 960×600 |
 
-Las tres de celular llevan la barra de scroll recortada (`crop=798:1792:0:0`). La de Aires está recortada a
-`crop=1220:745:110:0` por la misma razón: deja afuera la banda "+15 años / +3.548
-carteles". La de GymCounter está recortada a `crop=1280:800:80:0` para dejar afuera la banda de métricas
-del pie ("2.000+ atletas", "4,9 de satisfacción"): son afirmaciones del propio sitio que
-acá no podemos respaldar. La de Alko sale de la **página Marcas**, no del home, por la misma
-razón: el home está sembrado de autoclaims ("+50.000 SKUs", "+500 marcas", "+5.500 m²",
-"49 años") y recortarlos del hero obliga a cortar el logo; la grilla de marcas es identidad
-real sin ningún número que no podamos respaldar. Las de Worker y Casas en Valeria son
-capturas limpias del hero (sin banda de métricas), reescaladas de 1440×900 a 960×600. Si se
-reemplaza una captura hay que subir el `?v=` del `<img>` en las dos páginas: `/assets/*` va
-con cache inmutable.
+Las dos de celular (`presencia`, `sagrado`) van completas en el teléfono con scroll
+automático. La de Aires está recortada a `crop=1220:745:110:0` para dejar afuera la banda
+"+15 años / +3.548 carteles". La de GymCounter a `crop=1280:800:80:0` para dejar afuera la
+banda de métricas del pie ("2.000+ atletas", "4,9 de satisfacción"): son afirmaciones del
+propio sitio que acá no podemos respaldar. La de Alko sale de la **página Marcas**, no del
+home, por la misma razón: el home está sembrado de autoclaims ("+50.000 SKUs", "+500
+marcas") y recortarlos obliga a cortar el logo; la grilla de marcas es identidad real sin
+ningún número que no podamos respaldar. Las de Worker y Casas en Valeria son capturas
+limpias del hero reescaladas. Si se reemplaza una captura hay que subir el `?v=` del `<img>`
+en las dos páginas: `/assets/*` va con cache inmutable.
 
-**La del Brain lleva pie de foto y no es negociable.** Sale del anonimizador
-(`scripts/ops/brag-capture.mjs` en el repo del Brain), que reemplaza clientes y equipo
-por ficticios y multiplica toda cifra por 0,834: el cliente "RONDEL" que se lee en la
-captura es VALKER. El `<figcaption>` dice que los datos son de demostración para que
-ningún número vuelva a un reporte como si fuera un caso real. El gate del script no
-atrapa apodos tipeados a mano, así que cada captura nueva del Brain se mira antes de
-publicarla.
+**La del Brain lleva pie de foto implícito y no es negociable.** Sale del anonimizador
+(`scripts/ops/brag-capture.mjs` en el repo del Brain), que reemplaza clientes y equipo por
+ficticios y multiplica toda cifra por 0,834: el cliente "RONDEL" que se lee en la captura es
+VALKER. El gate del script no atrapa apodos tipeados a mano, así que cada captura nueva del
+Brain se mira antes de publicarla.
 
-### Los seis casos sin captura
+### Las piezas sin captura (el Lab, y lo que queda afuera)
 
-| Caso | Por qué no |
+Lo que no tiene pantalla publicable vive en el `#lab` (un club por invitación, el banco de
+trabajo con IA, los gates de código, Shopify/TiendaNube por MCP, los creativos, el estado
+de cartera de Alynk). No llevan captura porque:
+
+| Pieza | Por qué no |
 | --- | --- |
-| AI Worker Generator | Entra por Google SSO restringido a `@worker.ar`. Sin login, la única pantalla es el muro. |
 | Estado de Cartera (Alynk) | Los únicos datos que hay son de un comitente real, con nombre y número de cuenta. No sale a la web sin un dataset de demo. |
 | El banco de trabajo con IA | No tiene interfaz: son skills y carpetas de memoria que corren en una terminal. |
-| Seguridad y calidad del código | Idem: hooks y gates, sin pantalla propia. |
+| Gates para código escrito con IA | Idem: hooks y gates, sin pantalla propia. |
 | Shopify y TiendaNube | Idem: herramientas MCP que se manejan conversando. |
-| Presencia · After Service | Todo detrás de token (el link es la credencial, no hay login) y solo el splash es público; el subdominio todavía dependía del DNS del cliente. La única captura posible sería el splash, que no muestra el producto. |
-
-Para los tres últimos, una captura de terminal armada a mano sería construir una imagen,
-no capturar el producto. Se dejan sin media hasta tener una grabación del flujo real.
+| Creativos a velocidad de campaña | Suite de producción sin una sola pantalla representativa. |
+| Presencia · club | Todo detrás de token (el link es la credencial, no hay login); solo el splash es público y no muestra el producto. |
 
 `gymcounter.vercel.app` **no es** la app de GymCounter: es una app alemana sin relación.
 GymCounter no tiene deploy público documentado, por eso la captura sale de local.
-
-## Paleta: oscuro y claro alternados
-
-Servicios y Proceso llevan `.section-light`: fondo papel (`#EEF3F7`), tarjetas blancas y
-texto tinta. La clase **redefine los tokens** (`--white`, `--text`, `--muted`, `--panel`,
-`--line`, `--cyan`…), así que los componentes de adentro no tienen reglas propias para el
-modo claro: si se suma una sección clara nueva, alcanza con la clase. Sobre claro el cyan
-de marca baja a `#0088C2`, porque `#00AEEF` sobre blanco no llega al contraste de texto.
-
-En las secciones oscuras el texto secundario (`--muted`) es `#A6B6C6` y las tarjetas son
-un plano sólido (`--panel`), no una transparencia: con las transparencias de antes todo
-quedaba azul sobre azul y las secciones no se distinguían.
-
-## El logo animado de Proceso
-
-`assets/video/wolf-turn.mp4` sale de `logo-reveal-vertical.mp4` (el que entregó el
-cliente): recortado a la banda útil, con el blanco del fondo llevado a blanco puro,
-y armado ida y vuelta (el giro y el mismo giro al revés) para que el loop no salte.
-Sin audio, 540 KB. Reproduce sólo mientras está a la vista y se queda en el póster
-(`wolf-turn.webp`) con reduced-motion.
-
-El fondo blanco del video desaparece con `mix-blend-mode: multiply` sobre el papel
-claro. Para que funcione, `.process-sticky` tiene que tener el mismo fondo de la
-sección: el sticky crea su propio contexto de apilamiento y, transparente, el multiply
-no tiene contra qué fundirse y se ve el recuadro blanco.
-
-## Interacciones (assets/js/app.js)
-
-| Qué | Dónde |
-|---|---|
-| Barra de progreso de scroll | fija arriba de todo |
-| Nav con fondo al hacer scroll + link activo por sección | `IntersectionObserver` |
-| Hero con parallax al scrollear | `.hero` |
-| Reveals escalonados | elementos con `.reveal` y `--i` |
-| Contadores animados | elementos con `data-count` / `data-suffix` |
-| Proceso con etapa activa según el scroll | `.step` + riel + contador |
-| Spotlight que sigue al cursor en las tarjetas | `.card` |
-| Formulario que arma el mensaje de WhatsApp | `#brief-form` |
-| Apagar el filtro del hero cuando sale de pantalla | `.hero.is-idle` |
-| Marquees cuya velocidad y sentido siguen al scroll (Scroll Based Velocity) | `.marquee[data-direction]` |
-| Texto que se descifra letra por letra (Hyper Text) | `[data-scramble]` del hero y eyebrows de sección |
-| Luz que recorre el borde (Border Beam) | `.beam`: casos destacados y panel de contacto |
-| Brillo periódico en los botones principales (Shimmer Button) | `.btn-primary::after` |
-| Grilla titilante en canvas, sólo mientras está a la vista (Flickering Grid) | `.flicker-grid`, la crea el JS en `.contact` |
-| Diagrama de conexiones animado (Animated Beam) | `.case-diagram`, en la ficha del banco de trabajo con IA |
-
-Los cinco últimos son efectos de [Magic UI](https://magicui.design/docs/components)
-reescritos en CSS y JS vanilla: la librería es React + Tailwind y este sitio no tiene
-build. Todos se apagan con `prefers-reduced-motion`, y los que corren en loop (marquees,
-grilla) se pausan fuera de pantalla con `IntersectionObserver`.
 
 ## El logo animado del hero
 
@@ -172,7 +159,8 @@ una animación hecha en Claude Design. La fuente original está en
 velocidad 1, tráfico 1, glitch 1, gruñido automático cada 9 s, sonido apagado, parallax
 prendido. Si se rediseña en Claude Design, se vuelve a portar desde ese archivo.
 
-Qué hace:
+Vive dentro de `.wolf[data-wolf]` en el hero: `app.js` sólo lo desvanece y lo aleja al
+scrollear (el parallax con el mouse lo maneja el propio `beast-logo.js`).
 
 | Momento | Qué pasa |
 |---|---|
@@ -180,29 +168,34 @@ Qué hace:
 | Reposo | pulsos de luz viajan por las trazas (algunos en magenta), los ojos laten y parpadean (a veces doble), scanlines y un glitch RGB breve cada tanto |
 | Gruñido | el hocico se arruga, baja la mandíbula con colmillos, la cabeza tiembla, ojos y circuitos pasan a magenta y salen tres anillos. Se dispara con clic, con el mouse encima 0,7 s o solo cada 9 s |
 
-Las capas son las mismas de siempre (`logo-front-base.png`, `logo-front-eyes.png`,
-`logo-front-mark.png` y `logo-front-circuits.svg`): el export de Claude Design trae copias
-idénticas píxel a píxel, sólo con metadatos agregados. El SVG de circuitos todavía trae
-su animación CSS del logo anterior; el script la descarta al insertarlo (`<style>` fuera)
-porque, si no, las animaciones CSS le ganan a los estilos que escribe el JS.
+Las capas son las de siempre (`logo-front-base.png`, `logo-front-eyes.png`,
+`logo-front-mark.png` y `logo-front-circuits.svg`). El SVG de circuitos todavía trae su
+animación CSS del logo anterior; el script la descarta al insertarlo porque, si no, las
+animaciones CSS le ganan a los estilos que escribe el JS.
 
-Sin JavaScript se ve `.beast-mark`, el logo completo y quieto. Con reduced-motion se
-muestra el estado final sin movimiento. El loop se pausa cuando el hero sale de pantalla.
+Sin JavaScript se ve `.beast-mark`, el logo completo y quieto. Con reduced-motion se muestra
+el estado final sin movimiento. El loop se pausa cuando el hero sale de pantalla.
 
-Si el cliente cambia el logo: reemplazar `assets/img/logo-front-mark.png`, revisar las
-cajas `EYE_BOXES` del script y correr `python tools/build-logo-layers.py`. Ojo: la boca,
-la mandíbula, el hocico y los párpados están ubicados en porcentajes sobre ESTE dibujo
+Si el cliente cambia el logo: reemplazar `assets/img/logo-front-mark.png`, revisar las cajas
+`EYE_BOXES` del script y correr `python tools/build-logo-layers.py`. Ojo: la boca, la
+mandíbula, el hocico y los párpados están en porcentajes sobre ESTE dibujo
 (`.beast-mouth`, `.beast-jaw`, `.beast-snout`, `.beast-lid-*` en el CSS); un logo nuevo
 obliga a reubicarlos.
 
-## Contenido editable
+## Interacciones (assets/js/app.js)
 
-- Teléfono de WhatsApp: atributo `data-phone` del formulario y los links `wa.me/...`.
-- Plantilla del mensaje: atributo `data-template` del formulario.
-- Métricas de la sección "Nosotros": `data-count` + `data-suffix` en cada `.stat`.
-- Casos: cada `<article class="card case">`. El orden es el del HTML; para sumar uno
-  nuevo hay que replicarlo en las dos páginas y respetar la terna problema / lo que
-  construimos / resultado.
+Todo corre en un solo `requestAnimationFrame` y se apaga con `prefers-reduced-motion`.
+
+| Qué | Dónde |
+|---|---|
+| Animación del logo (WAAPI) + ojos del mark de contacto + palabras del hero | `startLogo()` |
+| Reveals al entrar en pantalla | elementos con `[data-reveal]`, vía `IntersectionObserver` |
+| El lobo se desvanece y se aleja al scrollear | `.wolf[data-wolf]` |
+| Parallax del glow del hero con el mouse | `[data-glow]` |
+| Marco de navegador que se inclina y escala al entrar | `.browser[data-scale]` |
+| Teléfono que se endereza al entrar + captura con scroll automático | `[data-phone]`, `[data-phonescroll]` |
+| Marquees de stack en sentidos opuestos | `[data-marquee]` (velocidad con signo) |
+| HUD flotante con el caso que se está mirando | `[data-hud]` ← lee `data-stage` |
 
 ## Desarrollo
 
@@ -217,7 +210,7 @@ El deploy se hace al pushear a `main` (Vercel toma la raíz del repo como output
 `vercel.json` define `cleanUrls`, el redirect `/en → /`, cache largo para `/assets/*`
 y headers de seguridad.
 
-**Importante**: `/assets/*` va con cache inmutable de un año. Si se edita un archivo
-de `/assets` sin cambiarle el nombre (`style.css`, `app.js`, el SVG de circuitos), hay
-que subir el número de `?v=` donde se referencia en las dos páginas, si no los
-visitantes que ya entraron siguen viendo la versión vieja.
+**Importante**: `/assets/*` va con cache inmutable de un año. Si se edita un archivo de
+`/assets` sin cambiarle el nombre (`style.css`, `app.js`, `beast-logo.js`, el SVG de
+circuitos), hay que subir el número de `?v=` donde se referencia en las dos páginas, si no
+los visitantes que ya entraron siguen viendo la versión vieja.

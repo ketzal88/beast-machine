@@ -36,10 +36,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/assets/img/logo-front-base.png?v=6" type="image/png">
-<link rel="preload" as="image" href="/assets/img/logo-front-circuits.svg?v=9" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=24">
-<noscript><style>.reveal{opacity:1;transform:none}.step{opacity:1}</style></noscript>
+<link rel="preload" as="image" href="/assets/img/logo-front-mark.png?v=1" type="image/png">
+<link rel="preload" as="image" href="/assets/img/logo-front-eyes.png?v=6" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=25">
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
 
 <script type="application/ld+json">
 {
@@ -66,95 +67,42 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Ir al contenido</a>
-<div class="scroll-progress" aria-hidden="true"><i></i></div>
+<a class="skip-link" href="#trabajo">Saltar al contenido</a>
 
 <!-- ── NAV ─────────────────────────────────────────────────────────────── -->
 <header class="nav">
   <div class="wrap">
-    <a href="/es" class="brand" aria-label="Beast Machine, inicio">
-      <img src="/assets/img/favicon-192.png" alt="" width="34" height="34">
+    <a href="#top" class="brand" aria-label="Beast Machine, inicio">
+      <img src="/assets/img/favicon-192.png" alt="" width="30" height="30">
       <span>Beast Machine</span>
     </a>
-
     <nav class="nav-menu" aria-label="Navegación principal">
-      <a href="#nosotros">Nosotros</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#casos">Casos</a>
-      <a href="#proceso">Proceso</a>
+      <a href="#trabajo">Trabajo</a>
+      <a href="#lab">Lab</a>
       <a href="#contacto">Contacto</a>
+      <a href="/" hreflang="en">EN</a>
     </nav>
-
-    <div class="nav-side">
-      <div class="lang-switch">
-        <a href="/es" aria-current="true" hreflang="es">ES</a>
-        <a href="/" hreflang="en">EN</a>
-      </div>
-      <a href="#contacto" class="btn btn-primary nav-cta">Iniciar proyecto</a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label="Abrir menú">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
   </div>
 </header>
 
-<div class="mobile-panel" id="mobile-panel">
-  <a href="#nosotros" style="--i:0">Nosotros</a>
-  <a href="#servicios" style="--i:1">Servicios</a>
-  <a href="#casos" style="--i:2">Casos</a>
-  <a href="#proceso" style="--i:3">Proceso</a>
-  <a href="#contacto" style="--i:4">Contacto</a>
-  <div class="mobile-foot">
-    <div class="lang-switch">
-      <a href="/es" aria-current="true" hreflang="es">ES</a>
-      <a href="/" hreflang="en">EN</a>
-    </div>
-    <a href="https://wa.me/5491132556383" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
-  </div>
-</div>
-
-<main id="main">
+<main>
 
   <!-- ── HERO ──────────────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="bg-grid"></div>
-      <div class="orb orb-a"></div>
-      <div class="orb orb-b"></div>
+  <section class="hero" id="top" data-hero>
+    <div class="hero-glow" data-glow aria-hidden="true"></div>
+
+    <div class="hero-words" aria-hidden="true">
+      <div class="hero-word" data-hero-word>BEAST</div>
+      <div class="hero-word" data-hero-word>MACHINE</div>
     </div>
 
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <p class="badge hero-fade" style="--d:.1s"><span class="dot"></span> Buenos Aires · Desarrollo de producto</p>
-        <h1>
-          <span class="line" style="--i:0"><span>Construimos</span></span>
-          <span class="line" style="--i:1"><span>productos digitales</span></span>
-          <span class="line" style="--i:2"><span class="gradient-text" data-scramble>que escalan</span></span>
-        </h1>
-        <p class="hero-lead hero-fade" style="--d:.55s">Diseñamos, desarrollamos y lanzamos software para empresas y startups. Del primer prototipo al producto en producción, con un equipo que acompaña todo el ciclo.</p>
-        <div class="hero-actions hero-fade" style="--d:.7s">
-          <a href="#contacto" class="btn btn-primary">
-            Iniciar un proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
-        </div>
-        <div class="hero-meta hero-fade" style="--d:.85s">
-          <div><strong>50+</strong><span>Proyectos entregados</span></div>
-          <div><strong>20+</strong><span>Clientes activos</span></div>
-          <div><strong>&lt;24 h</strong><span>Tiempo de respuesta</span></div>
-        </div>
-      </div>
-
-      <div class="hero-visual hero-fade" style="--d:.3s" aria-hidden="true">
-        <div class="halo"></div>
-        <div class="ring"></div>
-        <div class="ring r2"></div>
-        <div class="mark hero-mark beast" data-beast>
+    <div class="hero-stage">
+      <div class="wolf" data-wolf>
+        <div class="beast" data-beast>
           <div class="beast-halo"></div>
           <div class="beast-halo2"></div>
           <div class="beast-head">
-            <img class="beast-base" src="/assets/img/logo-front-base.png?v=6" alt="" width="559" height="625">
+            <img class="beast-base" src="/assets/img/logo-front-base.png?v=6" alt="Beast Machine" width="559" height="625">
             <img class="beast-mark" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
             <div class="beast-mouth"><div class="beast-teeth-top"><i style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,55% 100%)"></i><i style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:36%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:8%;height:42%;background:#dfeaee;clip-path:polygon(0 0,100% 0,50% 100%)"></i><i style="width:12%;height:100%;background:#eef6f9;clip-path:polygon(0 0,100% 0,45% 100%)"></i></div><div class="beast-teeth-bot"><i style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:40%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:9%;height:45%;background:#d3e0e5;clip-path:polygon(50% 0,100% 100%,0 100%)"></i><i style="width:12%;height:100%;background:#e6f0f3;clip-path:polygon(50% 0,100% 100%,0 100%)"></i></div></div>
             <img class="beast-jaw" src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
@@ -177,746 +125,397 @@
       </div>
     </div>
 
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Scroll</span>
-      <span class="rail"></span>
+    <div class="hero-meta">
+      <span>Productos digitales<br>Buenos Aires</span>
+      <span>Scroll ↓</span>
+      <span>19 trabajos<br>2023 — 2026</span>
     </div>
   </section>
 
-  <!-- ── MARQUEE ───────────────────────────────────────────────────────── -->
-  <div class="marquee" data-direction="1" aria-hidden="true">
-    <div class="marquee-track">
-      <ul>
-        <li>Aplicaciones móviles</li>
-        <li>Plataformas web</li>
-        <li>Software a medida</li>
-        <li>APIs e integraciones</li>
-        <li>Automatizaciones</li>
-        <li>Soporte y mantenimiento</li>
-      </ul>
-    </div>
-  </div>
+  <!-- ── STATEMENT ─────────────────────────────────────────────────────── -->
+  <section class="statement">
+    <p data-reveal>Agencias, restaurantes, comercios y operadores llegaron con una operación que dejó de escalar. <span class="fade">Esto es lo que salió de ahí.</span></p>
+  </section>
 
-  <!-- ── NOSOTROS ──────────────────────────────────────────────────────── -->
-  <section class="about" id="nosotros">
-    <div class="wrap about-grid">
-      <div class="about-copy reveal">
-        <p class="eyebrow">Sobre nosotros</p>
-        <h2 class="section-title">Tecnología con propósito</h2>
-        <p>En Beast Machine desarrollamos productos digitales de principio a fin: desde la estrategia y el diseño hasta la implementación y el soporte continuo.</p>
-        <p>Trabajamos con startups y empresas que necesitan un socio tecnológico confiable para llevar sus ideas al mercado de forma rápida, escalable y con calidad profesional.</p>
+  <!-- ── WORK ──────────────────────────────────────────────────────────── -->
+  <section id="trabajo">
 
-        <div class="pillars">
-          <div class="pillar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
-            <div>
-              <b>Todo el ciclo del producto</b>
-              <span>Estrategia, diseño, desarrollo, lanzamiento y soporte en un mismo equipo.</span>
+    <article class="stage" id="brain" data-stage="01 / 13 — Worker Brain">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">01</span>
+        <div class="stage-headings">
+          <span class="stage-client">Worker · agencia de marketing</span>
+          <h3 class="stage-title">Worker Brain</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Worker Brain — panel</span><span></span></div>
+          <img src="/assets/img/cases/brain.webp?v=1" alt="Panel de Worker Brain con la vista unificada de canales" width="1120" height="630" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>45</b><span>cuentas sobre una sola superficie</span></div>
+        <p class="stage-lede">Ocho integraciones en un snapshot diario, alertas por canal, digestos en Slack y un analista con IA sobre la data de cada cliente.</p>
+        <ul class="stack"><li>Next.js</li><li>Firestore</li><li>Claude</li><li>Gemini</li><li>Slack</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="hacetupedido" data-stage="02 / 13 — Hacé tu pedido">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">02</span>
+        <div class="stage-headings">
+          <span class="stage-client">Worker · pedidos por WhatsApp</span>
+          <h3 class="stage-title">Hacé tu pedido</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Hacé tu pedido</span><span></span></div>
+          <img src="/assets/img/cases/hacetupedido.webp?v=1" alt="Landing de Hacé tu pedido" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>1 fila</b><span>para dar de alta un negocio</span></div>
+        <p class="stage-lede">Un motor multi-tenant que sirve el catálogo de cada negocio y entrega el pedido ya redactado por WhatsApp, con comanda impresa en el mostrador.</p>
+        <ul class="stack"><li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>WhatsApp</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="sagrado" data-stage="03 / 13 — De la carta QR a la comanda">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">03</span>
+        <div class="stage-headings">
+          <span class="stage-client">Sagrado Sushi · restaurante</span>
+          <h3 class="stage-title">De la carta QR a la comanda</h3>
+        </div>
+      </div>
+      <div class="phone-row">
+        <div class="phone-stage">
+          <div class="phone-glow" aria-hidden="true"></div>
+          <div class="phone" data-phone>
+            <div class="phone-screen">
+              <img data-phonescroll src="/assets/img/cases/sagrado.webp?v=2" alt="Carta de Sagrado Sushi en el celular" width="798" height="1792" loading="lazy" decoding="async">
+              <div class="phone-notch" aria-hidden="true"></div>
             </div>
           </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-            <div>
-              <b>Entregas iterativas</b>
-              <span>Metodologías ágiles con avances visibles en cada etapa del proyecto.</span>
+        </div>
+        <div class="phone-copy">
+          <span class="label">Problema</span>
+          <p class="problem">Los pedidos entraban escritos por el comensal: faltaba la dirección, el ítem ya no existía, el total no cerraba.</p>
+          <span class="note">Captura real · scroll automático</span>
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>0</b><span>pedidos tipeados a mano</span></div>
+        <p class="stage-lede">La carta arma el pedido y abre el chat del local con el mensaje escrito. Una extensión de Chrome imprime la comanda.</p>
+        <ul class="stack"><li>Next.js</li><li>Firestore</li><li>Extensión de Chrome</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="lati" data-stage="04 / 13 — latitravel.com">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">04</span>
+        <div class="stage-headings">
+          <span class="stage-client">Lati Travel · operador de viajes</span>
+          <h3 class="stage-title">latitravel.com</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">latitravel.com</span><span></span></div>
+          <img src="/assets/img/cases/lati.webp?v=1" alt="Portada de Lati Travel" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>251</b><span>páginas estáticas indexables</span></div>
+        <p class="stage-lede">WordPress reconstruido en Astro: 158 experiencias, 24 destinos, 42 guías y 314 pruebas que rompen el build si vuelve una promesa sin respaldo.</p>
+        <ul class="stack"><li>Astro</li><li>SEO y GEO</li><li>GitHub Actions</li><li>Vercel</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="worker" data-stage="05 / 13 — El nuevo sitio de Worker">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">05</span>
+        <div class="stage-headings">
+          <span class="stage-client">Worker · sitio de la agencia</span>
+          <h3 class="stage-title">El nuevo sitio de Worker</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Worker — sitio institucional</span><span></span></div>
+          <img src="/assets/img/cases/worker.webp?v=1" alt="Portada del nuevo sitio de Worker" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>2</b><span>negocios en un sitio: ecommerce y B2B</span></div>
+        <p class="stage-lede">Cómo trabaja la agencia hoy, especialistas más IA, con un hero que rota alertas reales y anonimizadas del Brain.</p>
+        <ul class="stack"><li>Sitio institucional</li><li>SEO</li><li>Vercel</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="quinton" data-stage="06 / 13 — Una tienda para una compra pensada">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">06</span>
+        <div class="stage-headings">
+          <span class="stage-client">Quinton · movilidad eléctrica</span>
+          <h3 class="stage-title">Una tienda para una compra pensada</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Quinton — tienda</span><span></span></div>
+          <img src="/assets/img/cases/quinton.webp?v=1" alt="Portada de la tienda Quinton" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>19</b><span>modelos, cuotas y envío a la vista</span></div>
+        <p class="stage-lede">Shopify a medida: monopatines y bicis eléctricas navegables por tipo, financiación y garantía antes del checkout, y WhatsApp en cada página.</p>
+        <ul class="stack"><li>Shopify</li><li>Mercado Pago</li><li>WhatsApp</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="presencia" data-stage="07 / 13 — Carta digital y panel de salón">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">07</span>
+        <div class="stage-headings">
+          <span class="stage-client">Presencia · restaurante</span>
+          <h3 class="stage-title">Carta digital y panel de salón</h3>
+        </div>
+      </div>
+      <div class="phone-row">
+        <div class="phone-stage">
+          <div class="phone-glow" aria-hidden="true"></div>
+          <div class="phone" data-phone>
+            <div class="phone-screen">
+              <img data-phonescroll src="/assets/img/cases/presencia.webp?v=2" alt="Carta de Presencia en el celular" width="798" height="1792" loading="lazy" decoding="async">
+              <div class="phone-notch" aria-hidden="true"></div>
             </div>
           </div>
-          <div class="pillar">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            <div>
-              <b>Respuesta en menos de 24 horas</b>
-              <span>Canal directo con el equipo, sin intermediarios ni demoras.</span>
-            </div>
-          </div>
+        </div>
+        <div class="phone-copy">
+          <span class="label">Problema</span>
+          <p class="problem">Cinco cartas en papel, con precios que se mueven y platos que se agotan en medio del servicio.</p>
+          <span class="note">Captura real · scroll automático</span>
         </div>
       </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>5 → 1</b><span>cartas de papel, una carta en vivo</span></div>
+        <p class="stage-lede">Marcar un plato como agotado llega a los teléfonos ya abiertos, sin recargar. Y alrededor, un club de miembros por invitación con pase en Apple Wallet.</p>
+        <ul class="stack"><li>Next.js</li><li>Firestore</li><li>Apple Wallet</li></ul>
+      </div>
+    </article>
 
-      <div class="stats reveal" style="--i:1">
-        <div class="stat">
-          <b data-count="50" data-suffix="+">50+</b>
-          <span>Proyectos entregados</span>
+    <article class="stage" id="aires" data-stage="08 / 13 — Presupuestos y landing">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">08</span>
+        <div class="stage-headings">
+          <span class="stage-client">Aires Publicidad · cartelería</span>
+          <h3 class="stage-title">Presupuestos y landing</h3>
         </div>
-        <div class="stat">
-          <b data-count="3" data-suffix="+">3+</b>
-          <span>Años de experiencia</span>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Aires Publicidad</span><span></span></div>
+          <img src="/assets/img/cases/aires.webp?v=2" alt="Home de Aires Publicidad" width="960" height="600" loading="lazy" decoding="async">
         </div>
-        <div class="stat">
-          <b data-count="20" data-suffix="+">20+</b>
-          <span>Clientes activos</span>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>56 h</b><span>por mes devueltas al vendedor</span></div>
+        <p class="stage-lede">PDFs de marca en texto vectorial de 52 KB, y un Worker que inyecta SEO y medición para que rediseñar no la borre.</p>
+        <ul class="stack"><li>jsPDF</li><li>Cloudflare Workers</li><li>Meta CAPI</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="partymarket" data-stage="09 / 13 — Halloween por WhatsApp">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">09</span>
+        <div class="stage-headings">
+          <span class="stage-client">Party Market · cotillón</span>
+          <h3 class="stage-title">Halloween por WhatsApp</h3>
         </div>
-        <div class="stat">
-          <b data-count="99" data-suffix="%">99%</b>
-          <span>Uptime garantizado</span>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Party Market — catálogo</span><span></span></div>
+          <img src="/assets/img/cases/partymarket.webp?v=2" alt="Catálogo de Party Market" width="960" height="600" loading="lazy" decoding="async">
         </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>250</b><span>productos con precio de mayorista</span></div>
+        <p class="stage-lede">Catálogo con foto, selector de talle y buscador. Actualizar todos los precios es cambiar un número.</p>
+        <ul class="stack"><li>Next.js</li><li>Supabase</li><li>Sync con proveedor</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="casas" data-stage="10 / 13 — Cuatro casas, un panel en el celular">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">10</span>
+        <div class="stage-headings">
+          <span class="stage-client">Casas en Valeria del Mar · alquiler</span>
+          <h3 class="stage-title">Cuatro casas, un panel en el celular</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Casas en Valeria del Mar</span><span></span></div>
+          <img src="/assets/img/cases/casas-valeria.webp?v=1" alt="Portada de Casas en Valeria del Mar" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>20</b><span>versiones para volver atrás</span></div>
+        <p class="stage-lede">Sin base de datos: un JSON sobre Vercel Blob con cuatro casas, dieciséis períodos y disponibilidad por noche que nunca se pisa.</p>
+        <ul class="stack"><li>Next.js</li><li>Tailwind</li><li>Vercel Blob</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="gymcounter" data-stage="11 / 13 — Entrenar sin señal">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">11</span>
+        <div class="stage-headings">
+          <span class="stage-client">GymCounter · entrenamiento</span>
+          <h3 class="stage-title">Entrenar sin señal</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">GymCounter</span><span></span></div>
+          <img src="/assets/img/cases/gymcounter.webp?v=2" alt="Portada de GymCounter" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>180</b><span>días de programa, offline</span></div>
+        <p class="stage-lede">PWA con motor de protocolos, registro en IndexedDB que sincroniza después y suscripciones con Stripe.</p>
+        <ul class="stack"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>PWA</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="museo" data-stage="12 / 13 — Sitio y plataforma operativa">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">12</span>
+        <div class="stage-headings">
+          <span class="stage-client">El Museo Viajero · teatro itinerante</span>
+          <h3 class="stage-title">Sitio y plataforma operativa</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">El Museo Viajero</span><span></span></div>
+          <img src="/assets/img/cases/museo.webp?v=1" alt="Portada de El Museo Viajero" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>0</b><span>planillas para armar una temporada</span></div>
+        <p class="stage-lede">Cartelera pública, material por suscripción, y detrás: calendario, reservas, asistencia y liquidaciones.</p>
+        <ul class="stack"><li>Next.js</li><li>React</li><li>Firestore</li></ul>
+      </div>
+    </article>
+
+    <article class="stage" id="alko" data-stage="13 / 13 — Un catálogo que el cliente edita solo">
+      <div class="stage-head" data-reveal>
+        <span class="stage-num">13</span>
+        <div class="stage-headings">
+          <span class="stage-client">Alko · materiales eléctricos</span>
+          <h3 class="stage-title">Un catálogo que el cliente edita solo</h3>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-glow" aria-hidden="true"></div>
+        <div class="browser" data-scale>
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">Alko — marcas</span><span></span></div>
+          <img src="/assets/img/cases/alko.webp?v=1" alt="Marcas que distribuye Alko" width="960" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="stage-foot" data-reveal>
+        <div class="stage-metric"><b>45</b><span>marcas y 26 líneas desde una planilla</span></div>
+        <p class="stage-lede">Un distribuidor desde 1977 sin sitio propio: cuatro páginas generadas por scripts y 36 textos que el cliente cambia sin republicar.</p>
+        <ul class="stack"><li>Go High Level</li><li>Node</li><li>Custom Values</li></ul>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ── LAB ───────────────────────────────────────────────────────────── -->
+  <section class="lab" id="lab">
+    <div class="lab-head" data-reveal>
+      <h2 class="lab-title">Lab<span>.</span></h2>
+      <p>Herramientas internas, IA y la infraestructura que no se ve en una captura.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Presencia · club</span>
+        <span class="lab-metric">0</span>
+        <span class="lab-metric-label">logins: el link es la credencial</span>
+        <h3>Un club por invitación</h3>
+        <p>Nominaciones, ediciones, lista de puerta con check-in y pase firmado en Apple Wallet.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · operación</span>
+        <span class="lab-metric">89</span>
+        <span class="lab-metric-label">documentos + memoria por cliente</span>
+        <h3>Banco de trabajo con IA</h3>
+        <p>La IA arranca con el contexto de un solo cliente. Nada se mezcla con el siguiente.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · ingeniería</span>
+        <span class="lab-metric">1</span>
+        <span class="lab-metric-label">framework, todos los repos</span>
+        <h3>Gates para código escrito con IA</h3>
+        <p>Secretos, push bloqueante, análisis estático. La calidad solo puede subir.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · ecommerce</span>
+        <span class="lab-metric">100%</span>
+        <span class="lab-metric-label">de los cambios reversibles</span>
+        <h3>Shopify y TiendaNube en lenguaje normal</h3>
+        <p>El dueño edita su tienda preguntando, con previsualización, confirmación y deshacer.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Worker · creativo</span>
+        <span class="lab-metric">1 → N</span>
+        <span class="lab-metric-label">un brief, muchas variaciones</span>
+        <h3>Creativos a la velocidad de la pauta</h3>
+        <p>Blueprints, datos desde la URL del producto, variaciones de una foto y video vertical.</p>
+      </div>
+      <div class="lab-cell" data-reveal>
+        <span class="lab-client">Alynk · cartera</span>
+        <span class="lab-metric">0</span>
+        <span class="lab-metric-label">errores de parseo en pantalla</span>
+        <h3>El estado de cartera en el celular</h3>
+        <p>El Excel sigue siendo la fuente de verdad; los cuadres cortan el pipeline.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICIOS ─────────────────────────────────────────────────────── -->
-  <section class="section-light" id="servicios">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Servicios</p>
-        <h2 class="section-title">Lo que hacemos</h2>
-        <p class="section-lead">Desarrollo de productos digitales de punta a punta, adaptado a la operación y los objetivos de cada cliente.</p>
-      </div>
-
-      <div class="services-grid">
-        <article class="card reveal" style="--i:0">
-          <span class="card-index">01</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/></svg></div>
-          <h3>Aplicaciones móviles</h3>
-          <p>Apps nativas y multiplataforma para iOS y Android, con foco en rendimiento y experiencia de usuario.</p>
-        </article>
-
-        <article class="card reveal" style="--i:1">
-          <span class="card-index">02</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2.5"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
-          <h3>Plataformas web</h3>
-          <p>Plataformas escalables, paneles de control, sistemas de gestión y aplicaciones SaaS.</p>
-        </article>
-
-        <article class="card reveal" style="--i:2">
-          <span class="card-index">03</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
-          <h3>Software a medida</h3>
-          <p>Soluciones que se integran con tus sistemas actuales y se adaptan a la forma en la que trabaja tu equipo.</p>
-        </article>
-
-        <article class="card reveal" style="--i:0">
-          <span class="card-index">04</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
-          <h3>APIs e integraciones</h3>
-          <p>Diseño e implementación de APIs robustas y conexiones con servicios de terceros.</p>
-        </article>
-
-        <article class="card reveal" style="--i:1">
-          <span class="card-index">05</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3>Automatizaciones</h3>
-          <p>Automatización de procesos para reducir tareas manuales, costos operativos y errores.</p>
-        </article>
-
-        <article class="card reveal" style="--i:2">
-          <span class="card-index">06</span>
-          <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.18V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 7.26 19.4l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.25 13.7H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 7.26l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 3.25V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 2.82 1.18l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.75 10H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-          <h3>Soporte y mantenimiento</h3>
-          <p>Monitoreo, actualizaciones y soporte técnico continuo para que todo siga funcionando.</p>
-        </article>
-      </div>
+  <!-- ── MARQUEES ──────────────────────────────────────────────────────── -->
+  <section class="marquees" aria-hidden="true">
+    <div class="marquee-row" data-marquee="0.05">
+      <span>Next.js<i>✦</i></span><span>Supabase<i>✦</i></span><span>Firestore<i>✦</i></span><span>Astro<i>✦</i></span><span>Stripe<i>✦</i></span><span>Claude<i>✦</i></span><span>Gemini<i>✦</i></span><span>Veo<i>✦</i></span><span>Cloudflare<i>✦</i></span><span>Next.js<i>✦</i></span><span>Supabase<i>✦</i></span><span>Firestore<i>✦</i></span><span>Astro<i>✦</i></span><span>Stripe<i>✦</i></span><span>Claude<i>✦</i></span><span>Gemini<i>✦</i></span><span>Veo<i>✦</i></span><span>Cloudflare<i>✦</i></span>
+    </div>
+    <div class="marquee-row outline" data-marquee="-0.04">
+      <span>WhatsApp<i>✦</i></span><span>Shopify<i>✦</i></span><span>TiendaNube<i>✦</i></span><span>MCP<i>✦</i></span><span>Slack<i>✦</i></span><span>Meta CAPI<i>✦</i></span><span>PWA<i>✦</i></span><span>Playwright<i>✦</i></span><span>Vercel<i>✦</i></span><span>WhatsApp<i>✦</i></span><span>Shopify<i>✦</i></span><span>TiendaNube<i>✦</i></span><span>MCP<i>✦</i></span><span>Slack<i>✦</i></span><span>Meta CAPI<i>✦</i></span><span>PWA<i>✦</i></span><span>Playwright<i>✦</i></span><span>Vercel<i>✦</i></span>
     </div>
   </section>
 
-  <!-- ── CASOS ─────────────────────────────────────────────────────────── -->
-  <section class="work" id="casos">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Casos</p>
-        <h2 class="section-title">Los problemas que nos vinieron a resolver</h2>
-        <p class="section-lead">Agencias, restaurantes, comercios, operadores de viajes y compañías culturales llegan con una operación que dejó de escalar. Estos son los productos que les entregamos.</p>
-      </div>
-
-      <div class="marquee marquee-clients" data-direction="-1" aria-hidden="true">
-        <div class="marquee-track">
-          <ul>
-            <li>Worker</li>
-            <li>Hacé tu pedido</li>
-            <li>Party Market</li>
-            <li>Aires Publicidad</li>
-            <li>Lati Travel</li>
-            <li>Presencia</li>
-            <li>Sagrado Sushi</li>
-            <li>El Museo Viajero</li>
-            <li>Alynk</li>
-            <li>GymCounter</li>
-            <li>Alko</li>
-            <li>Casas en Valeria del Mar</li>
-            <li>Quinton</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cases-featured">
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Worker · agencia de marketing</span>
-            <h3>Worker Brain</h3>
-            <p class="case-kicker">Inteligencia multicanal para una agencia que opera 45 cuentas.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/brain.webp?v=1" alt="El panel de Worker Brain: la barra de canales a la izquierda y la vista unificada con el pacing de gasto y las métricas del mes" width="1120" height="630" loading="lazy" decoding="async">
-            <figcaption>Datos de demostración: los clientes y las cifras son ficticios.</figcaption>
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Responder el "¿cómo vamos?" de un cliente obligaba a abrir cinco plataformas: Meta Ads, Google Ads, email, ecommerce y leads. La data vivía separada y el riesgo real era pasarle al cliente un número que no se sostenía.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una plataforma que sincroniza ocho integraciones nativas a un único snapshot canónico diario, calcula alertas por canal y manda tres digestos por Slack (briefing diario, revisión semanal, reporte mensual) con lo que hay que mirar primero. Un analista con IA responde sobre la data ya cargada de cada cliente.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>45 cuentas operan sobre una sola superficie. El equipo entra al panel cuando un digesto marca algo, y todos los números de la pantalla salen del mismo snapshot.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Next.js</li><li>TypeScript</li><li>Firestore</li><li>Claude</li><li>Gemini</li><li>Slack</li><li>Vercel</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Worker · producto de pedidos por WhatsApp</span>
-            <h3>Hacé tu pedido</h3>
-            <p class="case-kicker">Un solo código sirve el catálogo online de todos los negocios de la plataforma.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/hacetupedido.webp?v=1" alt="La landing de Hacé tu pedido: el catálogo online, el pedido que llega por WhatsApp y el ticket impreso" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>El sistema de pedidos se había construido para un solo restaurante. Sumar el segundo significaba un proyecto de base de datos nuevo y un deploy nuevo por cliente, así que el producto no pasaba de un puñado de locales.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Un motor multi-tenant: una sola aplicación Next.js sirve la landing y el catálogo de todos los clientes contra un único proyecto de Supabase. Cada negocio carga sus productos desde su propio panel o importa la planilla que ya tenía, define modalidades, medios de pago y zonas de envío, y recibe los pedidos ya redactados por WhatsApp. Dos plantillas comparten ese motor: una carta en lista para restaurantes y un catálogo con foto para comercios. Una extensión de Chrome imprime la comanda en la impresora del mostrador.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Dar de alta un negocio nuevo es una fila en la base, una carga de catálogo y un QR. Cada mejora del producto llega a todos los clientes al mismo tiempo.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Next.js</li><li>Supabase</li><li>Multi-tenant</li><li>Extensión de Chrome</li><li>WhatsApp</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Party Market · cotillón y disfraces</span>
-            <h3>Un catálogo de Halloween de 250 productos por WhatsApp</h3>
-            <p class="case-kicker">El primer negocio de Hacé tu pedido que no es un restaurante.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/partymarket.webp?v=2" alt="El catálogo de Party Market en un celular: el banner de Halloween, el descuento en efectivo y el buscador de productos" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Una tienda de temporada tenía una ventana corta para vender Halloween: 250 productos, un talle por cada disfraz y 158 animatrónicos e inflables con precio atado a un mayorista que cambia su lista.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una plantilla de catálogo con foto sobre el motor de Hacé tu pedido: grilla de dos columnas, ficha de producto con selector de talle, buscador y selecciones que se comparten por link. Los precios del mayorista se leen del sitio del proveedor y se les aplica el margen en un solo lugar, y las fotos se descargan, se recortan cuadradas y se comprimen en lote.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Actualizar los precios de todo el catálogo es cambiar un número. Cada pedido llega con el talle ya escrito, y no hubo que tocar código pensado para restaurantes: alcanzó con apagar la opción de salón.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Next.js</li><li>Supabase</li><li>Sincronización con proveedor</li><li>WhatsApp</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Aires Publicidad · cartelería</span>
-            <h3>Generador de presupuestos y landing</h3>
-            <p class="case-kicker">Un generador de presupuestos que le devuelve al vendedor 56 horas por mes.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/aires.webp?v=2" alt="La home de Aires Publicidad: el título, el botón para cotizar por WhatsApp y la foto de un cartel colocado" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Armar cada presupuesto le comía horas del mes al vendedor. Además, la landing que trae las consultas perdía el SEO y la medición cada vez que se regeneraba el diseño.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Un generador de presupuestos detrás de un código de acceso: el vendedor carga los ítems y obtiene un PDF con la marca, dibujado como texto vectorial, y lo envía por WhatsApp o por mail con el detalle ya escrito. Alrededor, un Worker de Cloudflare inyecta el SEO y la medición en la landing en cada request, y el clic en WhatsApp llega a Meta desde el navegador y desde el servidor.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>El generador le ahorra al vendedor 56 horas por mes. Cada PDF pesa 52 KB con texto nítido que se puede buscar, y rediseñar la landing ya no borra su medición.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Generador de presupuestos</li><li>jsPDF</li><li>Cloudflare Workers</li><li>Meta CAPI</li>
-          </ul>
-        </article>
-
-        <article class="card case case-lg beam reveal">
-          <header class="case-head">
-            <span class="case-client">Lati Travel · operador de viajes</span>
-            <h3>latitravel.com</h3>
-            <p class="case-kicker">Un catálogo de WordPress reconstruido como 251 páginas estáticas.</p>
-          </header>
-          <figure class="case-media">
-            <img src="/assets/img/cases/lati.webp?v=1" alt="Portada de Lati Travel: el buscador sobre la foto principal y los filtros de días y destino debajo" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>El rediseño que había sobre la mesa era una aplicación de una sola página: los buscadores no veían ni un precio. La maqueta además prometía cosas que el negocio no tenía, desde calificaciones de reseñas hasta cancelación gratuita y confirmación instantánea.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Un sitio estático en Astro con HTML real en cada URL: 158 experiencias reservables importadas del catálogo vivo, 24 páginas de destino y 42 guías. Las 258 URLs indexadas del WordPress redirigen con 301 verificados contra el deploy, y 314 pruebas hacen fallar el build si vuelve a aparecer una promesa sin respaldo.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>En producción desde el 24 de agosto de 2026, con cada experiencia, destino y guía como URL indexable propia, y sin una sola promesa en la página que la operación no pueda cumplir.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags">
-            <li>Astro</li><li>SEO y GEO</li><li>GitHub Actions</li><li>Vercel</li>
-          </ul>
-        </article>
-
-      </div>
-
-      <div class="cases-grid">
-
-        <article class="card case reveal" style="--i:0">
-          <figure class="case-media">
-            <img src="/assets/img/cases/presencia.webp?v=2" alt="La carta de Presencia en un celular: las solapas de categoría y los primeros platos con su precio" width="798" height="1792" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Presencia · restaurante</span>
-            <h3>Carta digital y panel de salón</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Cinco cartas distintas en papel (cena à la carte, almuerzo, vinos, cócteles y el café de al lado), con precios que se mueven y platos que se agotan en medio del servicio.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una carta QR mobile-only que lee de Firestore en vivo, más un panel protegido con clave. Los vinos conservan su propia numeración, así que sumar un plato nunca corre "el 47".</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Marcar un plato como agotado llega a los teléfonos ya abiertos, sin recargar. Las reservas pasaron de una planilla a su propia pantalla.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Playwright</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:1">
-          <figure class="case-media">
-            <img src="/assets/img/cases/sagrado.webp?v=2" alt="La carta de Sagrado Sushi en un celular: platos numerados con foto, precio y botón para sumarlos al pedido" width="798" height="1792" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Sagrado Sushi · restaurante</span>
-            <h3>De la carta QR a la comanda impresa</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Los pedidos entraban por WhatsApp escritos por el comensal: faltaba la dirección, el ítem ya no existía, el total no cerraba.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>La carta arma el pedido y abre el chat del local con el mensaje ya escrito: modalidad, cubierto, dirección y aclaraciones. Una extensión de Chrome imprime la comanda en el mostrador.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Todos los pedidos llegan a la cocina con la misma forma, valorizados desde la carta que el local mantiene solo.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Extensión de Chrome</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:2">
-          <figure class="case-media case-diagram">
-            <svg viewBox="0 0 400 250" role="img" aria-label="Diagrama: los manuales de Meta, Google, SEO, email, copy y propuestas llegan a la IA, que trabaja con la memoria de un solo cliente a la vez"><path class="beam-base" d="M100 22 C150 22 150 125 170 125"/><path class="beam-flow" style="--d:-0.00s" d="M100 22 C150 22 150 125 170 125"/><path class="beam-base" d="M100 63 C150 63 150 125 170 125"/><path class="beam-flow" style="--d:-0.43s" d="M100 63 C150 63 150 125 170 125"/><path class="beam-base" d="M100 104 C150 104 150 125 170 125"/><path class="beam-flow" style="--d:-0.86s" d="M100 104 C150 104 150 125 170 125"/><path class="beam-base" d="M100 145 C150 145 150 125 170 125"/><path class="beam-flow" style="--d:-1.29s" d="M100 145 C150 145 150 125 170 125"/><path class="beam-base" d="M100 186 C150 186 150 125 170 125"/><path class="beam-flow" style="--d:-1.72s" d="M100 186 C150 186 150 125 170 125"/><path class="beam-base" d="M100 227 C150 227 150 125 170 125"/><path class="beam-flow" style="--d:-2.15s" d="M100 227 C150 227 150 125 170 125"/><path class="beam-base" d="M230 125 L258 125"/><path class="beam-flow beam-out" d="M230 125 L258 125"/><g class="beam-node"><rect x="4" y="7" width="96" height="30" rx="15"/><text x="52" y="27">Meta</text></g><g class="beam-node"><rect x="4" y="48" width="96" height="30" rx="15"/><text x="52" y="68">Google</text></g><g class="beam-node"><rect x="4" y="89" width="96" height="30" rx="15"/><text x="52" y="109">SEO</text></g><g class="beam-node"><rect x="4" y="130" width="96" height="30" rx="15"/><text x="52" y="150">Email</text></g><g class="beam-node"><rect x="4" y="171" width="96" height="30" rx="15"/><text x="52" y="191">Copy</text></g><g class="beam-node"><rect x="4" y="212" width="96" height="30" rx="15"/><text x="52" y="232">Propuestas</text></g><g class="beam-hub"><circle cx="200" cy="125" r="30"/><text x="200" y="132">IA</text></g><g class="beam-node beam-node-out"><rect x="258" y="105" width="138" height="40" rx="20"/><text x="327" y="121">Memoria</text><text x="327" y="137">del cliente</text></g></svg>
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Worker · operación diaria</span>
-            <h3>El banco de trabajo con IA de la agencia</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Lo que una persona aprendía en una cuenta se quedaba en su cabeza. No pasaba al cliente siguiente ni a quien entraba nuevo.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una biblioteca de 89 documentos con cómo hace la agencia cada cosa (Meta, Google, SEO, email, copy, propuestas) y una carpeta de memoria por cliente. El operador abre una terminal dentro de la carpeta del cliente y la IA arranca solo con ese contexto.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Las decisiones quedan escritas donde el resto del equipo las vuelve a usar, y el contexto de un cliente no se mezcla con el de otro.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Claude Code</li><li>Skills</li><li>Memoria por cliente</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:0">
-          <header class="case-head">
-            <span class="case-client">Worker · ingeniería</span>
-            <h3>Seguridad y calidad del código escrito con IA</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Escribir código con IA a velocidad termina con secretos commiteados y con la calidad cayendo de a un pull request por vez.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una capa de control manejada por configuración: cada proyecto declara su stack en un manifiesto y los mismos hooks corren para Java, Python o TypeScript. Escaneo de secretos, un gate bloqueante antes del push, análisis estático y auditoría de dependencias.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Un solo framework cubre todos los repositorios. Los ratchets de calidad dejan que las métricas bajen y nunca suban, y la adopción es aditiva: una clave que falta en el manifiesto se saltea en silencio, no rompe el build.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Config-driven</li><li>Gates de seguridad</li><li>Cualquier lenguaje</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:1">
-          <header class="case-head">
-            <span class="case-client">Worker · clientes de ecommerce</span>
-            <h3>Shopify y TiendaNube en lenguaje normal</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>El dueño de la tienda dependía de la agencia para cualquier cambio de catálogo, así que los arreglos chicos hacían cola detrás de los trabajos grandes.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Dos herramientas que el dueño maneja preguntando: ventas y stock, descripciones reescritas para buscadores, combos armados. Cada escritura pasa por una lista blanca de campos, una previsualización, una confirmación y un deshacer.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>El dueño edita su propia tienda sin poder romperla, y cada cambio queda reversible.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>MCP</li><li>Shopify</li><li>TiendaNube</li><li>Python</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:2">
-          <header class="case-head">
-            <span class="case-client">Worker · producción creativa</span>
-            <h3>Creativos de ads a la velocidad de la pauta</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>La pauta consume creativos más rápido de lo que una cola de diseño los repone.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una suite de producción armada sobre estructuras de avisos probadas: blueprints JSON que fijan layout y jerarquía, datos del producto extraídos de su URL, variaciones de estudio y de lifestyle a partir de una sola foto cruda, y video vertical corto.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Un brief se convierte en un set de variaciones alineadas a la marca, listas para Meta, TikTok y Reels.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Gemini</li><li>Veo</li><li>Firebase</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:0">
-          <figure class="case-media">
-            <img src="/assets/img/cases/museo.webp?v=1" alt="Portada de El Museo Viajero, con la navegación de cartelera y la presentación de la compañía" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">El Museo Viajero · teatro itinerante</span>
-            <h3>Sitio público y plataforma operativa</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Una compañía de teatro educativo itinerante coordinaba funciones en escuelas y salas con planillas.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>El sitio público (cartelera, repertorio, material didáctico según el nivel de suscripción) y la plataforma que lo sostiene: calendario, reservas, asistencia, liquidaciones, pricing y reportes.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Programar una temporada, llenarla y liquidarla dejó de vivir en planillas.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>React</li><li>Firestore</li><li>Vercel</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:1">
-          <header class="case-head">
-            <span class="case-client">Alynk · reporting de cartera</span>
-            <h3>El estado de cartera en el celular</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>El estado de cartera diario era una planilla que se mandaba por mail a cada comitente.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Un panel privado con usuario y contraseña que lee la misma planilla que genera el script existente. No recalcula nada: el Excel sigue siendo la fuente de verdad, y un paso de validación vuelve a correr los cuadres sobre la data ya extraída.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>El comitente abre su estado desde el celular, y un error de parseo corta el pipeline en lugar de llegar a la pantalla.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Python</li><li>TypeScript</li><li>Cuadres de validación</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:2">
-          <figure class="case-media">
-            <img src="/assets/img/cases/gymcounter.webp?v=2" alt="La portada de GymCounter: el protocolo de 180 días, la prueba gratuita y el aviso de que funciona sin conexión" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">GymCounter · app de entrenamiento</span>
-            <h3>Plan de entrenamiento y registro sin conexión</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Una rutina de gimnasio se abandona por dos motivos: el plan no avanza con la persona, y anotar la serie en el celular falla justo donde no hay señal.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una aplicación web progresiva con motor de protocolos: cada objetivo arma su propio ciclo de días, con entrada en calor y semanas de descarga a lo largo de un programa de 180 días. El registro corre contra IndexedDB y un service worker, así que funciona sin conexión y sincroniza después. La suscripción va por Stripe, con checkout, portal de autogestión y webhooks idempotentes.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Entrenar y registrar funcionan en el subsuelo del gimnasio, y suscribirse o darse de baja nunca pasa por soporte.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>PWA offline</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:0">
-          <figure class="case-media">
-            <img src="/assets/img/cases/worker.webp?v=1" alt="La nueva portada de Worker: el titular sobre especialistas más IA y la sección de cómo trabaja la agencia" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Worker · sitio de la agencia</span>
-            <h3>El nuevo sitio de la agencia</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>El sitio anterior, HTML plano en inglés, vendía a Worker como agencia de ecommerce. Pero hoy tantas de sus cuentas venden por reunión y cotización como las que venden por una tienda, y el sitio no decía nada de cómo trabaja la agencia ahora, alrededor de la IA.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Un nuevo sitio institucional en español para los dos lados del negocio, ecommerce y B2B: cómo trabaja la agencia hoy (especialistas más IA), qué hace y cómo arranca un proyecto semana a semana, las dos formas de trabajar (como agencia o autogestión en el Brain), y un hero que rota alertas reales y anonimizadas del Brain, la herramienta con la que llevan las cuentas.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Un sitio que cubre los dos tipos de cliente y coincide con la agencia de hoy, en vivo sobre Vercel.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Sitio institucional</li><li>SEO</li><li>Vercel</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:1">
-          <figure class="case-media">
-            <img src="/assets/img/cases/alko.webp?v=1" alt="Las marcas que distribuye Alko, cada ficha con un proveedor y sus líneas de producto" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Alko · materiales eléctricos</span>
-            <h3>Un catálogo que el cliente edita solo</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Un distribuidor mayorista de materiales eléctricos, en el rubro desde 1977, no tenía sitio propio. El diseño existía como maqueta y había que construirlo y publicarlo, con una condición: el cliente tenía que cambiar los textos sin tocar el diseño.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Cuatro páginas (home, nosotros, líneas de producto, marcas) publicadas en Go High Level, generadas por scripts de Node pelados desde la planilla del cliente. Dos mega-menús que cubren 26 líneas de producto y 45 marcas, y 36 textos que el cliente edita desde la configuración sin volver a publicar.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>El distribuidor actualiza sus propios textos sin romper el diseño, y todo el catálogo se genera desde un único archivo de datos.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Go High Level</li><li>Scripts de Node</li><li>Custom Values</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:2">
-          <figure class="case-media">
-            <img src="/assets/img/cases/casas-valeria.webp?v=1" alt="La portada de Casas en Valeria del Mar: las cuatro casas con sus fotos, precios y disponibilidad" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Casas en Valeria del Mar · alquiler temporario</span>
-            <h3>Cuatro casas, un panel que el dueño maneja del celular</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Cuatro casas de veraneo para alquilar, con precios, disponibilidad y fotos que cambian con la temporada, y un dueño que necesitaba actualizar todo eso sin un programador.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Un sitio sin base de datos: todo vive en un JSON sobre Vercel Blob (cuatro casas, dieciséis períodos de temporada y las galerías). La disponibilidad se lleva por noches ocupadas, así que dos quincenas que se superponen comparten una fecha sin pisarse, y el dueño marca un período como alquilado con un botón. Cada guardado escribe un archivo nuevo, así que se puede volver a las últimas 20 versiones.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>El dueño cambia precios, disponibilidad y fotos desde el celular, y el sitio nunca se contradice.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Tailwind</li><li>Vercel Blob</li><li>Sin base de datos</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:0">
-          <header class="case-head">
-            <span class="case-client">Presencia · club de miembros</span>
-            <h3>Un club por invitación, manejado desde un panel</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Presencia quería un círculo privado alrededor del restaurante: solo por invitación, sin alta pública, armado alrededor de eventos con nombre y no de una cuota mensual.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una plataforma de miembros en un subdominio del mismo proyecto de la carta. El link es la credencial (un token aleatorio, sin login): el miembro ve su tarjeta, sus privilegios y la próxima Edición; el invitado confirma o declina una invitación nominal. La membresía crece por nominación, revisada desde el panel, con un recorrido de nominado a miembro. La tarjeta se agrega a Apple Wallet como pase firmado, y la noche se maneja con una lista de puerta en el celular, con check-in y un rol de puerta de solo lectura.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Nominaciones, ediciones, lista de invitados y check-in viven en un solo panel, y nada de un miembro es público.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Next.js</li><li>Firestore</li><li>Apple Wallet</li><li>Acceso por token</li><li>Resend</li></ul>
-        </article>
-
-        <article class="card case reveal" style="--i:1">
-          <figure class="case-media">
-            <img src="/assets/img/cases/quinton.webp?v=1" alt="La portada de Quinton: el titular de 19 modelos de monopatines y bicis eléctricas, y la banda con cuotas, envíos, garantía y Mercado Pago" width="960" height="600" loading="lazy" decoding="async">
-          </figure>
-          <header class="case-head">
-            <span class="case-client">Quinton · monopatines y bicis eléctricas</span>
-            <h3>Una tienda a medida para una compra pensada</h3>
-          </header>
-          <dl class="case-body">
-            <div>
-              <dt>El problema</dt>
-              <dd>Un monopatín o una bici eléctrica son una compra pensada: la gente compara modelos, pregunta por cuotas y envíos, y quiere que alguien le responda antes de pagar.</dd>
-            </div>
-            <div>
-              <dt>Lo que construimos</dt>
-              <dd>Una tienda Shopify a medida: 19 modelos entre monopatines, bicis eléctricas y accesorios, navegables por tipo, con el financiamiento (hasta 12 cuotas fijas, descuento en efectivo), el envío a todo el país con seguimiento, la garantía de dos años y Mercado Pago a la vista desde el arranque, y una consulta por WhatsApp en cada página.</dd>
-            </div>
-            <div class="case-result">
-              <dt>Resultado</dt>
-              <dd>Toda la línea se navega y se compra online, con las condiciones que cierran la venta a la vista antes del checkout y un canal directo para todo lo demás.</dd>
-            </div>
-          </dl>
-          <ul class="case-tags"><li>Shopify</li><li>Mercado Pago</li><li>WhatsApp</li></ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PROCESO ───────────────────────────────────────────────────────── -->
-  <section class="process section-light" id="proceso">
-    <div class="wrap process-layout">
-      <div class="process-sticky">
-        <div class="reveal">
-          <p class="eyebrow">Cómo trabajamos</p>
-          <h2 class="section-title">Nuestro proceso</h2>
-          <p class="section-lead">Un enfoque estructurado y transparente: siempre sabes en qué etapa está tu proyecto y qué viene después.</p>
-          <p class="process-counter" aria-hidden="true"><b>01</b> / 04</p>
-          <div class="process-rail" aria-hidden="true"><i></i></div>
-          <video class="process-mark process-logo" src="/assets/video/wolf-turn.mp4?v=1" poster="/assets/img/wolf-turn.webp?v=1" width="480" height="436" muted loop playsinline preload="none" aria-hidden="true"></video>
-        </div>
-      </div>
-
-      <div class="steps">
-        <article class="step">
-          <span class="step-num">Etapa 01</span>
-          <h3>Descubrimiento</h3>
-          <p>Analizamos objetivos, usuarios y requerimientos para definir el alcance real del proyecto antes de escribir una línea de código.</p>
-          <ul><li>Objetivos de negocio</li><li>Alcance</li><li>Estimación</li></ul>
-        </article>
-
-        <article class="step">
-          <span class="step-num">Etapa 02</span>
-          <h3>Diseño</h3>
-          <p>Creamos prototipos e interfaces enfocados en la experiencia del usuario, para validar decisiones antes de construir.</p>
-          <ul><li>Prototipos</li><li>Interfaz</li><li>Experiencia de usuario</li></ul>
-        </article>
-
-        <article class="step">
-          <span class="step-num">Etapa 03</span>
-          <h3>Desarrollo</h3>
-          <p>Construimos el producto con metodologías ágiles y entregas iterativas, con código revisado y documentado.</p>
-          <ul><li>Sprints</li><li>Revisión de código</li><li>Pruebas</li></ul>
-        </article>
-
-        <article class="step">
-          <span class="step-num">Etapa 04</span>
-          <h3>Lanzamiento y soporte</h3>
-          <p>Desplegamos, monitoreamos y optimizamos. Después del lanzamiento seguimos acompañando el producto.</p>
-          <ul><li>Despliegue</li><li>Monitoreo</li><li>Optimización</li></ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONTACTO ──────────────────────────────────────────────────────── -->
+  <!-- ── CONTACT ───────────────────────────────────────────────────────── -->
   <section class="contact" id="contacto">
-    <div class="orb orb-c" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="contact-panel beam reveal" style="--beam-delay:-3s">
-        <div class="contact-copy">
-          <p class="eyebrow">Contacto</p>
-          <h2>Hablemos de tu proyecto</h2>
-          <p>Cuéntanos qué necesitas y recibes una respuesta en menos de 24 horas, con una propuesta clara y sin compromiso.</p>
-          <a href="https://wa.me/5491132556383" target="_blank" rel="noopener" class="contact-direct">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            <span>
-              <b>+54 9 11 3255-6383</b>
-              <span>WhatsApp directo</span>
-            </span>
-          </a>
-        </div>
-
-        <form class="form-grid" id="brief-form"
-              data-phone="5491132556383"
-              data-template="Hola Beast Machine. Soy {name}. Tipo de proyecto: {scope}. {message}">
-          <div class="field">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre o empresa" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="scope">Tipo de proyecto</label>
-            <select id="scope" name="scope" required>
-              <option value="Aplicación móvil">Aplicación móvil</option>
-              <option value="Plataforma web">Plataforma web</option>
-              <option value="Software a medida">Software a medida</option>
-              <option value="APIs e integraciones">APIs e integraciones</option>
-              <option value="Automatizaciones">Automatizaciones</option>
-              <option value="Soporte y mantenimiento">Soporte y mantenimiento</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="message">Cuéntanos la idea</label>
-            <textarea id="message" name="message" placeholder="Qué quieres construir, en qué etapa está y para cuándo lo necesitas." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">
-            Enviar por WhatsApp
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
-          <p class="form-note">Se abre WhatsApp con el mensaje listo para enviar.</p>
-        </form>
-      </div>
+    <div class="contact-mark" data-reveal aria-hidden="true">
+      <img src="/assets/img/logo-front-mark.png?v=1" alt="" width="559" height="625">
+      <img data-l="eyes2" src="/assets/img/logo-front-eyes.png?v=6" alt="" width="559" height="625">
     </div>
+    <a class="contact-cta" data-reveal href="https://wa.me/5491132556383" target="_blank" rel="noopener">¿Qué construimos ahora?</a>
+    <a class="contact-pill" href="https://wa.me/5491132556383" target="_blank" rel="noopener">WhatsApp · +54 9 11 3255-6383 ↗</a>
   </section>
 
 </main>
@@ -924,37 +523,14 @@
 <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <a href="/es" class="brand">
-          <img src="/assets/img/favicon-192.png" alt="" width="30" height="30">
-          <span>Beast Machine</span>
-        </a>
-        <p class="footer-about">Desarrollo de productos digitales para empresas y startups. Diseño, construcción y escalado de software desde Buenos Aires.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navegación</h4>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#casos">Casos</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <a href="https://wa.me/5491132556383" target="_blank" rel="noopener">WhatsApp: +54 9 11 3255-6383</a>
-        <p>Buenos Aires, Argentina</p>
-        <a href="/" hreflang="en">English version</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; <span data-year>2026</span> Beast Machine. Todos los derechos reservados.</span>
-      <span>Buenos Aires, Argentina</span>
-    </div>
+    <span>© <span data-year>2026</span> Beast Machine</span>
+    <span>Buenos Aires, Argentina</span>
   </div>
 </footer>
 
-<script src="/assets/js/app.js?v=8" defer></script>
+<div class="hud" data-hud aria-hidden="true"></div>
+
+<script src="/assets/js/app.js?v=9" defer></script>
 <script src="/assets/js/beast-logo.js?v=1" defer></script>
 </body>
 </html>

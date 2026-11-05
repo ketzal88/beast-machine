@@ -1,0 +1,135 @@
+/* ============================================================================
+   Beast Machine — presentación de propuesta
+   Se carga DESPUÉS de style.css y sólo agrega componentes propios.
+   No pisa nada del portfolio: todo va prefijado .p- o bajo .hero--p.
+   ========================================================================== */
+
+/* ── HERO de propuesta: mismo lenguaje, más corto ─────────────────────── */
+.hero--p{min-height:100svh}
+.hero--p .wolf{height:min(42vh,390px)}
+.hero--p .hero-word{font-size:clamp(32px,8.4vw,142px);letter-spacing:-.055em;line-height:.86}
+/* las dos palabras van arriba y abajo del lobo, no detrás: acá el título
+   es información, no textura, y tapado por la cabeza no se lee. */
+.hero--p .hero-words{justify-content:space-between;padding:clamp(92px,14vh,160px) 0 clamp(96px,16vh,178px)}
+.hero--p .hero-stage{padding-top:96px}
+
+/* ── Bloque de sección ────────────────────────────────────────────────── */
+.p-sec{max-width:var(--wrap);margin:0 auto;padding:clamp(64px,9vw,140px) var(--pad);
+  display:grid;gap:clamp(28px,4vw,56px)}
+.p-sec--tight{padding-top:clamp(40px,5vw,72px)}
+.p-head{display:grid;gap:14px}
+.p-eyebrow{font-family:'Geist Mono','Geist',monospace;font-size:12px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--accent)}
+.p-h{margin:0;font-size:clamp(34px,5.6vw,92px);letter-spacing:-.045em;line-height:.94;
+  font-weight:600;text-wrap:balance;max-width:17ch}
+.p-lede{margin:0;font-size:clamp(17px,1.4vw,21px);line-height:1.5;color:var(--soft);
+  max-width:48ch;text-wrap:pretty}
+.p-note{margin:0;font-family:'Geist Mono','Geist',monospace;font-size:12px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--dim);line-height:1.6}
+
+/* ── Grilla de celdas (mismo tejido que el Lab) ───────────────────────── */
+/* El fondo del contenedor es el que dibuja las separaciones de 1px, así que
+   una última fila incompleta deja un hueco iluminado. Las columnas se fijan
+   por cantidad de celdas para que SIEMPRE divida exacto en cada breakpoint:
+   4 celdas → 4/2/1 · 6 celdas → 3/2/1 · 3 celdas → 3/1. */
+.p-grid{display:grid;gap:1px;background:var(--line);border-radius:20px;overflow:hidden}
+.p-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.p-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.p-grid--3x{grid-template-columns:repeat(3,minmax(0,1fr))}
+.p-cell{background:var(--bg);padding:clamp(26px,2.7vw,40px);display:grid;gap:14px;
+  align-content:start;transition:background .3s}
+.p-cell:hover{background:var(--bg-2)}
+.p-cell h3{margin:0;font-size:clamp(19px,1.7vw,24px);letter-spacing:-.02em;line-height:1.15;
+  font-weight:600;text-wrap:balance}
+.p-cell p{margin:0;font-size:15px;line-height:1.55;color:var(--muted);text-wrap:pretty}
+.p-step{font-size:clamp(44px,4.4vw,76px);font-weight:800;letter-spacing:-.06em;line-height:.78;
+  color:transparent;-webkit-text-stroke:1px rgba(56,200,242,.5)}
+.p-tag{font-family:'Geist Mono','Geist',monospace;font-size:12px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--dim)}
+
+/* ── Línea de tiempo ──────────────────────────────────────────────────── */
+.p-time{margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.p-time li{list-style:none;display:grid;grid-template-columns:clamp(74px,8vw,128px) minmax(0,1fr);
+  gap:clamp(16px,3vw,44px);padding:clamp(16px,1.9vw,24px) 0;border-bottom:1px solid var(--line);
+  align-items:baseline}
+.p-time .t{font-family:'Geist Mono','Geist',monospace;font-size:13px;letter-spacing:.06em;color:var(--accent)}
+.p-time .d{font-size:clamp(16px,1.3vw,20px);line-height:1.45;color:var(--muted);text-wrap:pretty}
+.p-time .d b{color:var(--text);font-weight:600}
+
+/* ── Dos paneles ──────────────────────────────────────────────────────── */
+.p-duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+  gap:clamp(16px,2vw,24px)}
+.p-panel{border:1px solid var(--line);border-radius:20px;padding:clamp(28px,3vw,46px);
+  display:grid;gap:18px;align-content:start;
+  background:linear-gradient(180deg,var(--panel),rgba(11,27,44,0))}
+.p-panel--accent{border-color:rgba(56,200,242,.42)}
+.p-panel h3{margin:0;font-size:clamp(24px,2.4vw,34px);letter-spacing:-.03em;line-height:1.05;font-weight:600}
+.p-panel p{margin:0;font-size:16px;line-height:1.55;color:var(--muted);text-wrap:pretty}
+
+/* ── Plan por etapas ──────────────────────────────────────────────────── */
+.p-plan{margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.p-plan li{list-style:none;display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  gap:clamp(14px,3vw,44px);padding:clamp(20px,2.4vw,32px) 0;border-bottom:1px solid var(--line);
+  align-items:start}
+.p-plan .num{font-family:'Geist Mono','Geist',monospace;font-size:13px;color:var(--accent);
+  padding-top:6px;min-width:26px}
+.p-plan h3{margin:0 0 9px;font-size:clamp(20px,2.1vw,30px);letter-spacing:-.025em;
+  line-height:1.1;font-weight:600;text-wrap:balance}
+.p-plan p{margin:0;font-size:15px;line-height:1.55;color:var(--muted);max-width:62ch;text-wrap:pretty}
+.p-plan .when{font-family:'Geist Mono','Geist',monospace;font-size:12px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--dim);white-space:nowrap;padding-top:8px}
+
+/* ── Listas con viñeta de acento ──────────────────────────────────────── */
+.p-list{margin:0;padding:0;display:grid;gap:13px}
+.p-list li{list-style:none;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;
+  align-items:start;font-size:16px;line-height:1.5;color:var(--soft);text-wrap:pretty}
+.p-list li::before{content:'';width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--accent)}
+.p-list--dim li{color:var(--muted);font-size:15px}
+.p-list--dim li::before{background:var(--dim)}
+
+/* ── Inversión ────────────────────────────────────────────────────────── */
+.p-price{display:grid;gap:clamp(26px,3.4vw,48px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start}
+.p-amount{display:flex;align-items:baseline;gap:clamp(12px,1.4vw,20px);flex-wrap:wrap}
+.p-amount .cur{font-family:'Geist Mono','Geist',monospace;font-size:clamp(16px,1.7vw,24px);
+  letter-spacing:.08em;color:var(--muted)}
+.p-amount b{font-size:clamp(76px,12vw,196px);font-weight:700;letter-spacing:-.06em;
+  line-height:.8;color:var(--accent)}
+.p-amount .what{font-size:16px;line-height:1.4;color:var(--muted);max-width:16ch}
+.p-terms{display:grid;gap:1px;background:var(--line);border-radius:16px;overflow:hidden}
+.p-terms div{background:var(--bg);padding:18px clamp(18px,2vw,26px);display:grid;gap:5px}
+.p-terms dt{font-family:'Geist Mono','Geist',monospace;font-size:12px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--dim)}
+.p-terms dd{margin:0;font-size:16px;line-height:1.45;color:var(--soft)}
+
+/* ── Nav de la propuesta ──────────────────────────────────────────────── */
+.nav--p .nav-menu{font-size:11px}
+/* Los cuatro labels en español no entran en una línea en mobile: envuelven,
+   la barra fija crece al doble y se le monta encima al título de la sección.
+   La propuesta se lee de corrido, así que abajo de 640px queda sólo la marca. */
+@media (max-width:640px){ .nav--p .nav-menu{display:none} }
+
+/* ── Tablet ───────────────────────────────────────────────────────────── */
+@media (max-width:1100px){
+  .p-grid--4,.p-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .p-grid--3x{grid-template-columns:1fr}   /* 3 celdas: no pasa por 2 columnas */
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────── */
+@media (max-width:640px){
+  .p-grid--4,.p-grid--3,.p-grid--3x{grid-template-columns:1fr}
+
+  .hero--p .hero-stage{padding-top:84px}
+  .hero--p .wolf{height:auto;width:68vw}
+  .hero--p .hero-word{-webkit-text-stroke-width:.75px}
+
+  .p-grid{border-radius:14px}
+  .p-cell{padding:26px 22px}
+  .p-panel{border-radius:14px;padding:28px 22px}
+
+  .p-time li{grid-template-columns:1fr;gap:6px;align-items:start}
+  .p-plan li{grid-template-columns:auto minmax(0,1fr);gap:14px}
+  .p-plan .when{grid-column:2;padding-top:10px}
+
+  .p-terms{border-radius:12px}
+}

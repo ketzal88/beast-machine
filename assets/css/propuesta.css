@@ -88,14 +88,14 @@
 .p-list--dim li::before{background:var(--dim)}
 
 /* ── Inversión ────────────────────────────────────────────────────────── */
-.p-price{display:grid;gap:clamp(26px,3.4vw,48px);
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start}
 .p-amount{display:flex;align-items:baseline;gap:clamp(12px,1.4vw,20px);flex-wrap:wrap}
 .p-amount .cur{font-family:'Geist Mono','Geist',monospace;font-size:clamp(16px,1.7vw,24px);
   letter-spacing:.08em;color:var(--muted)}
 .p-amount b{font-size:clamp(76px,12vw,196px);font-weight:700;letter-spacing:-.06em;
   line-height:.8;color:var(--accent)}
-.p-amount .what{font-size:16px;line-height:1.4;color:var(--muted);max-width:16ch}
+/* dentro de un panel a media pantalla el número grande se come la columna */
+.p-amount--duo b{font-size:clamp(60px,6.6vw,108px)}
+.p-amount--duo .cur{font-size:clamp(14px,1.2vw,18px)}
 .p-terms{display:grid;gap:1px;background:var(--line);border-radius:16px;overflow:hidden}
 .p-terms div{background:var(--bg);padding:18px clamp(18px,2vw,26px);display:grid;gap:5px}
 .p-terms dt{font-family:'Geist Mono','Geist',monospace;font-size:12px;text-transform:uppercase;

@@ -4,25 +4,23 @@
    No pisa nada del portfolio: todo va prefijado .p- o bajo .hero--p.
    ========================================================================== */
 
-/* ── HERO de propuesta ────────────────────────────────────────────────── */
-/* El portfolio pone dos palabras en contorno detrás del lobo, pero ahí dicen
-   BEAST MACHINE y se leen de memoria: son textura. Acá el título tiene que
-   COMUNICAR, y en contorno no se lee (menos en mobile, donde quedan dos
-   manchas flotando con un hueco en el medio). Va tipografía sólida debajo
-   del lobo, y el lobo hace de imagen. */
-.hero--p{min-height:100svh;grid-template-rows:1fr auto auto}
-.hero--p .wolf{height:min(41vh,375px)}
-.hero--p .hero-stage{padding-top:84px;align-items:flex-end}
+/* ── HERO de propuesta: sólo tipografía ───────────────────────────────── */
+/* Sin lobo y sin las palabras en contorno del portfolio (allá dicen BEAST
+   MACHINE y se leen de memoria: son textura; acá el título tiene que
+   comunicar). Va alineado a la IZQUIERDA, sobre el mismo --pad que todas
+   las .p-sec: un hero centrado arriba de un documento alineado a la
+   izquierda deja los bordes sin coincidir en todo el scroll. */
+.hero--p{min-height:100svh;grid-template-rows:1fr auto}
 
 .p-hero-copy{position:relative;max-width:var(--wrap);width:100%;margin:0 auto;
-  padding:clamp(20px,3vh,36px) var(--pad) clamp(16px,2.4vh,28px);
-  display:grid;gap:clamp(10px,1.3vw,16px);justify-items:center;text-align:center}
+  padding:clamp(100px,15vh,180px) var(--pad) clamp(32px,5vh,64px);
+  display:grid;gap:clamp(16px,2vw,26px);align-content:center;justify-items:start}
 .p-hero-kicker{margin:0;font-family:'Geist Mono','Geist',monospace;font-size:12px;
   text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
-.p-hero-title{margin:0;font-size:clamp(42px,8.6vw,136px);font-weight:700;
-  letter-spacing:-.055em;line-height:.9;text-wrap:balance}
-.p-hero-sub{margin:0;font-size:clamp(15px,1.5vw,20px);line-height:1.45;
-  color:var(--muted);max-width:52ch;text-wrap:pretty}
+.p-hero-title{margin:0;font-size:clamp(46px,9.4vw,152px);font-weight:700;
+  letter-spacing:-.055em;line-height:.88;max-width:13ch;text-wrap:balance}
+.p-hero-sub{margin:0;font-size:clamp(16px,1.6vw,22px);line-height:1.45;
+  color:var(--soft);max-width:44ch;text-wrap:pretty}
 
 /* ── Bloque de sección ────────────────────────────────────────────────── */
 .p-sec{max-width:var(--wrap);margin:0 auto;padding:clamp(64px,9vw,140px) var(--pad);
@@ -130,13 +128,9 @@
 @media (max-width:640px){
   .p-grid--4,.p-grid--3,.p-grid--3x{grid-template-columns:1fr}
 
-  .hero--p .hero-stage{padding-top:76px}
-  .hero--p .wolf{height:auto;width:62vw}
-  .p-hero-sub{font-size:15px;max-width:34ch}
-  /* en una columna las tres celdas del meta se leen como un bloque mushy */
-  .hero--p .hero-meta{text-align:center}
-  .hero--p .hero-meta span:nth-child(2),
-  .hero--p .hero-meta span:nth-child(3){text-align:center}
+  .p-hero-copy{padding-top:clamp(92px,16vh,140px)}
+  .p-hero-title{max-width:11ch}
+  .p-hero-sub{font-size:16px;max-width:36ch}
 
   .p-grid{border-radius:14px}
   .p-cell{padding:26px 22px}
